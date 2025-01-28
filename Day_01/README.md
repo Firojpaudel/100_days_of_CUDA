@@ -23,10 +23,28 @@ This chapter emphasized the significance of CUDA in democratizing high-performan
 
 ---
 
-### Started Chapter 2: **Getting Started**
+### Completed Chapter 2: **Getting Started**
 
-Hol'on I'm going through it... ⌛
+1. **Installation of CUDA Toolkit:** [Click here](https://developer.nvidia.com/cuda-downloads) to redirect to the download page
 
-![:)](https://media2.giphy.com/media/Obh1Y5dpm4aGUoWaFw/200w.gif?cid=6c09b952y7okh8htvqmqsvoj24d4n2pptx6jgfyjpjtrwkkq&ep=v1_gifs_search&rid=200w.gif&ct=g)
+2. **_Snapshots of Installation Process:_**
+<div align = "center">
+    <img src= "https://i.postimg.cc/g0jCBb0s/Screenshot-10.jpg" width = "300px">
+    <figcaption><i>Image_1</i></figcaption>
+    <br>
+    <img src="https://i.postimg.cc/ZqQ1GsBS/Screenshot-11.jpg" width="300px">
+    <figcaption><i>Image_2</i></figcaption>
+</div>
+
+##### _Summary of the chapter_:
+This chapter, focused entirely on setting up the CUDA Toolkit. It provided a detailed guide on how to install CUDA on various platforms, ensuring compatibility with different systems.
+
+---
+
+### Starting Chapter 3: **Introduction to CUDA C**
+
+> _Hol' on I'm reading..._ 🤓
+
+<img src= "https://shorturl.at/iAVMb" width = "300px" />
 
 ---
