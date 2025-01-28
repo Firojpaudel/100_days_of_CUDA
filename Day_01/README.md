@@ -43,8 +43,57 @@ This chapter, focused entirely on setting up the CUDA Toolkit. It provided a det
 
 ### Starting Chapter 3: **Introduction to CUDA C**
 
-> _Hol' on I'm reading..._ 🤓
+##### First Program: 
 
-<img src= "https://shorturl.at/iAVMb" width = "300px" />
+We started with a simple "Hello, World!" program and learned about two types of programs: host and device. The host code runs on the CPU, while the device code runs on the GPU.
+
+For the host code, it is quite similar to standard C:
+```cpp
+#include <iostream>
+
+int main(void) {
+    printf("Hello World 👋!");
+    return 0;
+}
+```
+
+For the device (GPU) code, it looks like this:
+```cpp
+#include <iostream>
+
+__global__ void kernel(void) {
+}
+
+int main(void) {
+    kernel<<<1, 1>>>();
+    printf("Hello World 👋!");
+    return 0;
+}
+```
+
+To run the kernel code (with a `.cu` file extension) in VS Code, you need to install the [Nsight Visual Studio Code Edition](https://marketplace.visualstudio.com/items?itemName=nvidia.nsight-vscode-edition) extension.
+
+If you encounter an error about `cl.exe` not being found, add the following paths to your system environment variables:
+
+- `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\Hostx64\x64`
+- `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\Hostx64\x64\cl.exe`
+
+<details>
+    <summary>
+     <b>* Explaining the device code</b>
+    </summary>
+    <ul>
+        <li>The syntax <code>__global__ void kernel(void)</code> defines a function called <code>kernel</code> that runs on the GPU. The <code>__global__</code> keyword indicates that this function can be called from the host (CPU) and will execute on the device (GPU).</li>
+        <li>The triple angle brackets <code>&lt;&lt;&lt;1, 1&gt;&gt;&gt;</code> specify the execution configuration for the kernel, where the first parameter is the number of thread blocks and the second parameter is the number of threads per block.</li>
+    </ul>
+</details>
+    </ul>
+</details>
 
 ---
+<div align="center">
+    <b>
+        End of Day_01 🫡
+    </b>
+</div>
+
