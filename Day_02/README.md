@@ -174,13 +174,9 @@ kernel_name<<<number_of_blocks, number_of_threads_per_block>>>(args);
 ```
 
 b. What is the number of threads in the grid?
-$$
-\text{numblocks} = \frac{N + 128 -1}{128} = \frac{200000 + 128 -1}{128} = 1562 \text{blocks}
-$$
+$$\text{numblocks} = \frac{N + 128 -1}{128} = \frac{200000 + 128 -1}{128} = 1562 \text{blocks}$$
 So, 
-$$
-\text{totalthreads} = \text{numblocks} \times \text{threads per block} = 1562 \times 128 = 200000 \text{threads}
-$$
+$$\text{totalthreads} = \text{numblocks} \times \text{threads per block} = 1562 \times 128 = 200000 \text{threads}$$
 
 c.  What is the number of blocks in the grid?
 _Calculated earlier_: `1562 blocks`
