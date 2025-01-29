@@ -132,9 +132,9 @@ _Chapter 2: Exercises_
 
 4.  For a vector addition, assume that the vector length is 8000, each thread calculates one output element, and the thread block size is 1024 threads. The programmer configures the kernel call to have a minimum number of thread blocks to cover all output elements.How many threads will be in the grid?
     - *Answer* : 8192 
-    - *Reasoning* : $\text{num_blocks} = \frac{\text{TotalVectLen}}{\text{ThreadBlockSize}}$. So, that means: $$\text{num_blocks} = \frac{8000}{1024}= 7.8 \sim 8 \text{blocks}$$
+    - *Reasoning* : $\text{numblocks} = \frac{\text{TotalVectLen}}{\text{ThreadBlockSize}}$. So, that means: $$\text{numblocks} = \frac{8000}{1024}= 7.8 \sim 8 \text{blocks}$$
     Hence, total number of threads would be:
-    $$\text{num_blocks} \times \text{blockDim.x} = 8 \times 1024 = 8192$$
+    $$\text{numblocks} \times \text{blockDim.x} = 8 \times 1024 = 8192$$
 
 5. If we want to allocate an array of v integer elements in the CUDA device `global` memory, what would be an appropriate expression for the second argument of the `cudaMalloc` call?
     - *Answer* : `v * sizeof(int)`
