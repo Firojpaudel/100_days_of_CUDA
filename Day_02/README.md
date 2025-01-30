@@ -132,9 +132,14 @@ _Chapter 2: Exercises_
 
 4.  For a vector addition, assume that the vector length is 8000, each thread calculates one output element, and the thread block size is 1024 threads. The programmer configures the kernel call to have a minimum number of thread blocks to cover all output elements.How many threads will be in the grid?
     - *Answer* : 8192 
-    - *Reasoning* : $\text{numblocks} = \frac{\text{TotalVectLen}}{\text{ThreadBlockSize}}$. So, that means: $$\text{numblocks} = \frac{8000}{1024}= 7.8 \sim 8 \text{blocks}$$
+    - *Reasoning* : $\text{numblocks} = \frac{\text{TotalVectLen}}{\text{ThreadBlockSize}}$. So, that means: 
+    ```math 
+    \text{numblocks} = \frac{8000}{1024}= 7.8 \sim 8 \text{blocks}
+    ```
     Hence, total number of threads would be:
-    $$\text{numblocks} \times \text{blockDim.x} = 8 \times 1024 = 8192$$
+    ```math
+    \text{numblocks} \times \text{blockDim.x} = 8 \times 1024 = 8192
+    ```
 
 5. If we want to allocate an array of v integer elements in the CUDA device `global` memory, what would be an appropriate expression for the second argument of the `cudaMalloc` call?
     - *Answer* : `v * sizeof(int)`
@@ -174,9 +179,13 @@ kernel_name<<<number_of_blocks, number_of_threads_per_block>>>(args);
 ```
 
 b. What is the number of threads in the grid?
-$$\text{numblocks} = \frac{N + 128 -1}{128} = \frac{200000 + 128 -1}{128} = 1562 \text{blocks}$$
+```math
+\text{numblocks} = \frac{N + 128 -1}{128} = \frac{200000 + 128 -1}{128} = 1562 \space \text{blocks}
+```
 So, 
-$$\text{totalthreads} = \text{numblocks} \times \text{threads per block} = 1562 \times 128 = 200000 \text{threads}$$
+```math
+\text{totalthreads} = \text{numblocks} \times \text{threads per block} = 1562 \times 128 = 200000 \space \text{threads}
+```
 
 c.  What is the number of blocks in the grid?
 _Calculated earlier_: `1562 blocks`
@@ -187,8 +196,12 @@ Answer would be the $\text{totalthreads}$ ie., $200,000$
 
 e. What is the number of threads that execute the code on line 04?
 
-$$\text{i ranges from} = 0 \space \text{to} \space \text{N}-1$$
-$$\text{N} = 200000$$
+```math
+\text{i ranges from} = 0 \space \text{to} \space \text{N}-1
+```
+```math
+\text{N} = 200000
+```
 the code below checks for iterations in which i is less than N. ie., $0- (200000-1) \space \text{times}$
 ```cpp
 if(i , N) {
