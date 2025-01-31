@@ -76,12 +76,28 @@ if (curRow >= 0 && curRow < h && curCol >= 0 && curCol < w) {</code></pre>
 
 To view the code implementation, [Click Here](./image_blur.cu)
 
+**Output Comparison:**
 |Before                   |  After                  |
 |-------------------------|-------------------------|
 |![Input image](./pika.jpg) |  ![Output Image](./blurred_output.png)|
 
 ---
-> **Goin' through Matrix Multiplication rn...**
+#### Matrix Multiplication:
+
+[Click Here](./matmul.cu) to view the code implemenation. 
+
+**Output Obtained:**
+```bash
+Enter the width of the matrix: 4 
+Enter elements of matrix M: 2 3 4 5 6 1 8 1 4 5 6 7 12 11 3 0
+Enter elements of matrix N: 1 2 3 45 5 6 7 8 9 0 11 34 67 10 11 2
+Result matrix P: 
+388 72 126 260 
+150 28 124 552 
+552 108 190 438 
+94 90 146 730 
+```
+> **Goin' through Chapter Exercises rn... *<Cracked \/>***
 <div align= "center">
-<img src= "https://shorturl.at/iAVMb" width = "300px" />
+<img src= "https://shorturl.at/BBjRD" width = "200px" />
 </div>
