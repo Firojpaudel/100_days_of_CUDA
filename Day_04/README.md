@@ -42,7 +42,7 @@ __global__ void blurKernel(unsigned char *in, unsigned char *out, int w, int h) 
 I mean well its not much of a difference but yeah slightly different. 
 
 <details>
-    <summary>Explanation to the Kernel Code: <i>(Click to expand)</i></summary>
+    <summary><b>Explanation to the Kernel Code:</b> <i>(Click to expand)</i></summary>
     <ul>
         <li>So, first understanding the function parameters:</li><br>
         <table>
@@ -58,21 +58,30 @@ I mean well its not much of a difference but yeah slightly different.
         <li>Then assigning the default values to the each Red, Green and Blue pixels to <code>0</code>.</li>
         <li><code>pixels</code> keep track of how many pixels contribute to the calculation.
         <li>
-            <pre><code block>
-for (int blurRow = -BLUR_SIZE; blurRow <= BLUR_SIZE; ++blurRow) {
-    for (int blurCol = -BLUR_SIZE; blurCol <= BLUR_SIZE; ++blurCol) {
-            </code></pre>
+            <pre><code>for (int blurRow = -BLUR_SIZE; blurRow <= BLUR_SIZE; ++blurRow) {
+    for (int blurCol = -BLUR_SIZE; blurCol <= BLUR_SIZE; ++blurCol) {</code></pre>
         These two nested loops iterate over <code>(2 × BLUR_SIZE + 1) × (2 × BLUR_SIZE + 1)</code> neighborhood.
         </li>
         <li>Well, the BLUR_SIZE is set to <code>8</code>. So, the kernel checks a <code>17 × 17</code> grid around the pixel.</li>
+        <li><pre><code>int curRow = row + blurRow;
+int curCol = col + blurCol;
+if (curRow >= 0 && curRow < h && curCol >= 0 && curCol < w) {</code></pre>
+        This code segment is there for <b>handling the edge cases</b> where <code>curRow</code> and <code>curCol</code> represent the neighboring pixel coordinates. This boundary check ensures we do not access the pixels outside the image.
+        </li>
+        <li>And, then we accumulate RGB values where <code>offest = (row * w + col) * CHANNELS</code> finds the pixel location in the 1D array</li>
+        <li>The values are accumulated for averaging</li>
 
 </ul> 
 </details>
 
 To view the code implementation, [Click Here](./image_blur.cu)
 
+|Before                   |  After                  |
+|-------------------------|-------------------------|
+|![Input image](./pika.jpg) |  ![Output Image](./blurred_output.png)|
+
 ---
-> **Goin' through Image Blurring Algo rn...**
+> **Goin' through Matrix Multiplication rn...**
 <div align= "center">
 <img src= "https://shorturl.at/iAVMb" width = "300px" />
 </div>
