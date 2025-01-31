@@ -106,7 +106,9 @@ Result matrix P:
 
 2.  A matrix-vector multiplication takes an input matrix $\text{B}$ and a vector $\text{C}$ and produces one output vector $\text{A}$. Each element of the output vector $\text{A}$ is the dot product of one row of the input matrix $\text{B}$ and $\text{C}$, that is, $\text{A[i]} = \sum^j \text{B[i][j]} + \text{C[j]}$. For simplicity we will handle only square matrices whose elements are single precision floating-point numbers. Write a matrix-vector multiplication kernel and the host stub function that can be called with four parameters: pointer to the output matrix, pointer to the input matrix, pointer to the input vector, and the number of elements in each dimension. Use one thread to calculate an output vector element. — [Click Here](./Exercise_02_soln.cu) to access the solution.
 
-> **Goin' through Chapter Exercises rn... *<Cracked \/>***
-<div align= "center">
-<img src= "https://shorturl.at/BBjRD" width = "200px" />
+---
+<div align="center">
+    <b>
+        End of Day_04🫡
+    </b>
 </div>
