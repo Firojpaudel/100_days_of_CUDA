@@ -40,11 +40,9 @@ Example code for converting a RGB image to grayscale image: [Click Here](./image
 |-------------------------|-------------------------|
 |![Input image](./pika.jpg) |  ![Output Image](./output_pika.jpg)|
 
-
 ---
-> **Goin' through Image Blurring Algo rn...**
-<div align= "center">
-<img src= "https://shorturl.at/iAVMb" width = "300px" />
+<div align="center">
+    <b>
+        End of Day_03 🫡
+    </b>
 </div>
-
-
