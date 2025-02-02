@@ -106,12 +106,18 @@ Instead of processing one instruction at a time like CPUs, GPUs are designed to 
 ---
 #### Control Divergence
 
+1. **What is it?**
+    - Well, it occours when threads within the same warp follow different execution paths due to conditional statements _(like if-else or loops)_
 
-
-
+2. **How GPU handles this?**
+    - Using SIMD execution. When divergence occours:
+        - The hardware makes multiple passes— *one pass for each divergent path.
+        - During each pass, only the threads that follow the current path are active; others are inactive (idle).
+        - After completing all paths, threads reconverge to continue executing common instructions.
 ---
-> **Goin' through...**
-<div align= "center">
-<img src= "https://shorturl.at/iAVMb" width = "300px" />
+<div align="center">
+    <b>
+        End of Day_06🫡
+    </b>
 </div>
 
