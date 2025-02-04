@@ -29,11 +29,11 @@ This chapter emphasized the significance of CUDA in democratizing high-performan
 
 2. **_Snapshots of Installation Process:_**
 <div align = "center">
-    <img src= "https://i.postimg.cc/g0jCBb0s/Screenshot-10.jpg" width = "300px">
-    <figcaption><i>Image_1</i></figcaption>
+    <img src= "./images/installing.jpg" width = "300px">
+    <p><i>Image_1</i></p>
     <br>
-    <img src="https://i.postimg.cc/ZqQ1GsBS/Screenshot-11.jpg" width="300px">
-    <figcaption><i>Image_2</i></figcaption>
+    <img src="./images/setup.jpg" width="300px">
+    <p><i>Image_2</i></p>
 </div>
 
 ##### _Summary of the chapter_:
