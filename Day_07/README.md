@@ -81,7 +81,8 @@ Using **Barrier Synchronization** _(like `_syncwarp()`)_ to ensure all threads c
 
 
 ---
-> **Goin' through...**
-<div align= "center">
-<img src= "https://shorturl.at/iAVMb" width = "300px" />
+<div align="center">
+    <b>
+        End of Day_07🫡
+    </b>
 </div>
