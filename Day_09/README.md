@@ -88,3 +88,10 @@ Code Implementation: [Click Here](./optimized_mat_mul.cu)
 > | Thread Synchronization | Ensures safe computation of partial sums |
 > | Larger Matrices (1024 × 1024) |  Fully utilizes GPU resources |
 
+---
+<div align="center">
+    <b>
+        End of Day_09🫡
+    </b>
+</div>
+
