@@ -29,8 +29,10 @@ __global__ void mem_types_demo(float *globalmem, float *output){
         // For scaling: Using the constant memory...
         regVar = shared_data[threadIdx.x] * const_data[0];
 
-        // Storing the intermediate result in the local variable (likely in the register,not local memory)
-        localVar = regVar + 1.0f;
+        // Storing the intermediate result in the local memory
+        __shared__ float localMem[256];
+        localMem[threadIdx.x] = regVar + 1.0f;
+        localVar = localMem[threadIdx.x];
 
         // Storing the final result in the global memory
         output[idx] = localVar;
