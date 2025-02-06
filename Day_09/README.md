@@ -77,6 +77,14 @@ So, this means:
 - Instead of $0.25 \space \text{FLOP/B}$, we need $50$ floating-point operations per $4$-byte data fetch.
 - Achieving this depends on data reuse _(performing more operations per memory access)_.
 
----
-#### CUDA Memory Types
+Code Implementation: [Click Here](./optimized_mat_mul.cu)
+
+> **Code Explanation** _(Why this code is better than earlier one)_
+> <br>
+> | **Technique** | **Effect** |
+> |-----------|--------|
+> | Shared Memory _(Tiling)_ | Reduces global memory access latency _*(approx 100x speedup)_ |
+> | Thread Coalescing | Ensures aligned memory access for better bendwidth usage |
+> | Thread Synchronization | Ensures safe computation of partial sums |
+> | Larger Matrices (1024 × 1024) |  Fully utilizes GPU resources |
 
