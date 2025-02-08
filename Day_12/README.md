@@ -163,10 +163,7 @@ Boundary condition handling for non-divisible matrix sizes
     3. Occupancy Calculator:
     ```cpp
     int max_blocks;
-    cudaOccupancyMaxActiveBlocksPerMultiprocessor(&max_blocks, 
-                                                matrixMulKernel, 
-                                                threads_per_block, 
-                                                shared_mem_size);
+    cudaOccupancyMaxActiveBlocksPerMultiprocessor(&max_blocks, matrixMulKernel, threads_per_block, shared_mem_size);
     ```
 
 > ***Performance Comparison:***
