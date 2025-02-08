@@ -170,4 +170,12 @@ Boundary condition handling for non-divisible matrix sizes
 > |**Approach**	|**Flexibility**	|**Portability**	|**Occupancy Control**	|**Code Complexity**|
 > |---|---|---|---|---|
 >|Static	|Low	|Poor	|Compile-time	|Simple|
->Dynamic	|High	|Excellent	|Runtime	|Moderate
+>|Dynamic	|High	|Excellent	|Runtime	|Moderate |
+
+
+---
+<div align="center">
+    <b>
+        End of Day_12🫡
+    </b>
+</div>
