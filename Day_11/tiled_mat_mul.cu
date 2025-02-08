@@ -1,143 +1,141 @@
-#include <cuda_runtime.h>
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
+#include <iomanip>
+#include <cmath>
 #include <chrono>
+#include <cuda_runtime.h>
 
-#define TILE_WIDTH 16
+#define TILE_WIDTH 32
+#define THRESHOLD 256
 
 __global__ void tiledMatrixMulKernel(float *M, float *N, float *P, int Width) {
     __shared__ float Mds[TILE_WIDTH][TILE_WIDTH];
     __shared__ float Nds[TILE_WIDTH][TILE_WIDTH];
 
-    int tx = threadIdx.x;
-    int ty = threadIdx.y;
-    int bx = blockIdx.x;
-    int by = blockIdx.y;
+    int tx = threadIdx.x, ty = threadIdx.y;
+    int bx = blockIdx.x, by = blockIdx.y;
 
     int Row = by * TILE_WIDTH + ty;
     int Col = bx * TILE_WIDTH + tx;
-
     float Pvalue = 0;
 
-    for (int ph = 0; ph < (Width + TILE_WIDTH - 1) / TILE_WIDTH; ++ph) {
-        if (Row < Width && ph * TILE_WIDTH + tx < Width)
-            Mds[ty][tx] = M[Row * Width + ph * TILE_WIDTH + tx];
-        else
-            Mds[ty][tx] = 0.0f;
-
-        if (Col < Width && ph * TILE_WIDTH + ty < Width)
-            Nds[ty][tx] = N[(ph * TILE_WIDTH + ty) * Width + Col];
-        else
-            Nds[ty][tx] = 0.0f;
+    for (int ph = 0; ph < (Width + TILE_WIDTH - 1)/TILE_WIDTH; ++ph) {
+        int mIdx = Row * Width + ph * TILE_WIDTH + tx;
+        int nIdx = (ph * TILE_WIDTH + ty) * Width + Col;
+        
+        Mds[ty][tx] = (Row < Width && ph*TILE_WIDTH + tx < Width) ? M[mIdx] : 0;
+        Nds[ty][tx] = (Col < Width && ph*TILE_WIDTH + ty < Width) ? N[nIdx] : 0;
 
         __syncthreads();
 
         for (int k = 0; k < TILE_WIDTH; ++k)
             Pvalue += Mds[ty][k] * Nds[k][tx];
-
         __syncthreads();
     }
 
-    if (Row < Width && Col < Width)
+    if (Row < Width && Col < Width) //Added to put boundary check!
         P[Row * Width + Col] = Pvalue;
 }
 
-void matrixMultiply(float *h_M, float *h_N, float *h_P, int Width) {
-    int size = Width * Width * sizeof(float);
-    float *d_M, *d_N, *d_P;
-
-    cudaMalloc(&d_M, size);
-    cudaMalloc(&d_N, size);
-    cudaMalloc(&d_P, size);
-
-    cudaMemcpy(d_M, h_M, size, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_N, h_N, size, cudaMemcpyHostToDevice);
-
-    dim3 dimBlock(TILE_WIDTH, TILE_WIDTH);
-    dim3 dimGrid((Width + TILE_WIDTH - 1) / TILE_WIDTH, (Width + TILE_WIDTH - 1) / TILE_WIDTH);
-
-    auto start_gpu = std::chrono::high_resolution_clock::now();
-    tiledMatrixMulKernel<<<dimGrid, dimBlock>>>(d_M, d_N, d_P, Width);
-    cudaDeviceSynchronize();
-    auto end_gpu = std::chrono::high_resolution_clock::now();
-
-    cudaMemcpy(h_P, d_P, size, cudaMemcpyDeviceToHost);
-
-    cudaFree(d_M);
-    cudaFree(d_N);
-    cudaFree(d_P);
-
-    std::chrono::duration<double> gpu_duration = end_gpu - start_gpu;
-    std::cout << "GPU computation time: " << gpu_duration.count() << " seconds" << std::endl;
-}
-
-void matrixMultiplyCPU(float *h_M, float *h_N, float *h_P, int Width) {
-    auto start_cpu = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < Width; ++i) {
-        for (int j = 0; j < Width; ++j) {
-            float sum = 0;
-            for (int k = 0; k < Width; ++k) {
-                sum += h_M[i * Width + k] * h_N[k * Width + j];
-            }
-            h_P[i * Width + j] = sum;
-        }
-    }
-    auto end_cpu = std::chrono::high_resolution_clock::now();
-
-    std::chrono::duration<double> cpu_duration = end_cpu - start_cpu;
-    std::cout << "CPU computation time: " << cpu_duration.count() << " seconds" << std::endl;
-}
-
-void printMatrix(float *matrix, int Width) {
-    for (int i = 0; i < Width; ++i) {
-        for (int j = 0; j < Width; ++j) {
-            std::cout << matrix[i * Width + j] << " ";
-        }
-        std::cout << std::endl;
-    }
+void cpuMatMul(float *A, float *B, float *C, int N) {
+    #pragma omp parallel for collapse(2)
+    for (int i = 0; i < N; ++i)
+        for (int j = 0; j < N; ++j)
+            for (int k = 0; k < N; ++k)
+                C[i*N + j] += A[i*N + k] * B[k*N + j];
 }
 
 int main() {
-    int Width;
-    std::cout << "Enter the width of the matrices: ";
-    std::cin >> Width;
+    std::cout << "_________________________________________\n"
+              << " GPU/CPU Matrix Multiplication Analyzer \n"
+              << "__________________________________________\n";
 
-    int size = Width * Width * sizeof(float);
-    float *h_M = (float *)malloc(size);
-    float *h_N = (float *)malloc(size);
-    float *h_P = (float *)malloc(size);
-    float *h_P_cpu = (float *)malloc(size);
+    int N;
+    std::cout << "Enter matrix dimension: ";
+    std::cin >> N;
 
-    std::cout << "Enter elements of matrix M:" << std::endl;
-    for (int i = 0; i < Width * Width; ++i) {
-        std::cin >> h_M[i];
+    if(N <= 0) {
+        std::cerr << "Error: Matrix size must be positive!\n";
+        return 1;
     }
 
-    std::cout << "Enter elements of matrix N:" << std::endl;
-    for (int i = 0; i < Width * Width; ++i) {
-        std::cin >> h_N[i];
+    // Memory allocation
+    size_t bytes = N * N * sizeof(float);
+    float *A = new float[N*N];
+    float *B = new float[N*N];
+    float *cpuRes = new float[N*N]{};
+    float *gpuRes = new float[N*N]{};
+
+    // Initialize with floating-point values
+    std::cout << "\nInitializing matrices (0.0-1.0 range)...\n";
+    for(int i = 0; i < N*N; ++i) {
+        A[i] = static_cast<float>(rand()) / RAND_MAX;
+        B[i] = static_cast<float>(rand()) / RAND_MAX;
     }
 
-    matrixMultiplyCPU(h_M, h_N, h_P_cpu, Width);
-    matrixMultiply(h_M, h_N, h_P, Width);
+    // Benchmarking
+    double cpuTime = 0, gpuTime = 0;
+    bool useGPU = N > THRESHOLD;
 
-    std::cout << "Matrix M:" << std::endl;
-    printMatrix(h_M, Width);
+    // CPU Execution
+    auto cpuStart = std::chrono::high_resolution_clock::now();
+    cpuMatMul(A, B, cpuRes, N);
+    auto cpuEnd = std::chrono::high_resolution_clock::now();
+    cpuTime = std::chrono::duration<double>(cpuEnd - cpuStart).count();
 
-    std::cout << "Matrix N:" << std::endl;
-    printMatrix(h_N, Width);
+    if(useGPU) {
+        // GPU Execution with proper timing
+        cudaEvent_t start, stop;
+        cudaEventCreate(&start);
+        cudaEventCreate(&stop);
+        
+        float *dM, *dN, *dP;
+        cudaMalloc(&dM, bytes);
+        cudaMalloc(&dN, bytes);
+        cudaMalloc(&dP, bytes);
 
-    std::cout << "Result matrix P (CPU):" << std::endl;
-    printMatrix(h_P_cpu, Width);
+        cudaEventRecord(start);
+        cudaMemcpy(dM, A, bytes, cudaMemcpyHostToDevice);
+        cudaMemcpy(dN, B, bytes, cudaMemcpyHostToDevice);
 
-    std::cout << "Result matrix P (GPU):" << std::endl;
-    printMatrix(h_P, Width);
+        dim3 blocks((N + TILE_WIDTH-1)/TILE_WIDTH, (N + TILE_WIDTH-1)/TILE_WIDTH);
+        dim3 threads(TILE_WIDTH, TILE_WIDTH);
+        tiledMatrixMulKernel<<<blocks, threads>>>(dM, dN, dP, N);
 
-    free(h_M);
-    free(h_N);
-    free(h_P);
-    free(h_P_cpu);
+        cudaMemcpy(gpuRes, dP, bytes, cudaMemcpyDeviceToHost);
+        cudaEventRecord(stop);
+        cudaEventSynchronize(stop);
+        
+        float ms;
+        cudaEventElapsedTime(&ms, start, stop);
+        gpuTime = ms / 1000.0;
 
+        cudaFree(dM); cudaFree(dN); cudaFree(dP);
+        cudaEventDestroy(start);
+        cudaEventDestroy(stop);
+    }
+
+    // Results validation
+    float maxError = 0.0f;
+    if(useGPU) {
+        for(int i = 0; i < N*N; ++i) {
+            maxError = fmax(maxError, fabs(cpuRes[i] - gpuRes[i]));
+        }
+    }
+
+    // Display results
+    std::cout << "\n---------------- Results ---------------\n";
+    std::cout << "Matrix size:        " << N << "x" << N << "\n";
+    std::cout << "Compute device:     " << (useGPU ? "GPU" : "CPU") << "\n";
+    std::cout << "Threshold:          " << THRESHOLD << "\n";
+    std::cout << std::fixed << std::setprecision(4);
+    std::cout << "CPU time:           " << cpuTime << " s\n";
+    if(useGPU) {
+        std::cout << "GPU time:           " << gpuTime << " s\n";
+        std::cout << "Speedup factor:     " << cpuTime/gpuTime << "x\n";
+        std::cout << "Maximum error:      " << std::scientific << maxError << "\n";
+    }
+    std::cout << "--------------------------------------------\n";
+
+    delete[] A; delete[] B; delete[] cpuRes; delete[] gpuRes;
     return 0;
 }
