@@ -23,5 +23,5 @@ My learning resources:
 | Day 10 | CUDA Memory Types: Global, Constant, Local, Registers, Shared | [🔗README](./Day_10/README.md), [🔗Memory Types Code](./Day_10/mem_types_in_action.cu) |
 | Day 11 | Tiling Concept and Memory Tradeoffs | [🔗README](./Day_11/README.md), [🔗Tiled Matrix Multiplication Code](./Day_11/tiled_mat_mul.cu) |
 | Day 12 | Explanation for Day 11 Tiled Matrix Multiplication Code, Impact of Memory Usage on Occupancy | [🔗README](./Day_12/README.md), [🔗Dynamic Tiled Matrix Multiplication Kernel Code](./Day_12/Day_12_updated_code.cu) |
-| Day 13 | Memory Coalescing in CUDA, Row-Major vs. Column-Major Storage, Coalsced Memory Access in CUDA, Understanding DRAM and Burst Access | [🔗README](./Day_13/README.md) |
+| Day 13 | Memory Coalescing in CUDA, Row-Major vs. Column-Major Storage, Coalsced Memory Access in CUDA, Understanding DRAM and Burst Access | [🔗README](./Day_13/README.md), [🔗 Row VS Column Majors Code](./Day_13/row_vs_column_major.cu)|
 </div>
