@@ -19,4 +19,9 @@ My learning resources:
 | Day 06 | Warps and SIMD Hardware, The modern GPU architecture, Control Divergence _Intro_ | [🔗README](./Day_06/README.md) | 
 | Day 07 | Studying impacts of divergence on Performance, Types of divergence _(If-else & Loop-Based)_, Divergence identification, Performance Impace Analysis | [🔗README](./Day_07/README.md), [🔗if_else divergence Code](./Day_07/if-else_diverge.cu), [🔗loops_warp_divergence Code](./Day_07/loops_warp_divergence.cu) |
 | Day 08 | Warp Scheduling and Latency Tolerance, Resource Partitioning & Occupancy | [🔗README](./Day_08/README.md), [🔗Exercise_02_Solution Code](./Day_08/Exercise_02.cu), [🔗Exercise_04_Solution Code](./Day_08/Exercise_04.cu) |
+| Day 09 | Memory Access Effeciency in CUDA, Roofline Model, Matrix Multiplication Code Optimization | [🔗README](./Day_09/README.md), [🔗Matrix Multiplication Code](./Day_09/matrix_multiplication.cu), [🔗Optimized Matrix Multiplication Code](./Day_09/optimized_mat_mul.cu) |
+| Day 10 | CUDA Memory Types: Global, Constant, Local, Registers, Shared | [🔗README](./Day_10/README.md), [🔗Memory Types Code](./Day_10/mem_types_in_action.cu) |
+| Day 11 | Tiling Concept and Memory Tradeoffs | [🔗README](./Day_11/README.md), [🔗Tiled Matrix Multiplication Code](./Day_11/tiled_mat_mul.cu) |
+| Day 12 | Explanation for Day 11 Tiled Matrix Multiplication Code, Impact of Memory Usage on Occupancy | [🔗README](./Day_12/README.md), [🔗Dynamic Tiled Matrix Multiplication Kernel Code](./Day_12/Day_12_updated_code.cu) |
+| Day 13 | Memory Coalescing in CUDA, Row-Major vs. Column-Major Storage, Coalsced Memory Access in CUDA, Understanding DRAM and Burst Access | [🔗README](./Day_13/README.md) |
 </div>
