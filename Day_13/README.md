@@ -126,7 +126,7 @@ I've implemented a simple example code to show the difference in execution times
     - Loads data from global memory into shared memory in a coalesced pattern, then transposes it for efficient computation.
     <br><br>
     <div align="center">
-    <img src="./images/Corner_turning.png" width="450px">
+    <img src="./images/Corner_Turning.png" width="450px">
     <p><b>Fig 13.05:</b><i> Corner Turning Technique</i></p>
     </div>
 
