@@ -92,15 +92,15 @@ Boundary condition handling for non-divisible matrix sizes
     3. **Compute Characteristics:**
         - *Operational intensity:* $O(n)$ operations per byte
         - *Theoretical peak performance:*
-            ```math
-            \text{GFLOPS} = \frac{2 \times N^3}{\text{time taken}} \times 10^{-9}
-            ```
-    <br><br>
-    > This implementation demonstrates effective heterogeneous computing by:
-    >- Leveraging CPU strengths for small problems
-    >- Utilizing GPU massive parallelism for large datasets
-    >- Maintaining numerical consistency between devices
-    >- Providing automated performance optimization based on problem size
+```math
+\text{GFLOPS} = \frac{2 \times N^3}{\text{time taken}} \times 10^{-9}
+```
+
+> This implementation demonstrates effective heterogeneous computing by:
+>- Leveraging CPU strengths for small problems
+>- Utilizing GPU massive parallelism for large datasets
+>- Maintaining numerical consistency between devices
+>- Providing automated performance optimization based on problem size
 
 
 #### Impact of memory Usage on Occupancy:
