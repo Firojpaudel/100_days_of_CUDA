@@ -119,7 +119,6 @@ _Here,_
             - ***Example:*** If $R$ = 20, then 21+ banks are needed.
         - More banks reduce bank conflicts *(multiple accesses to the same bank)*.
 ---
-Okay, so that's all I read today! No coding stuffs just went through the theory part.
 <div align="center">
     <b>
         End of Day_14🫡
