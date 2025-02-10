@@ -33,7 +33,7 @@ _Here,_
     - Instead of loading elements in the same row, they load elements in the same column (left edge of the input tile).
     - This ensures that consecutive threads load consecutive elements in memory, making the accesses coalesced.
 - _**How it works:**_
-    - The role of threadIdx.x and threadIdx.y is swapped when calculating the linearized index for loading elements from matrix B.
+    - The role of `threadIdx.x` and `threadIdx.y` is swapped when calculating the linearized index for loading elements from matrix B.
     - Since B is column-major, elements in the same column are adjacent in memory.
     - This allows consecutive threads to access adjacent memory locations, ensuring coalesced memory access.
 - **Fig. 14.01**_(B)_ shows the optimized access pattern:
