@@ -40,6 +40,7 @@ _Here,_
     - Each thread loads an element from the same column instead of the same row.
     - This transformation improves memory access efficiency by reducing global memory traffic.
 
+> I've implemented a code comparing the Naive way with the Corner Turning and shared memory optimized approach: [Click Here](./corner_turning.cu) to view the code.
 ---
 #### Memory Coalascing conditions and _a bit of analogy explained in the book_: 
 
