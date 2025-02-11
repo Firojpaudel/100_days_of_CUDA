@@ -58,3 +58,37 @@
 >127.805 130.305 125.634 131.945 127.89
 >130.881 127.63  125.484 135.143 130.368
 >```
+---
+#### ***Exercises:***
+
+1.  Write a matrix multiplication kernel function that corresponds to the design illustrated in figure below.
+
+    <div align="center">
+    <img src="./images/Corner_Turning.png" width="500"/>
+    <p><b>Fig: </b><i>Corner Turning in Matrix Multiplication</i></p>
+    </div>
+
+    ***Solution:*** \
+    [Click Here👈](../Day_14/corner_turning.cu) to view the code.
+
+2.  For tiled matrix multiplication, of the possible range of values for `BLOCK_SIZE`, for what values of `BLOCK_SIZE` will the kernel completely avoid uncoalesced accesses to global memory? _(You need to consider only square blocks.)_
+
+    ***Solution:*** \
+    For ***"tiled matrix multiplication"***, global memory accesses are considered coalsced when all the threads in a warp _(typically 32 threads in modern GPUs)_ access contiguous memory locations in a single transaction.
+
+    In CUDA gobal memory, memory is arranges in row-major order. Each warp should read/write memory in aligned, contiguous segments to avoid uncoalesced memory accesses.
+
+    If the `BLOCK_SIZE` (aka. `TILE_WIDTH`) is a multiple of the warp size (32), then:
+    - Each thread in a warp accesses consecutive addresses when reading from global memory.
+    - Memory transactions happen efficiently in one step instead of multiple.
+
+    Hence, to completely avoid uncoalesced memory accesses, `BLOCK_SIZE`should be a multiple of warp size (32). That means:
+```math
+\text{BLOCK SIZE} \in \{32, 64, 96, 128, \ldots, 32 \times N\}
+```
+---
+<div align="center">
+    <b>
+        End of Day_15🫡
+    </b>
+</div>

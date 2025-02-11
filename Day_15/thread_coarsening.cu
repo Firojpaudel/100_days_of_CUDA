@@ -103,15 +103,15 @@ int main() {
     int width = 512;
     float *M = new float[width * width];
     float *N = new float[width * width];
-    float *P_GPU = new float[width * width];
-    float *P_CPU = new float[width * width];
+    float *P_GPU = new float[width * width]; // Product from GPU
+    float *P_CPU = new float[width * width]; // Product from CPU
 
-    srand(time(0));
+    srand(time(0)); // Seed for random number generation
 
     // Initialize matrices
     for (int i = 0; i < width * width; ++i) {
-        M[i] = static_cast<float>(rand()) / RAND_MAX;
-        N[i] = static_cast<float>(rand()) / RAND_MAX;
+        M[i] = static_cast<float>(rand()) / RAND_MAX; // RAND_MAX is the maximum value returned by rand()
+        N[i] = static_cast<float>(rand()) / RAND_MAX; 
     }
 
     cout << "Running GPU matrix multiplication..." << endl;
