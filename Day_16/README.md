@@ -50,16 +50,17 @@ P_{y,x} = \sum_{j= -r_{y}}^{r_y} \sum_{k= -r_x}^{r_x} f_{y+j, x+k} \times N_{y,x
         </div>
 ```math
 \begin{aligned}
-    P_{2,2} = \space & N_{0,0} \times M_{0,0} + N_{0,1} \times M_{0,1} + N_{0,2} \times M_{0,2} + N_{0,3} \times M_{0,3} + N_{0,4} \times M_{0,4} \\
-  + & N_{1,0} \times M_{1,0} + N_{1,1} \times M_{1,1} + N_{1,2} \times M_{1,2} + N_{1,3} \times M_{1,3} + N_{1,4} \times M_{1,4} \\
-  + & N_{2,0} \times M_{2,0} + N_{2,1} \times M_{2,1} + N_{2,2} \times M_{2,2} + N_{2,3} \times M_{2,3} + N_{2,4} \times M_{2,4} \\
-  + & N_{3,0} \times M_{3,0} + N_{3,1} \times M_{3,1} + N_{3,2} \times M_{3,2} + N_{3,3} \times M_{3,3} + N_{3,4} \times M_{3,4} \\
-  + & N_{4,0} \times M_{4,0} + N_{4,1} \times M_{4,1} + N_{4,2} \times M_{4,2} + N_{4,3} \times M_{4,3} + N_{4,4} \times M_{4,4} \\
+    P_{2,2} = \space & N_{0,0} \times M_{0,0} + N_{0,1} \times M_{0,1} + N_{0,2} \times M_{0,2} + N_{0,3} \times M_{0,3} + N_{0,4} \times M_{0,4} +\\
+  & N_{1,0} \times M_{1,0} + N_{1,1} \times M_{1,1} + N_{1,2} \times M_{1,2} + N_{1,3} \times M_{1,3} + N_{1,4} \times M_{1,4} +\\
+  & N_{2,0} \times M_{2,0} + N_{2,1} \times M_{2,1} + N_{2,2} \times M_{2,2} + N_{2,3} \times M_{2,3} + N_{2,4} \times M_{2,4} +\\
+  & N_{3,0} \times M_{3,0} + N_{3,1} \times M_{3,1} + N_{3,2} \times M_{3,2} + N_{3,3} \times M_{3,3} + N_{3,4} \times M_{3,4} +\\
+  & N_{4,0} \times M_{4,0} + N_{4,1} \times M_{4,1} + N_{4,2} \times M_{4,2} + N_{4,3} \times M_{4,3} + N_{4,4} \times M_{4,4} \\
 \end{aligned}
-\\ \space 
-\\ \space \space \space \space \space \space \space
-= 1+4+9+8+5+4+9+16+15+12+9+16+25+24+21+8+15+24+21+16+5+12+21+16+5 \\ \space
-\\
+```
+```math
+= 1+4+9+8+5+4+9+16+15+12+9+16+25+24+21+8+15+24+21+16+5+12+21+16+5
+```
+```math
 = 321
 ```
 ##### **Boundary Conditions in 2D Convolution**
