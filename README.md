@@ -24,4 +24,9 @@ My learning resources:
 | Day 11 | Tiling Concept and Memory Tradeoffs | [🔗README](./Day_11/README.md), [🔗Tiled Matrix Multiplication Code](./Day_11/tiled_mat_mul.cu) |
 | Day 12 | Explanation for Day 11 Tiled Matrix Multiplication Code, Impact of Memory Usage on Occupancy | [🔗README](./Day_12/README.md), [🔗Dynamic Tiled Matrix Multiplication Kernel Code](./Day_12/Day_12_updated_code.cu) |
 | Day 13 | Memory Coalescing in CUDA, Row-Major vs. Column-Major Storage, Coalsced Memory Access in CUDA, Understanding DRAM and Burst Access | [🔗README](./Day_13/README.md), [🔗 Row VS Column Majors Code](./Day_13/row_vs_column_major.cu)|
+| Day 14 | Explaining the Corner Turning in Mat Mul, Memory Coalescing with a bit of Analogy, Memory Latency Hiding | [🔗 README](./Day_14/README.md), [🔗Code for Corner Turning](./Day_14/corner_turning.cu)|
+| Day 15 | Thread Coarsening, Exercises of Chapter 6 of PMPP| [🔗README](./Day_15/README.md), [🔗Code For Thread Coarsening](./Day_15/thread_coarsening.cu) |
+| Day 16 | Start of Chapter 7: Convolutions; 1D and 2D Convolution with Boundary Conditions | [🔗README](./Day_16/README.md), [🔗 Code For 1D Convolution](./Day_16/1D_Conv.cu),[🔗Code For 2D Convolution](./Day_16/2D_Conv.cu)|
+| Day 17 | Parallel 2D Convolution implementation with Edge Handling, Normalization | [🔗README](./Day_17/README.md), [🔗Code For 2D Convolution with Edge Handlings](./Day_17/2D_convo.cu)|
+| Day 18 | Implementation of Convolution on 2D image | [🔗README](./Day_18/README.md), [🔗Image Preprocessing Code](./Day_18/Convolution/prepare.py), [🔗CUDA Convolution Kernel Code](./Day_18/Convolution/Convolution_img.cu), [🔗Code For Post_Processing and Displaying](./Day_18/Convolution/post_processing.py)|
 </div>
