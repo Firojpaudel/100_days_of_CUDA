@@ -68,7 +68,7 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 
     Then using  the function provided; 
 ```math
-\text{y}[0] =  0 \times 1 + 0 \times 3 + 8 \times 5 + 2 \times 3 + 5 \times 1 = 40 + 6 + 5 = 51
+\text{y}[0] =  0 \times 1 + 0 \times 3 + 8 \times 5 + 2 \times 3 + 5 \times 1 = 40 + 6 + 5 = \boxed{51}
 ```
 
 2. Consider performing a 1D convolution on array $\text{N} = \{4,1,3,2,3\}$ with filter $\text{F}= \{2,1,4\}$. What is the resulting output array?
@@ -82,11 +82,9 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 
     So, computing the values of $\text{y[0], y[1]}$ and $\text{y[2]}$:
 
-    $\text{y[0]} = 4 \times 2 + 1 \times 1 + 3 \times 4 = 21
-    \\
-    \text{y[1]} = 1 \times 2 + 3 \times 1 + 2 \times 4 = 13
-    \\
-    \text{y[2]} = 3 \times 2 + 2 \times 1 + 3 \times 4 = 20$
+    $\text{y[0]} = 4 \times 2 + 1 \times 1 + 3 \times 4 = 21$\
+    $\text{y[1]} = 1 \times 2 + 3 \times 1 + 2 \times 4 = 13$\
+    $\text{y[2]} = 3 \times 2 + 2 \times 1 + 3 \times 4 = 20$
 
     Hence, the output array would look like:
 
@@ -118,18 +116,93 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 4. Consider performing a 2D convolution on a square matrix of size $N \times N$ with a square filter of size $M \times M$:
     1. How many ghost cells are there in total?
         > **Ghost cells:** Extra cells added when padding is applied.
-        - For a filter of size $M \times M$, the padding $P$ on each side of the input matrix must satisfy:
-        ```math
+        - For a filter of size $M \times M$, the padding $P$ on each side of the input matrix must satisfy:\
+        \
+        $P = \frac{M-1}{2}$\
+        leading to total padding of $M -1$ in each dimension.\
+        The total number of ghost cells is given by:\
+        \
+        $(N+M-1)^2 - N^2 = \boxed{(M-1)(2N+M-1)}$
 
     2. How many multiplications are performed if ghost cells are treated as multiplications _(by $0$)_?
-        - For each element in the output matrix, $M \times M$ multiplications are performed. Since the output matrix is of size $N \times N$, the total number of multiplications is $N \times N \times M \times M$.
+        - When ghost cells are treated as valid inputs (multiplied by 0), the padded matrix ensures the filter slides across all $N \times N$ positions. Each position requires $M^2$ element-wise multiplications (including padded zeros). The total becomes:\
+        \
+        $\text{Total Multiplications} = \boxed{N^2 \times M^2}$
 
     3. How many multiplications are performed if ghost cells are not treated as multiplications?
-        - If ghost cells are not treated as multiplications, only the valid elements are considered. For each element in the output matrix, $(M-1) \times (M-1)$ multiplications are performed. Therefore, the total number of multiplications is $N \times N \times (M-1) \times (M-1)$.
+        - Without padding (valid convolution), the filter remains entirely within the original matrix bounds. The output size reduces to $(N- M + 1) \times (N-M+1)$, and each position still requires $M^2$ multiplications:\
+        \
+        $\text{Total Multiplications} = \boxed{(N-M+1)^2 \times M^2}$
 
 
-5. Revise the 2D kernel in figure below to perform 3D convolution.
+5. Revise the 2D kernel code below to perform 3D convolution.
+    ```cpp
+    __global__ void convolution2D_basic_kernel(float *N, float *F, float *P, int r, int width, int height) {
+        int outCol = blockIdx.x * blockDim.x + threadIdx.x;
+        int outRow = blockIdx.y * blockDim.y + threadIdx.y;
+        float Pvalue = 0.0f;
+
+        for (int fRow = 0; fRow < 2 * r + 1; fRow++) {
+            for (int fCol = 0; fCol < 2 * r + 1; fCol++) {
+                int inRow = outRow - r + fRow;
+                int inCol = outCol - r + fCol;
+                if (inRow >= 0 && inRow < height && inCol >= 0 && inCol < width) {
+                    Pvalue += F[fRow * (2 * r + 1) + fCol] * N[inRow * width + inCol];
+                }
+            }
+        }
+        P[outRow * width + outCol] = Pvalue;
+    }
+    ```
+    _Solution:_
+
+    **Modified Kernel code:**
+    ```cpp
+    __global__ void convolution3D_basic_kernel(float *N, float *F, float *P, int r, int width, int height, int depth) {
+        // Identify the output position
+        int outCol = blockIdx.x * blockDim.x + threadIdx.x; // X-coordinate
+        int outRow = blockIdx.y * blockDim.y + threadIdx.y; // Y-coordinate
+        int outSlice = blockIdx.z * blockDim.z + threadIdx.z; // Z-coordinate (depth)
+
+        // Ensure the thread operates within the bounds of the output matrix
+        if (outCol < width && outRow < height && outSlice < depth) {
+            float Pvalue = 0.0f;
+
+            // Iterate through the 3D filter dimensions
+            for (int fSlice = 0; fSlice < 2 * r + 1; fSlice++) {   // Depth of the filter
+                for (int fRow = 0; fRow < 2 * r + 1; fRow++) {     // Height of the filter
+                    for (int fCol = 0; fCol < 2 * r + 1; fCol++) { // Width of the filter
+                        int inSlice = outSlice - r + fSlice;
+                        int inRow = outRow - r + fRow;
+                        int inCol = outCol - r + fCol;
+
+                        // Check valid bounds for the input matrix
+                        if (inSlice >= 0 && inSlice < depth && 
+                            inRow >= 0 && inRow < height && 
+                            inCol >= 0 && inCol < width) {
+                            Pvalue += F[fSlice * (2 * r + 1) * (2 * r + 1) + fRow * (2 * r + 1) + fCol] * 
+                                      N[inSlice * width * height + inRow * width + inCol];
+                        }
+                    }
+                }
+            }
+
+            // Write the computed value to the output matrix
+            P[outSlice * width * height + outRow * width + outCol] = Pvalue;
+        }
+    }
+    ```
+    ***Entire Code in Execution:*** [Click Here](3D.cu) to redirect!
+
+---
+> _End of Chapter -7_
 
 <div align="center">
+    <b>
+        End of Day_20🫡
+    </b>
+</div>
+
+
 
 
