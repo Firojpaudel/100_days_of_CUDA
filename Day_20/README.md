@@ -82,13 +82,13 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 
     So, computing the values of $\text{y[0], y[1]}$ and $\text{y[2]}$:
 
-    ```math
+    $$
     \text{y[0]} = 4 \times 2 + 1 \times 1 + 3 \times 4 = 21
     \\
     \text{y[1]} = 1 \times 2 + 3 \times 1 + 2 \times 4 = 13
     \\
     \text{y[2]} = 3 \times 2 + 2 \times 1 + 3 \times 4 = 20
-    ```
+    $$
 
     Hence, the output array would look like:
 
@@ -117,7 +117,21 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 
         _Answer:_ This is an **averaging filter**. It computes the average of the current element and its two neighbors. It is often used for smoothing or blurring the input.
 
+4. Consider performing a 2D convolution on a square matrix of size $N \times N$ with a square filter of size $M \times M$:
+    1. How many ghost cells are there in total?
+        > **Ghost cells:** Extra cells added when padding is applied.
+        - For a filter of size $M \times M$, the padding $P$ on each side of the input matrix must satisfy:
+        ```math
+
+    2. How many multiplications are performed if ghost cells are treated as multiplications _(by $0$)_?
+        - For each element in the output matrix, $M \times M$ multiplications are performed. Since the output matrix is of size $N \times N$, the total number of multiplications is $N \times N \times M \times M$.
+
+    3. How many multiplications are performed if ghost cells are not treated as multiplications?
+        - If ghost cells are not treated as multiplications, only the valid elements are considered. For each element in the output matrix, $(M-1) \times (M-1)$ multiplications are performed. Therefore, the total number of multiplications is $N \times N \times (M-1) \times (M-1)$.
 
 
+5. Revise the 2D kernel in figure below to perform 3D convolution.
+
+<div align="center">
 
 
