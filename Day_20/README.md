@@ -82,13 +82,11 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 
     So, computing the values of $\text{y[0], y[1]}$ and $\text{y[2]}$:
 
-    $$
-    \text{y[0]} = 4 \times 2 + 1 \times 1 + 3 \times 4 = 21
+    $\text{y[0]} = 4 \times 2 + 1 \times 1 + 3 \times 4 = 21
     \\
     \text{y[1]} = 1 \times 2 + 3 \times 1 + 2 \times 4 = 13
     \\
-    \text{y[2]} = 3 \times 2 + 2 \times 1 + 3 \times 4 = 20
-    $$
+    \text{y[2]} = 3 \times 2 + 2 \times 1 + 3 \times 4 = 20$
 
     Hence, the output array would look like:
 
