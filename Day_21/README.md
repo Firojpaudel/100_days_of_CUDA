@@ -157,9 +157,16 @@ With shared memory tiling:
 
 For **large tiles** $(T >> Halo)$:
 ```math 
-\text{Ratio} = 3.25 \space \text{OP/B}
+\text{Ratio} \approx 3.25 \space \text{OP/B}
 ```
 
 > ***Challenges with Small Tile Sizes:***
 > - Small tiles (e.g., $T=8$) limit reuse ratio to $≈1.37 \space OP/B$.
 > - High halo overhead reduces efficiency.
+
+--- 
+<div align="center">
+    <b>
+        End of Day_21🫡
+    </b>
+</div>
