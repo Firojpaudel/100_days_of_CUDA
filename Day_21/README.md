@@ -142,3 +142,24 @@ __global__ void tiled_stencil_kernel(float* in, float* out, unsigned int N) {
 }
 ```
 Full code implementation: [Click Here](./optimized_stencil.cu) to redirect! 
+
+> ***Key Optimizations:***
+> - Shared memory stores input tiles to minimize global memory accesses.
+> - Threads load data collaboratively.
+> - Halo regions ensure boundary conditions.
+> - Synchronization (`__syncthreads()`) prevents race conditions.
+
+#### Improved Arithmetic-to-Memory Ratio
+With shared memory tiling:
+```math 
+\text{Ratio} = \frac{13(T-2)^3}{4T^3}
+```
+
+For **large tiles** $(T >> Halo)$:
+```math 
+\text{Ratio} = 3.25 \space \text{OP/B}
+```
+
+> ***Challenges with Small Tile Sizes:***
+> - Small tiles (e.g., $T=8$) limit reuse ratio to $≈1.37 \space OP/B$.
+> - High halo overhead reduces efficiency.
