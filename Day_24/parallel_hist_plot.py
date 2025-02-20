@@ -19,5 +19,8 @@ plt.title("Character Frequency Histogram (Grouped by 4)")
 plt.xticks(rotation=45)
 plt.grid(axis="y", linestyle="--", alpha=0.7)
 
+# Save plot as an image
+plt.savefig("./images/histogram_plot.png")
+
 # Show plot
 plt.show()
