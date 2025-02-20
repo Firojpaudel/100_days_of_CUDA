@@ -1,0 +1,8 @@
+Interval,Start_Char,End_Char,Occurrences
+0-3,a,d,8
+4-7,e,h,5
+8-11,i,l,4
+12-15,m,p,4
+16-19,q,t,5
+20-23,u,x,1
+24-27,y,|,0
