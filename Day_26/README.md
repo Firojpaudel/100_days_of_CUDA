@@ -140,7 +140,7 @@ The general form of sequential reduction *(Code 26_02)* uses an accumulator (acc
 ```cpp
 acc = IDENTITY;
 for(i = 0; i < N; ++i) {
-    acc = Operator (acc, input[il);
+    acc = Operator (acc, input[i]);
 }
 ```
 <p align="center"><b>Code 26_02: </b><i>The general form of a reduction sequential code</i></p>
