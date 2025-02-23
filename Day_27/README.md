@@ -80,7 +80,7 @@
 | Thread Assignment | Even indices| Consecutive indices|
 | Stride Progression| Doubles (`stride *= 2`)| Halves (`stride /= 2`)|
 | Control Divergence| High| Reduced |
-| Resource Utilization Efficiency| $ \sim35\% $ | $ \sim66\% $ |
+| Resource Utilization Efficiency| $\sim35\%$ | $\sim66\%$ |
  
 ---
 <div align="center">
