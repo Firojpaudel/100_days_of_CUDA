@@ -68,7 +68,7 @@
 > CPU Sum: 157.2
 > Simple Sum Reduction (Kernel 1): 157.2 (Time: 0.386336 ms)
 > Convergent Sum Reduction (Kernel 2): 157.2 (Time: 0.024576 ms)
-> Mismatch detected! Debugging needed.
+> Both kernels match CPU result!
 > ```
 
 > ****Analogy:*** This is like organizing workers on an assembly line. Instead of randomly assigning tasks far apart, workers handle tasks that are closer together, making the process more streamlined and efficient.*
