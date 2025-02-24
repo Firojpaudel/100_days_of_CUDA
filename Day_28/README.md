@@ -109,3 +109,5 @@
         End of Day_28🫡
     </b>
 </div>
+
+> End of Chapter 10: Exercises for tomorrow
