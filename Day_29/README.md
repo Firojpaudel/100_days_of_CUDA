@@ -100,3 +100,203 @@ For the improved reduction kernel with 1024 elements and a warp size of 32, no w
 </div>
 
 ***Solution***:
+
+The modified kernel would look like:
+
+```cpp
+__global__ void OptimizedReductionKernel(float* input, float* output, int N) {
+    unsigned int t = threadIdx.x;
+    unsigned int stride;
+
+    for (stride = 1; stride < blockDim.x; stride *= 2) {
+        if (t % (2 * stride) == 0) {
+            input[t] += input[t + stride];
+        }
+        __syncthreads();
+    }
+
+    if (t == 0) {
+        *output = input[0];
+    }
+}
+```
+
+---
+
+4. Modify the kernel below to perform a max reduction instead of a sum reduction.
+
+    ```cpp
+    __global__ void CoarsenedSumReductionKernel(float* input, float* output, int numElements) {
+        __shared__ float input_s[BLOCK_DIM];
+        unsigned int segment = COARSE_FACTOR * 2 * blockDim.x * blockIdx.x;
+        unsigned int i = segment + threadIdx.x;
+        unsigned int t = threadIdx.x;
+
+  
+        float sum = input[i];
+        for (unsigned int tile = 1; tile < COARSE_FACTOR * 2; ++tile) {
+            sum += input[i + tile*BLOCK_DIM];
+        }
+
+        input_s[t] = sum;
+
+        for (unsigned int stride = blockDim.x / 2; stride >= 1; stride /= 2) {
+            __syncthreads();
+            if (t < stride) {
+                input_s[t] += input_s[t + stride];
+            }
+        }
+
+        if (t == 0) {
+            atomicAdd(output, input_s[0]);
+        }
+    }
+    ```
+***Solution***:
+
+The modified Kernel:
+
+```cpp
+__global__ void CoarsenedMaxReductionKernel(float* input, float* output, int numElements) {
+    __shared__ float input_s[BLOCK_DIM];
+    unsigned int segment = COARSE_FACTOR * 2 * blockDim.x * blockIdx.x;
+    unsigned int i = segment + threadIdx.x;
+    unsigned int t = threadIdx.x;
+
+    float maxVal = input[i];
+
+    for (unsigned int tile = 1; tile < COARSE_FACTOR * 2; ++tile) {
+        maxVal = fmaxf(maxVal, input[i + tile * BLOCK_DIM]);
+    }
+
+    input_s[t] = maxVal;
+
+    for (unsigned int stride = blockDim.x / 2; stride >= 1; stride /= 2) {
+        __syncthreads();
+        if (t < stride) {
+            input_s[t] = fmaxf(input_s[t], input_s[t + stride]);
+        }
+    }
+
+    if (t == 0) {
+        atomicMax((int*)output, __float_as_int(input_s[0])); 
+    }
+}
+```
+---
+5. Assume that parallel reduction is to be applied on the following input array:
+<div align="center">
+
+| 6 | 2 | 7 | 4 | 5 | 8 | 3 | 1 |
+|---|---|---|---|---|---|---|---|
+
+</div>
+
+Show how the contents of the array change after each iteration if:
+- The unoptimized kernel below is used.
+
+    ```cpp
+    __global__ void SimpleSumReductionKernel(float* input, float* output, int N) {
+        unsigned int i = threadIdx.x;
+
+        for (unsigned int stride = 1; stride < N; stride *= 2) {
+            int index = 2 * stride * i;
+            if (index + stride < N) {  
+                input[index] += input[index + stride];
+            }
+            __syncthreads();  
+        }
+
+        if (i == 0) {
+            *output = input[0];
+        }
+    }
+    ```
+- The kernel optimized for coalescing and divergence in below kernel code is used.
+    ```cpp
+    __global__ void ConvergentSumReductionKernel(float* input, float* output, int N) {
+        unsigned int i = threadIdx.x;
+
+        for (unsigned int stride = blockDim.x; stride >= 1; stride /= 2) {
+            if (threadIdx.x < stride) {
+                input[i] += input[i + stride];
+            }
+            __syncthreads();
+        }
+
+        if (threadIdx.x == 0) {
+            *output = input[0];
+        }
+    }
+    ```
+***Solution***:
+1. **Simple Sum Reduction Kernel _(Unoptimized)_**
+
+This kernel follows a **non-optimal sequential addressing** pattern, leading to divergence and inefficient memory accesses.
+
+Each iteration reduces elements spaced by a stride of 
+$2^n$, with the first thread working on elements at index $0, 2, 4, ...$, the second on index $4, 8, ...$, and so on.
+
+**Initial Array:**
+```math 
+[6,2,7,4,5,8,3,1]
+```
+**Step-By-Step Execution**:
+
+**Iteration 1** _(Stride 1)_
+- Array: $[6,2,7,4,5,8,3,1]$
+    - `Thread 0`: $6+2 = 8 \longrightarrow \text{index 0}$ 
+    - `Thread 1`: $7+4 = 11 \longrightarrow \text{index 2}$
+    - `Thread 2`: $5+8 = 13 \longrightarrow \text{index 4}$
+    - `Thread 3`: $3+1 = 4 \longrightarrow \text{index 6}$
+
+- **Iteration 1** Output: $[8, 2, 11, 4, 13, 8, 4, 1]$
+
+**Iteration 2** _(Stride 2)_
+> Add elements spaced 2 tiles apart:
+- Input array: $[8, 2, 11, 4, 13, 8, 4, 1]$
+    - `Thread 0`: $ 8+ 11 = 19 \longrightarrow \text{index 0}$
+    - `Thread 1`: $ 13+ 4 = 17 \longrightarrow \text{index 4}$
+- **Iteration 2** Output: $[19, 2, 11, 4, 17, 8, 4, 1]$
+
+**Iteration 3** _(Stride 4)_
+- Input array: $[19, 2, 11, 4, 17, 8, 4, 1]$
+    - `Thread 0`: $19 + 17 = 36 \longrightarrow \text{index 0}$
+- Final Output of array: $[36, 2, 11, 4, 17, 8, 4, 1]$
+
+2. **Convergent Sum Reduction Kernel _(Optimized for Coalescing and Divergence Reduction)_**
+
+This kernel performs **more efficient memory accesses by reducing in a tree-like fashion**, where each thread updates elements based on the next half of the array, reducing warp divergence.
+
+**Initial Array:**
+```math 
+[6,2,7,4,5,8,3,1]
+```
+**Step-By-Step Execution**:
+> Stride progresses as $ 4 \rightarrow 2 \rightarrow 1$
+
+**Iteration 1** _(Stride 4)_
+- Array: $[6,2,7,4,5,8,3,1]$
+    - `Thread 0`: $6 + 5 = 11 \longrightarrow \text{index 0}$
+    - `Thread 1`: $2 + 8 = 10 \longrightarrow \text{index 1}$
+    - `Thread 2`: $7 + 3 = 10 \longrightarrow \text{index 2}$
+    - `Thread 3`: $4 + 1 = 5 \longrightarrow \text{index 3}$
+
+- **Iteration 1** Output: $[11, 10, 10, 5, 5, 8, 3, 1]$
+
+**Iteration 2** _(Stride 2)_
+- Input array: $[11, 10, 10, 5, 5, 8, 3, 1]$
+    - `Thread 0`: $11 + 10 = 21 \longrightarrow \text{index 0}$
+    - `Thread 1`: $10 + 5 = 15 \longrightarrow \text{index 1}$
+
+- **Iteration 2** Output: $[21, 15, 10, 5, 5, 8, 3, 1]$
+
+**Iteration 3** _(Stride 1)_
+- Input array: $[21, 15, 10, 5, 5, 8, 3, 1]$
+    - `Thread 0`: $21 + 15 = 36 \longrightarrow \text{index 0}$
+
+- Final Output of array: $[36, 15, 10, 5, 5, 8, 3, 1]$
+
+---
+> _Chapter 10 Exercises Completed!!_
+
