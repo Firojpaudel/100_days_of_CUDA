@@ -35,9 +35,12 @@ For the given reduction kernel with 1024 elements and a warp size of 32, 1 warp 
 
 2. **Iteration Analysis:**
     - By the fifth iteration, the number of active threads is reduced to:
-    ```math 
-    \frac{1024}{2^5} = 32 \space \text{threads}
-    ```
+    <div align="center">
+
+    $\frac{1024}{2^5} = 32 \space \text{threads}$
+
+    </div>
+    
     - These $32$ threads fit into exactly **1 warp** (since $32 \div 32 = 1$).
 
 3. **Divergence Mechanism:**
@@ -79,9 +82,11 @@ For the improved reduction kernel with 1024 elements and a warp size of 32, no w
 
 2. **Fifth Iteration Details:**
     - Stride at fifth iteration:
-    ```math 
-    \text{stride} = \frac{1024}{2^4} = 64
-    ```
+    <div align="center">
+
+    $\text{stride} = \frac{1024}{2^4} = 64$
+
+    </div>
     - Active threads: `0–63` (64 threads total).
 
 3. **Warp Alignment:**
@@ -255,8 +260,8 @@ $2^n$, with the first thread working on elements at index $0, 2, 4, ...$, the se
 **Iteration 2** _(Stride 2)_
 > Add elements spaced 2 tiles apart:
 - Input array: $[8, 2, 11, 4, 13, 8, 4, 1]$
-    - `Thread 0`: $ 8+ 11 = 19 \longrightarrow \text{index 0}$
-    - `Thread 1`: $ 13+ 4 = 17 \longrightarrow \text{index 4}$
+    - `Thread 0`: $8+ 11 = 19 \longrightarrow \text{index 0}$
+    - `Thread 1`: $13+ 4 = 17 \longrightarrow \text{index 4}$
 - **Iteration 2** Output: $[19, 2, 11, 4, 17, 8, 4, 1]$
 
 **Iteration 3** _(Stride 4)_
@@ -273,7 +278,7 @@ This kernel performs **more efficient memory accesses by reducing in a tree-like
 [6,2,7,4,5,8,3,1]
 ```
 **Step-By-Step Execution**:
-> Stride progresses as $ 4 \rightarrow 2 \rightarrow 1$
+> Stride progresses as $4 \rightarrow 2 \rightarrow 1$
 
 **Iteration 1** _(Stride 4)_
 - Array: $[6,2,7,4,5,8,3,1]$
