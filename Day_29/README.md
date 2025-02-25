@@ -40,7 +40,7 @@ For the given reduction kernel with 1024 elements and a warp size of 32, 1 warp 
     $\frac{1024}{2^5} = 32 \space \text{threads}$
 
     </div>
-    
+
     - These $32$ threads fit into exactly **1 warp** (since $32 \div 32 = 1$).
 
 3. **Divergence Mechanism:**
@@ -87,6 +87,7 @@ For the improved reduction kernel with 1024 elements and a warp size of 32, no w
     $\text{stride} = \frac{1024}{2^4} = 64$
 
     </div>
+    
     - Active threads: `0–63` (64 threads total).
 
 3. **Warp Alignment:**
