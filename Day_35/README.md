@@ -1,4 +1,4 @@
-## Summary of Day 35:
+## Summary of Day 35: 
 
 > *Exercises from Chapter 11 _(Page: 260 onwards)_
 
@@ -29,11 +29,12 @@ $$A' = [ 4 \space 10 \space 13 \space 8 \space 3 \space 10 \space 13 \space 7]$$
 $$A'' = [4 \space 10 \space 17 \space 18 \space 16 \space 18 \space 16 \space 17]$$
 
 **Step 3: *Stride 4***
-$$ A''' = [4 \space 10 \space 17 \space 18 \space 20 \space 28 \space 33 \space 35]$$
+
+$$A''' = [4 \space 10 \space 17 \space 18 \space 20 \space 28 \space 33 \space 35]$$
 
 _(*Stopping condition since futher strides would go out of bounds)_
 
-> Also code implementation is here! [Click Here]() to redirect!!
+> Also code implementation is here! [Click Here](./Qn1.cu) to redirect!!
 
 ##### Qn.2 Modify the Kogge-Stone parallel scan kernel in Code below to use double buffering instead of a second call to `__syncthreads()` to overcome the write after-read race condition.
 
@@ -200,7 +201,7 @@ For strides **up to half the warp size**, ie `stride = 1, 2, 4, 8, 16`, only som
 - *Result:* Control divergence occurs because threads $0–15$ take a different path than threads $16–31$.
 
 **Final Step: What Happens for Stride ≥ 32 *(Warp Size)* ?**
-- *Condition:* For any `stride ≥ warp size` *(e.g., stride = $32$)*, all threads in the first warp `(threadIdx.x = 0–31)` fail to satisfy the condition `(threadIdx.x < stride)`. No control divergence occurs because all threads take the same path.
+- *Condition:* For any `stride ≥ warp size` *(e.g., stride = $32$ )*, all threads in the first warp `(threadIdx.x = 0–31)` fail to satisfy the condition `(threadIdx.x < stride)`. No control divergence occurs because all threads take the same path.
 
 <blockquote style="border-left: 6px solid #2196F3; padding: 10px;">
   ⓘ <strong>Note:</strong> The second warp <code>(threadIdx.x = 32 to 63)</code> behaves the same way but independently.
