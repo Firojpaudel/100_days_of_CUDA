@@ -1,5 +1,5 @@
 # 100_days_of_CUDA
-Challenging myself to learn CUDA (Basics  Intermediate) these 100 days. 
+Challenging myself to learn CUDA (Basics ⇾ Intermediate) these 100 days. 
 
 My learning resources: 
 1. **Books**:
