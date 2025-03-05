@@ -48,8 +48,8 @@ Well, even mentioned yesterday about it. It is a GPU based implementation design
                     &C[k_curr]);
     ```
 - This merges elements from:
-    - Subarray $A[$`i_curr:i_next`$]$.
-    - Subarray $B[$`j_curr:j_next`$]$.
+    - Subarray ${A[}$ `i_curr:i_next` ${]}$.
+    - Subarray ${B[}$ `j_curr:j_next` ${]}$.
 
 #### Well we did talk about Co-Rank earlier but what actually is it??
 
