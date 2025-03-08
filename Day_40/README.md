@@ -53,4 +53,4 @@ So here are the steps we follow:
     - Writing from shared memory to the final output is now coalesced *(neighboring threads write to neighboring memory)*.
     - Way more effecient than the original direct writing approach.
 
-> [Click Here]() to redirect towards code implementation for parallel radix sort. 
+> [Click Here](./parallel_radix.cu) to redirect towards code implementation for parallel radix sort. 
