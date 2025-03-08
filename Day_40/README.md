@@ -31,8 +31,8 @@ So here are the steps we follow:
     - Aka. Prefix Sum.
     - *Goal*: Find out how many $1$'s came before the current key.
     - *Calculations*:
-        - If key is $0$: $\text{Destination} = \text{key's original index} - \text{\# of 1's before it}.$
-        - If key id $1$: $\text{Destination} = \text{toal array size} - \text{\# of 1's before it}.$
+        - If key is $0$: $\text{Destination} = \text{key's original index} - \text{Number of 1's before it}.$
+        - If key id $1$: $\text{Destination} = \text{toal array size} - \text{Number of 1's before it}.$
     - *Result*: After scan, each thread knows where its key should go. 
 
     <div align="center">
