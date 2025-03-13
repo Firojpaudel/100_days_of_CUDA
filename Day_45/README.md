@@ -72,7 +72,7 @@ Hybrid **ELL-COO** sacrifices accessibility compared to pure **ELL**:
     - This overhead can be significant if **SpMV** is performed only once on the matrix.
     - However, in iterative solvers where **SpMV** is repeated many times _(e.g., conjugate gradient methods)_, this overhead can be distributed across iterations.
 
-> [Click Here](./ELL_COO.cu) for peeking on full code implementation. 
+> [Click Here](./ELL_COO.cu)to open the source code implementation. 
 
 ### Jagged Diagonal Storage (JDS) Format:
 
