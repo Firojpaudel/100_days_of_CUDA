@@ -254,6 +254,8 @@ allow an answer, indicate what information is missing.
 
 > ⚠️ ***In Code***:
 > You could see implementation of thrust quite a bit. Thrust is a powerful parallel algorithms library designed for CUDA and C++ that simplifies and accelerates programming on GPUs (Graphics Processing Units). It provides a high-level interface for performing common parallel operations, making it easier for developers to harness the power of GPU computing without needing to dive into the low-level details of CUDA programming. Below, I’ll explain what Thrust is used for in a clear and structured way. 
+>
+> [Click Here](https://nvidia.github.io/cccl/thrust/) to redirect to official documentation of thrust library!
 
 ###
 4. Implement the host code for producing the hybrid **ELL-COO** format and using it to perform **SpMV**.Launch the **ELL** kernel to execute on the device, and compute the contributions of the **COO** elements on the host.
