@@ -39,5 +39,27 @@ My learning resources:
 | Day 26 | Ending of Chapter 9: Exercises, Chapter 10: **Reduction** Start | [README](./Day_26/README.md), [Max Reduction Code](./Day_26/max_reduction.cu), [Sum Reduction Code](./Day_26/sum_reduction.cu) |
 | Day 27 | Simple Sum Reduction Kernel, Convergent Sum Reduction | [README](./Day_27/README.md), [Simple Sum Reduction Code](./day_27/SimpleSumReductionKernel.cu), [Convergent Sum Reduction Code](./day_27/optimizedKernel.cu) |
 | Day 28 | Shared Memory For Reduction, Hierarchial Reduction, Thread Coarsening for Reduced Overheads | [README](./Day_28/README.md), [Shared Memory Reduction Code](./Day_28/shared_mem.cu), [Hierarchial Reduction Code](./Day_28/hierarchial.cu), [Coarsening Reduction Code](./Day_28/Coarsened.cu) | 
-| Day 29 | ... Will Update Later on 😪 | Tired  rn | 
+| Day 29 | Exercises from Chapter 10 | [README](./Day_29/README.md) |
+| Day 30 | Parallel Prefix Scan, Kogge-Stone Parallel Prefix Scan Algo | [README](./Day_30/README.md), [Kogge Stone Code](./Day_30/koggle_stone.cu) |
+| Day 31 | Kogge Stone Continue, Complexity Analysis (Both Exclusive and Inclusive) | [README](./Day_31/README.md), [Exclusive Scan Code](./Day_31/exclusive_scan.cu), [Inclusive Scan Code](./Day_31/inclusive_scan.cu) |
+| Day 32 | Brent- Kung Parallel Inclusive Scan Algo | [README](./Day_32/README.md), [Brent Kung Code](./Day_32/Brent_kung.cu) |
+| Day 33 | Coarsening in Detail | [README](./Day_33/README.md) |
+| Day 34 | Coarsening Complexity Analysis, Hierarchial Scan | [README](./Day_34/README.md), [Coarsening Code](./Day_34/coarsening.cu), [Hierarchial Scan Code](./Day_34/hierarchial.cu) |
+| Day 35 | Exercises from Chapter 11 | [README](./Day_35/README.md) |
+| Day 36 | Chapter 12: Merge, Sequential Merge | [README](./Day_36/README.md), [Sequential Merge Code](./Day_36/seq_merge.cu) |
+| Day 37 | Parallel Merge Kernels and Co-ranks | [README](./Day_37/README.md), [CoRank Implementation Code](./Day_37/corank.cu), [Divide and Conquer Code](./Day_37/div_conq.cu) |
+| Day 38 | Tiled Merge Kernels | [README](./Day_38/README.md), [Tiled Merge Code](./Day_38/tiled_merged.cu) |
+| Day 39 | Exercises from Chapter 12 | [README](./Day_39/README.md) |
+| Day 40 | Paralel Radix Sort | [README](./Day_40/README.md), [Radix Sort Code](./Day_40/parallel_radix.cu) |
+| Day 41 | Choice of Radix, Multi-bit radix, Optimizing Memory Coalescening Using Parallel Radix Sort, Thread Coarsening To Improve Memory Coalescening, Parallel Merge Sort| [README](./Day_41/README.md), [Coarsening Applied Code](./Day_41/coarsening_applied.cu), [Parallel Merge](./Day_41/parallel_merge_sort.cu) | 
+| Day 42 | Exercises from Chapter 13 | [README](./Day_42/README.md) |
+| Day 43 | SmPV with COO | [README](./Day_43/README.md), [SmPV COO Code Implementation](./Day_43/SpMV_COO.cu) |
+| Day 44 | CSR Format, ELL Format | [README](./Day_44/README.md), [CSR Implementation Code](./Day_44/CSR_Implementation.cu) |
+| Day 45 | Hybrid ELL-COO Format, JDS Format with parallelization | [README](./Day_45/README.md), [Hybrid ELL-COO Code](./Day_45/ELL_COO.cu) |
+| Day 46 | Exercises from Chapter 14 | [README](./Day_46/README.md) |
+| Day 47 | Chapter 15 Starts, Normal BFS | [README](./Day_47/README.md), [Normal BFS Code](./Day_47/bfs_simple.cu) |
+| Day 48 | Vertex Centric Parallelization, Vertex Centric Pull; Push | [README](./Day_48/README.md), [Vertex Centric Code](./Day_48/vertex_centric_pull.cu), [Vertex Centric Push Code](./Day_48/vertex_centric_push.cu) |
+| Day 49 | Edge Centric Pararallelization, Frontiers | [README](./Day_49/README.md), [Edge Centric Code](./Day_49/edge_centric.cu), [Frontier Code](./Day_49/frontier.cu) |
+| Day 50 | Privatization, Exercises from Chapter 15 | [README](./Day_50/README.md) , [Privatization Code](./Day_50/privatization.cu)|
+| Day 51 | --- Will Update in a while --- | --- |
 </div>
