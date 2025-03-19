@@ -62,3 +62,99 @@ void convLayer_forward(
         }
     }
 }
+
+void subsamplingLayer_forward(
+    const vector<vector<float>>& input, //Input Feature Map
+    vector<vector<float>>& output, //Output after Pooling
+    int K // Pooling Size of K x K
+){
+    int H = input.size();
+    int W = input[0].size();
+    /*
+    Okay so here; taking some key assumptions:
+    - Pooling window size: K x K
+    - Stride = K (ie. window moves K pixels at a time)
+    - No padding 
+    - Input Dimensions are multiple of K (for clean division)
+
+    Also dimensionality reduction is achieved so we will settle with H/K for now
+    */
+    int H_out = H/K;
+    int W_out = W/K;
+
+    // Initializing output with zeros
+    output = vector<vector<float>>(H_out, vector<float>(W_out, 0.0f));
+
+    //Average Pooling: Here we take average of each K x K region
+    for (int h = 0; h < H_out; h++) {
+        for (int w = 0; w < W_out; w++) {
+            float sum = 0.0f;
+            // Compute the average over the KxK region
+            for (int p = 0; p < K; p++) {
+                for (int q = 0; q < K; q++) {
+                    sum += input[h * K + p][w * K + q];
+                }
+            }
+            output[h][w] = sum / (K * K); // Average
+        }
+    }
+
+    // Sigmoid Activation
+    for (int h= 0; h < H_out; h++){
+        for (int w= 0; w < W_out; w++){
+            output[h][w] = sigmoid(output[h][w]);
+        }
+    }
+}
+
+void printMatrix(
+    const vector<vector<float>> &matrix, 
+    const string &name
+){
+    cout<<name<< ":\n";
+    for (const auto& row : matrix) {
+        for (float val : row) {
+            cout << val << " ";
+        }
+        cout << "\n";
+    }
+    cout << "\n";
+}
+
+
+int  main(){
+    // Step 1: Defining a small input image (grayscale) 
+    // I'll try to mimic A in a 5 x 5 grid 
+    vector<vector<float>> input ={
+        {0, 0, 1, 0, 0},
+        {0, 1, 0, 1, 0},
+        {1, 1, 1, 1, 1},
+        {1, 0, 0, 0, 1}, 
+        {1, 0, 0, 0, 1}, 
+    };
+    printMatrix(input, "Input Image");
+
+    //Step 2: Defining the kernel
+    vector<vector<float>> filter ={
+        {1, 0, 1},
+        {0, 1, 0},
+        {1, 0, 1} 
+    };
+
+    printMatrix(filter, "Filter");
+
+    //Step 3: Applying the Convolution Layer
+    vector<vector<float>> conv_output;
+    float bias = 0.01f;
+    convLayer_forward(input, filter, conv_output, bias);
+    printMatrix(conv_output, "After Convolution");
+
+
+    //Step 4: Application of subsampling layer (2 x 2 average pooling):
+    vector<vector<float>> pool_output;
+    int pooling_size = 2;
+    subsamplingLayer_forward(conv_output, pool_output, pooling_size);
+    printMatrix(pool_output, "After pooling and sigmoid");
+
+    return 0;
+}
