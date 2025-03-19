@@ -6,7 +6,7 @@
 >
 > **Core Equation**:  
 > Most machine learning tasks use:  
-> $$ y = Wx + b $$  
+> $$y = Wx + b$$  
 > - $W$: Weight matrix  
 > - $x$: Input  
 > - $b$: Bias  
