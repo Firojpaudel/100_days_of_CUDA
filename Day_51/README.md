@@ -122,9 +122,7 @@ Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convol
 3. **Fully Connected Layers**:  
    - **Role**: Combine high-level features for classification.  
    - **Math**:  
-     $$
-     Y = W \cdot X + b
-     $$  
+     $$Y = W \cdot X + b$$  
      - $W$: Weight matrix, $X$: Input, $b$: Bias.  
 
 ---
@@ -145,23 +143,17 @@ Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convol
 1. **Supervised Learning**:  
    - **Input**: Labeled data (e.g., images tagged with digits).  
    - **Error Function**:  
-     $$
-     E = \frac{(y - t)^2}{2}
-     $$  
+     $$E = \frac{(y - t)^2}{2}$$  
      - $y$: Predicted output, $t$: True label.  
 
 2. **Stochastic Gradient Descent (SGD)**:  
    - **Update Rule**:  
-     $$
-     w_i = w_i - \epsilon \frac{\partial E}{\partial w_i}
-     $$  
+     $$w_i = w_i - \epsilon \frac{\partial E}{\partial w_i}$$  
      - $\epsilon$: Learning rate.  
 
 3. **Backpropagation**:  
    - Computes gradients via chain rule:  
-     $$
-     \frac{\partial E}{\partial w_i} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial w_i}
-     $$  
+     $$\frac{\partial E}{\partial w_i} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial w_i}$$  
    - Propagates errors backward to adjust weights.  
 
 ___
