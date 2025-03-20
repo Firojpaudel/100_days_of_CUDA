@@ -1,0 +1,11 @@
+title: 100 Days of CUDA
+description: My Notes and codes documentation for CUDA learning journey 
+theme: jekyll-theme-minimal
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  syntax_highlighter: rouge
+
+include: [ "_includes/head-custom.html" ]
