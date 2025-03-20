@@ -49,7 +49,7 @@ Okay now that the installation is done, let's learn some basic syntaxes!
 > Maximum Difference: 0.049560546875
 > ```
 
-> [Click Here]() to redirect to Code_Example3- Softmax *
+> *[Click Here](./Softmax.py) to redirect to Code_Example3- Softmax*
 >
 > ***This is how output would look like:***
 > ```bash
