@@ -3,7 +3,7 @@
 #include<iostream>
 #include<vector>
 #include<cmath>
-
+#include<chrono>
 using namespace std;
 
 /*Okay so before diving into code; let's first name the layers:
@@ -146,15 +146,30 @@ int  main(){
     //Step 3: Applying the Convolution Layer
     vector<vector<float>> conv_output;
     float bias = 0.01f;
-    convLayer_forward(input, filter, conv_output, bias);
-    printMatrix(conv_output, "After Convolution");
-
-
+    
     //Step 4: Application of subsampling layer (2 x 2 average pooling):
     vector<vector<float>> pool_output;
     int pooling_size = 2;
-    subsamplingLayer_forward(conv_output, pool_output, pooling_size);
-    printMatrix(pool_output, "After pooling and sigmoid");
+    
+    // Timing the convolution layer
+    auto conv_start = chrono::high_resolution_clock::now();
+    convLayer_forward(input, filter, conv_output, bias);
+    auto conv_end = chrono::high_resolution_clock::now();
+    auto conv_duration = chrono::duration_cast<chrono::microseconds>(conv_end - conv_start);
+    double conv_time = conv_duration.count() / 1000.0; // Convert to milliseconds
 
+    printMatrix(conv_output, "After Convolution");
+    cout << "Convolution runtime: " << conv_time << " ms\n\n";
+
+    // Timing the subsampling layer
+    auto pool_start = chrono::high_resolution_clock::now();
+    subsamplingLayer_forward(conv_output, pool_output, pooling_size);
+    auto pool_end = chrono::high_resolution_clock::now();
+    auto pool_duration = chrono::duration_cast<chrono::microseconds>(pool_end - pool_start);
+    double pool_time = pool_duration.count() / 1000.0; // Convert to milliseconds
+
+    printMatrix(pool_output, "After Pooling and Sigmoid");
+    cout << "Subsampling runtime: " << pool_time << " ms\n";
+    
     return 0;
 }
