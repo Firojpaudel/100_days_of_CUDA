@@ -14,7 +14,7 @@ def conv_kernel(
 ):
     ##@ Output position for this kernel 
     pid_h = tl.program_id(0)  # Row index
-    pid_w = tl.program_id(1) #Column Index 
+    pid_w = tl.program_id(1)  # Column Index 
     
  
     # Check if thread is within output bounds
@@ -46,20 +46,35 @@ def conv_layer_triton (input, filter, bias):
     W_out = W - K + 1 # Same here
     
     ## Converting to torch tensors and moving to GPU
-    input = torch.from_numpy(input).cuda()
-    filter = torch.from_numpy(filter).cuda()
-    output = torch.zeros(H_out, W_out, dtype=torch.float32).cuda()
+    input_gpu = torch.from_numpy(input).cuda()
+    filter_gpu = torch.from_numpy(filter).cuda()
+    output_gpu = torch.zeros(H_out, W_out, dtype=torch.float32).cuda()
     
     ##@ Define grid 
     grid = (H_out, W_out)
     
     ##@ Calling  the kernel 
     conv_kernel[grid](
-        input, filter, output, 
+        input_gpu, filter_gpu, output_gpu, 
         H, W, K, H_out, W_out, bias,
         stride_h=1, stride_w=1,
     )
-    return output.cpu().numpy()
+    
+    torch.cuda.synchronize()
+    
+    start_time = time.perf_counter()
+    conv_kernel[grid](
+        input_gpu, filter_gpu, output_gpu, 
+        H, W, K, H_out, W_out, bias,
+        stride_h=1, stride_w=1,
+    )
+    torch.cuda.synchronize()
+    end_time = time.perf_counter()
+    
+    conv_time = (end_time - start_time) * 1000  # ms
+    print(f"Convolution kernel runtime: {conv_time:.6f} ms")
+
+    return output_gpu.cpu().numpy()
     
 ##@ The sigmoid function 
 def sigmoid(x):
@@ -103,12 +118,8 @@ if __name__ == "__main__":
     print("Filter:\n", filter)
     print("Bias:", bias)
     
-    # Run convolution
-    start_time = time.perf_counter()
     conv_output = conv_layer_triton(input, filter, bias)
-    conv_time = (time.perf_counter() - start_time) * 1000 # In ms
     print("After convolution:\n", conv_output)
-    print(f"Convolution runtime: {conv_time:.6f} ms")
     
     # Run subsampling
     start_time = time.perf_counter()
