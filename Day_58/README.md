@@ -39,9 +39,9 @@ $$
 #### Step 3: Normalize
 Normalize each value with the mean and variance, tossing in a tiny $\epsilon$ to dodge division-by-zero drama:
 
-$$
+```math
 \hat{x}_{i,j} = \frac{x_{i,j} - \mu_j}{\sqrt{\sigma_j^2 + \epsilon}}
-$$
+```
 
 - $\hat{x}_{i,j}$: Normalized value—mean ≈ $0$, variance ≈ $1$ (tweaked by $\epsilon$).
 - $\epsilon$: Small constant (e.g., $1\times10^{-5}$) for stability.
