@@ -17,10 +17,10 @@ So, today I’m back at it, coding another kernel in Triton. So far, I’ve nail
 Batch Normalization (BatchNorm) is a clutch move in deep learning—stabilizes training and speeds it up. It normalizes layer inputs across a batch to mean $0$ and variance $1$, then tweaks them with learnable params ($\gamma$ and $\beta$). Let’s break it down step-by-step for a batch shaped `[batch_size, features]`.
 
 #### Step 1: Compute the Mean
-For a batch $X= {x_{i,j}}$ where $i=1,\dots,\text{batch\_size}$ (samples) and $j=1,\dots,\text{features}$ (channels/features), compute the mean per feature $j$ across the batch:
+For a batch $X= {x_{i,j}}$ where $i=1,\dots,\text{batch size}$ (samples) and $j=1,\dots,\text{features}$ (channels/features), compute the mean per feature $j$ across the batch:
 
 $$
-\mu_j = \frac{1}{\text{batch\_size}} \sum_{i=1}^{\text{batch\_size}} x_{i,j}
+\mu_j = \frac{1}{\text{batch size}} \sum_{i=1}^{\text{batch size}} x_{i,j}
 $$
 
 - $\mu_j$: Mean of feature $j$ over all batch samples.
@@ -30,11 +30,11 @@ $$
 Next, get the variance per feature $j$ across the batch, using that mean:
 
 $$
-\sigma_j^2 = \frac{1}{\text{batch\_size}} \sum_{i=1}^{\text{batch\_size}} (x_{i,j} - \mu_j)^2
+\sigma_j^2 = \frac{1}{\text{batch size}} \sum_{i=1}^{\text{batch size}} (x_{i,j} - \mu_j)^2
 $$
 
 - $\sigma_j^2$: Variance of feature $j$, showing the spread.
-- Note: Some use $\frac{1}{\text{batch\_size}-1}$ (unbiased), but training rolls with $\frac{1}{\text{batch\_size}}$.
+- Note: Some use $\frac{1}{\text{batch size}-1}$ (unbiased), but training rolls with $\frac{1}{\text{batch size}}$.
 
 #### Step 3: Normalize
 Normalize each value with the mean and variance, tossing in a tiny $\epsilon$ to dodge division-by-zero drama:
@@ -71,14 +71,14 @@ We’re splitting BatchNorm into two kernels: one for stats (mean/variance), one
 **Purpose**: Compute $\mu_{j}$ and $\sigma_{j^2}$ per feature across the batch.
 
 **Math**:
-- $\mu_j = \frac{1}{\text{batch\_size}} \sum_{i} x_{i,j}$
-- $\sigma_j^2 = \frac{1}{\text{batch\_size}} \sum_{i} (x_{i,j} - \mu_j)^2$
+- $\mu_j = \frac{1}{\text{batch size}} \sum_{i} x_{i,j}$
+- $\sigma_j^2 = \frac{1}{\text{batch size}} \sum_{i} (x_{i,j} - \mu_j)^2$
 
 **How It Works**:
 - **Grid**: One block per feature ($\text{features}$ blocks).
 - **Offsets**: For feature $j$, grab all batch values $x_{i,j}$ (stride-adjusted).
 - **Compute**: 
-  - Sum all $x_{i,j}$ and divide by $\text{batch\_size}$ for $\mu_j$.
+  - Sum all $x_{i,j}$ and divide by $\text{batch size}$ for $\mu_j$.
   - Subtract $\mu_j$, square, sum, and divide for $\sigma_j^2$.
 - **Store**: Write $\mu_j$ and $\sigma_j^2$ to output tensors.
 
@@ -91,7 +91,7 @@ We’re splitting BatchNorm into two kernels: one for stats (mean/variance), one
 - $y_{i,j} = \gamma_j \cdot \frac{x_{i,j} - \mu_j}{\sqrt{\sigma_j^2 + \epsilon}} + \beta_j$
 
 **How It Works**:
-- **Grid**: One block per batch item ($\text{batch\_size}$ blocks).
+- **Grid**: One block per batch item ($\text{batch size}$ blocks).
 - **Offsets**: For batch item $i$, load all features $x_{i,j}$ (row-wise).
 - **Load Stats**: Snag $\mu_j$, $\sigma_j^2$, $\gamma_j$, $\beta_j$ for all features.
 - **Normalize**: Run the full formula per element.
@@ -103,6 +103,6 @@ We’re splitting BatchNorm into two kernels: one for stats (mean/variance), one
 
 #### Why Two Kernels?
 - **Efficiency**: Stats need a reduction (sum over batch), normalization’s pointwise. Splitting skips sync chaos.
-- **Parallelism**: First kernel scales with $\text{features}$, second with $\text{batch\_size}$—maxes GPU threads.
+- **Parallelism**: First kernel scales with $\text{features}$, second with $\text{batch size}$—maxes GPU threads.
 
 > [Click Here](./batch_norm.py) to redirect towards the code implementation
