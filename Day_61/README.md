@@ -135,22 +135,22 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$
 - So, next we calulate the `Q * K^T`:
     - Here we have not explicitly used any transpose operation. Instead, we are defining the offset values of $Q$ and $K$ such that there is no need to physically transpose $K$.
 
-     > [!important]
-     > The `q_offset` is calculated as: 
-     > 
-     > `q_offset = batch_idx * stride_batch + seq_idx * stride_seq + head_idx * stride_head`
-     > 
-     > This means for each query, we're accessing the query vector for a specific batch, sequence position and batch index.
-     > 
-     > The `k_offset` changes slightly:
-     > 
-     > `k_offset = atch_idx * stride_batch + k_seq * stride_seq + head_idx * stride_head`
-     >
-     > The crucial change here is that instead of using `seq_idx` *(the query sequence index)* as in `q_offset`, we're  using `k_seq` *(the loop variable)* to access the key vector at each position in the sequence. This allows us to access all of the keys for a given query sequence position.
-     >
-     > ***Why this works:***
-     > - By modifying the offset for $K$, we allow the query vector at a given position to "align" with each key vector from the sequence *(looping through k_seq)*.
-     > - This results in a dot product that’s essentially the same as multiplying $Q$ with $K^T$.
+> [!important]
+> The `q_offset` is calculated as: 
+> 
+> `q_offset = batch_idx * stride_batch + seq_idx * stride_seq + head_idx * stride_head`
+> 
+> This means for each query, we're accessing the query vector for a specific batch, sequence position and batch index.
+> 
+> The `k_offset` changes slightly:
+> 
+> `k_offset = atch_idx * stride_batch + k_seq * stride_seq + head_idx * stride_head`
+>
+> The crucial change here is that instead of using `seq_idx` *(the query sequence index)* as in `q_offset`, we're  using `k_seq` *(the loop variable)* to access the key vector at each position in the sequence. This allows us to access all of the keys for a given query sequence position.
+>
+> ***Why this works:***
+> - By modifying the offset for $K$, we allow the query vector at a given position to "align" with each key vector from the sequence *(looping through k_seq)*.
+> - This results in a dot product that’s essentially the same as multiplying $Q$ with $K^T$.
 
 ***Softmax Calculation:***
 
