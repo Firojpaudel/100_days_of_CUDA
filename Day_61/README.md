@@ -45,8 +45,8 @@ Now explaining the inner mechanism:
     - **The inner loop:** ***(e loop)***
         - Iterates over the input dimension (`embed_dim`), performing the dot product. 
 
-        > [!Note]
-        > Does the dot product by **multiplying and summing** accross the input vector and one row of the weight matrix. 
+> [!Note]
+> Does the dot product by **multiplying and summing** accross the input vector and one row of the weight matrix. 
 
 >[!important]
 > **How this whole thing works**: 
