@@ -61,9 +61,21 @@ So, for the convolution;
 
     Let cuDNN choose; or go manual
     ```cpp
-    cudnnConvolutionFwdAlgo_t algo;
-    cudnnGetConvolutionForwardAlgorithm(handle, input_desc, filter_desc, conv_desc, output_desc, 
-                                    CUDNN_CONVOLUTION_FWD_PREFER_FASTEST, 0, &algo);
+    #if CUDNN_MAJOR >= 7
+    cudnnConvolutionFwdAlgoPerf_t algoPerf[1];
+    int returnedAlgoCount;
+    CHECK_CUDNN(cudnnGetConvolutionForwardAlgorithm_v7(handle, input_desc, filter_desc, conv_desc, output_desc, 1, &returnedAlgoCount, algoPerf));
+    if (returnedAlgoCount > 0 && algoPerf[0].status == CUDNN_STATUS_SUCCESS) {
+        algo = algoPerf[0].algo;
+    } else {
+        std::cerr << "No suitable algorithm found\n";
+        exit(1);
+    }
+    #else
+    // Fallback for cuDNN < 7.0
+    CHECK_CUDNN(cudnnGetConvolutionForwardAlgorithm(handle, input_desc, filter_desc, conv_desc, output_desc,
+                                                        CUDNN_CONVOLUTION_FWD_SPECIFY_WORKSPACE_LIMIT, 0, &algo));
+    #endif
     ```
 - ***Step 5:***
     Allocate the GPU Memory
