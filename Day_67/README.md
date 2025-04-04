@@ -12,11 +12,13 @@ Okay so yesterday, we studied about Fourier Transform and FFT. Also, we were dis
 > quasi-Bayesian estimation is a flexible approach of Bayesian estimation that uses the prior knowledge to estimate the new one.
 
 <details>
-    <summary> <b>About Quasi-Bayesian Estimation </b></summary>
-    <video width="640" height="360" controls>
-    <source src="./images/Quasi-Bayesian (QB) learning - Benjamin Guedj (Spotlight session).mp4" type="video/mp4">
-            Your browser does not support the video tag.
-    </video>
+  <summary><b>About Quasi-Bayesian Estimation</b></summary>
+  <div align="center">
+  <a href="https://www.youtube.com/watch?v=hncA61eBWDI" target="_blank">
+    <img src="https://img.youtube.com/vi/hncA61eBWDI/0.jpg" alt="Watch the demo" style="max-width:100%; height:auto;">
+  </a>
+  </div>
 </details>
+
 
 ***Problem Formulation***: 
