@@ -13,7 +13,10 @@ Okay so yesterday, we studied about Fourier Transform and FFT. Also, we were dis
 
 <details>
     <summary> <b>About Quasi-Bayesian Estimation </b></summary>
-    <iframe width="928" height="522" src="https://www.youtube.com/embed/hncA61eBWDI" title="Quasi-Bayesian (QB) learning - Benjamin Guedj (Spotlight session)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <video width="640" height="360" controls>
+    <source src="./images/Quasi-Bayesian (QB) learning - Benjamin Guedj (Spotlight session).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+    </video>
 </details>
 
 ***Problem Formulation***: 
