@@ -194,20 +194,20 @@ Likewise in the code above:
 >       ```
 >       This computes the phase term for the Fourier Transform between `m` -th k-space sample and the `n`-th voxel.
 > 
-> The phase term in Fourier Transform is  the exponential term and for $3D$ we could say its like: $e^{i 2 \pi (k_x x + k_y y + k_z z)}$
+>       The phase term in Fourier Transform is  the exponential term and for $3D$ we could say its like: $e^{i 2 \pi (k_x x + k_y y + k_z z)}$
 >
-> Where: $(k_x, k_y, k_z)$ are k-space coordinates and $(x, y, z)$ are voxel coordinates. 
+>       Where: $(k_x, k_y, k_z)$ are k-space coordinates and $(x, y, z)$ are voxel coordinates. 
 > 
 > 5. Next, we have the sine and cosine parts. These compute the sine and cosine of phase term:
 >       ```cpp
 >       float cArg = cos(expFHD);
 >       float sArg = sin(expFHD);
 >       ```
-> The Complex exponential $e^{i \theta}$ can be written using **Euler's formula** as:
+>       The Complex exponential $e^{i \theta}$ can be written using **Euler's formula** as:
 >
-> $e^{i \theta} = \cos(\theta) + i \cdot \sin(\theta)$
+>       $e^{i \theta} = \cos(\theta) + i \cdot \sin(\theta)$
 >
-> Here, $\theta = \text{expFHD}$ 
+>       Here, $\theta = \text{expFHD}$ 
 >
 > 6. Then, we update the $\text{rFHD}$ and $\text{iFHD}$ components:
 >
