@@ -4,37 +4,15 @@
 
 using namespace std;
 
-// Kernel with limited dynamic parallelism
 __global__ void factorial_kernel_dp(int n, volatile unsigned long long* results, int level) {
-    if (n <= 2) {
-        if (n <= 1) {
-            atomicExch((unsigned long long*)&results[level], 1ULL);
-            __threadfence_system();
-            printf("Base case: n = %d, level = %d, result = %llu\n", n, level, results[level]);
-            return;
-        }
-        factorial_kernel_dp<<<1, 1>>>(n - 1, results, level + 1);
-        cudaError_t err = cudaGetLastError();
-        if (err != cudaSuccess) {
-            results[level] = 0;
-            printf("Child launch failed: n = %d, level = %d: %s\n", n, level, cudaGetErrorString(err));
-            return;
-        }
+    if (n <= 1) {
+        atomicExch((unsigned long long*)&results[level], 1ULL);
         __threadfence_system();
-        printf("n = %d, level = %d, child_result = %llu\n", n, level, results[level + 1]);
-        unsigned long long temp = static_cast<unsigned long long>(n) * results[level + 1];
-        atomicExch((unsigned long long*)&results[level], temp);
-        __threadfence_system();
-        printf("n = %d, level = %d, result = %llu\n", n, level, results[level]);
+        printf("Base case: n = %d, level = %d, result = %llu\n", n, level, results[level]);
         return;
     }
 
-    // For n > 2, compute iteratively up to 2, then launch
-    unsigned long long temp = 1;
-    for (int i = n; i > 2; i--) {
-        temp *= i;
-    }
-    factorial_kernel_dp<<<1, 1>>>(2, results, level + 1);
+    factorial_kernel_dp<<<1, 1>>>(n - 1, results, level + 1);
     
     cudaError_t err = cudaGetLastError();
     if (err != cudaSuccess) {
@@ -45,13 +23,12 @@ __global__ void factorial_kernel_dp(int n, volatile unsigned long long* results,
 
     __threadfence_system();
     printf("n = %d, level = %d, child_result = %llu\n", n, level, results[level + 1]);
-    temp *= results[level + 1];
+    unsigned long long temp = static_cast<unsigned long long>(n) * results[level + 1];
     atomicExch((unsigned long long*)&results[level], temp);
     __threadfence_system();
     printf("n = %d, level = %d, result = %llu\n", n, level, results[level]);
 }
 
-// Host function for comparison
 unsigned long long factorialHost(int n) {
     if (n <= 1) return 1;
     return n * factorialHost(n - 1);
@@ -79,7 +56,7 @@ int main() {
     cudaDeviceGetLimit(&max_depth, cudaLimitDevRuntimeSyncDepth);
     cout << "Initial max recursion depth: " << max_depth << endl;
 
-    int requested_depth = 3; // Cap at 2 dynamic levels + 1
+    int requested_depth = n + 1;
     cudaError_t err = cudaDeviceSetLimit(cudaLimitDevRuntimeSyncDepth, requested_depth);
     if (err != cudaSuccess) {
         cout << "Failed to set recursion depth to " << requested_depth << ": " << cudaGetErrorString(err) << endl;
