@@ -11,5 +11,3 @@ Today's submissions:
 2. **L1 Norm**
 
 > [Click here](./L1_Norm_Competitive.cu) to redirect to the code.
-
-
