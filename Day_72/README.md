@@ -54,7 +54,7 @@ $$C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
 > - Device: **NVIDIA H100**
 >   - 🥳 Yayyy!! 
 
-- **Fourth Approach:** With warp-level reduction [Click Here](./mat_vect_4.cu) to view the code.
+- **Fourth Approach:** With warp-level reduction [Click Here](./mat_vect_5.cu) to view the code.
 
 > [!note]
 > - Performance: $798.03 \text{ GFLOPs}$
