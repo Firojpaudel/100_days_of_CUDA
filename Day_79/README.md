@@ -18,11 +18,16 @@ Just wrote a kernel for **Swish activation function**:
 > [Click Here](./swish2.cu) to redirect to the code.
 
 > [!note]
-> - Performance: $452.00 \text{ GFLOPs}$
-> - Runtime: $0.16 \text{ ms}$
+> - Performance: $408.00 \text{ GFLOPs}$
+> - Runtime: $0.18 \text{ ms}$
 > - GPU: **NVIDIA H100**
 
 3. Fall back to 4 elements per thread with device `__expf()` function and 128 threads per block.. 
 
 > [Click Here](./swish3.cu) to redirect to the code.
+
+> [!note]
+> - Performance: $452.00 \text{ GFLOPs}$
+> - Runtime: $0.16 \text{ ms}$
+> - GPU: **NVIDIA H100**
 
