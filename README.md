@@ -16,13 +16,6 @@ My learning resources:
 
 ---
 
-## 📚 Resources
-- <b>Books:</b>
-  - <b>Cuda By Example</b> — Jason Sandres, Edward Kandrot
-  - <b>PMPP (4th Edition)</b> — Wen-mei, David, Izzat
-
----
-
 <div align="center">
 
 <table>
