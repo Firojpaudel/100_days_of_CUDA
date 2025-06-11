@@ -337,207 +337,207 @@ My learning resources:
     </tr>
     <tr>
       <td>Day 60</td>
-      <td>Multi-head attention (MHA) in PyCUDA: implementation and explanation.</td>
+      <td>Multi-Head Self-Attention in Triton, initial implementation and notes.</td>
       <td><a href="./Day_60/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 61</td>
-      <td>Transformer layer: theory, implementation, and code structure.</td>
+      <td>Fixed and explained MHA Triton implementation, detailed kernel parameter breakdown.</td>
       <td><a href="./Day_61/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 62</td>
-      <td>GEMM-based convolution in CUDA: performance and optimization.</td>
+      <td>CUDA CNN inference kernel design, thread organization, grid mapping.</td>
       <td><a href="./Day_62/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 63</td>
-      <td>cuDNN convolution integration and benchmarking.</td>
+      <td>Explored cuDNN for DNN acceleration, convolution parameterization.</td>
       <td><a href="./Day_63/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 64</td>
-      <td>Training loop and loss calculation in CUDA.</td>
+      <td>Implemented Batch Norm with cuDNN, shared initial approach.</td>
       <td><a href="./Day_64/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 65</td>
-      <td>Model evaluation and accuracy metrics in CUDA projects.</td>
+      <td>Pooling forward pass (LeNet-5), memory layout discussion.</td>
       <td><a href="./Day_65/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 66</td>
-      <td>Fast Fourier Transform (FFT) in CUDA: implementation and use cases.</td>
+      <td>MRI image reconstruction, k-space, FFT, and scan strategies.</td>
       <td><a href="./Day_66/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 67</td>
-      <td>Fourier domain convolution for CNNs: theory and CUDA code.</td>
+      <td>Iterative MRI reconstruction, quasi-Bayesian estimation, large matrix challenges.</td>
       <td><a href="./Day_67/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 68</td>
-      <td>Memory access optimization in CUDA: strategies and results.</td>
+      <td>Step-by-step optimization of F^H D kernel for MRI, parallelization, atomic ops.</td>
       <td><a href="./Day_68/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 69</td>
-      <td>Dynamic parallelism in deep learning: CUDA techniques.</td>
+      <td>Dynamic Parallelism in CUDA, device kernel launches, recursion.</td>
       <td><a href="./Day_69/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 70</td>
-      <td>Optimized matrix multiplication for fully connected layers.</td>
+      <td>Tensara competition: Leaky ReLU and L1 Norm kernel submissions.</td>
       <td><a href="./Day_70/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 71</td>
-      <td>Thread coarsening in neural networks: CUDA implementation.</td>
+      <td>Tanh, Softmax, and Vector Addition (loop unrolling, shared memory) kernels.</td>
       <td><a href="./Day_71/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 72</td>
-      <td>Dropout layer implementation in CUDA: theory and code.</td>
+      <td>Matrix Scalar Multiplication and Matrix Vector Multiplication, performance notes.</td>
       <td><a href="./Day_72/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 73</td>
-      <td>Custom CUDA kernels for activation functions: implementation and performance.</td>
+      <td>GEMM with bias and ReLU activation: C = ReLU(A . W^T + b).</td>
       <td><a href="./Day_73/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 74</td>
-      <td>Im2Col optimization for convolution: efficient CUDA transformation.</td>
+      <td>Prefix Sum (Inclusive Scan), Diagonal Matrix Multiplication, ELU kernel.</td>
       <td><a href="./Day_74/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 75</td>
-      <td>Skip connections and residual blocks in deep networks.</td>
+      <td>Cumulative product kernels: naive, multi-kernel, performance analysis.</td>
       <td><a href="./Day_75/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 76</td>
-      <td>Memory-efficient feature map management in CUDA.</td>
+      <td>Fixed cumulative product with thrust, 4D/3D tensor matmul, cosine similarity.</td>
       <td><a href="./Day_76/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 77</td>
-      <td>Advanced gradient computation techniques for deep learning.</td>
+      <td>Hinge Loss, Hard Sigmoid, Huber Loss, SELU kernels; reached Tensara global rank 1.</td>
       <td><a href="./Day_77/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 78</td>
-      <td>Multi-GPU training implementation: strategies and code.</td>
+      <td>Swish activation function: multiple kernel approaches, benchmarking.</td>
       <td><a href="./Day_78/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 79</td>
-      <td>Attention mechanism implementation in CUDA projects.</td>
+      <td>RMS Normalization kernel and performance benchmarking.</td>
       <td><a href="./Day_79/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 80</td>
-      <td>LSTM layer implementation in CUDA: theory and code.</td>
+      <td>Optimized Frobenius Norm kernel and Mat-Mul kernel for high GFLOPs.</td>
       <td><a href="./Day_80/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 81</td>
-      <td>Memory pooling for dynamic neural networks in CUDA.</td>
-      <td><a href="./Day_81/README.md">README</a></td>
+      <td>Day missing or not documented.</td>
+      <td></td>
     </tr>
     <tr>
       <td>Day 82</td>
-      <td>Profiling and performance analysis of CUDA programs.</td>
+      <td>Softplus kernel and Min Over Dimension kernel, performance notes.</td>
       <td><a href="./Day_82/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 83</td>
-      <td>Custom memory allocator for neural networks in CUDA.</td>
+      <td>1D Convolution kernel for Tensara competition.</td>
       <td><a href="./Day_83/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 84</td>
-      <td>Quantization and low-precision computing in CUDA.</td>
+      <td>KL-Divergence kernel and benchmarking on Tensara.</td>
       <td><a href="./Day_84/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 85</td>
-      <td>Model checkpointing and loading in CUDA projects.</td>
+      <td>Improved vector addition and ReLU kernel for higher GFLOPs.</td>
       <td><a href="./Day_85/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 86</td>
-      <td>Advanced loss function implementation in CUDA.</td>
+      <td>Layer Normalization kernel on 4D Tensor, performance benchmarking.</td>
       <td><a href="./Day_86/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 87</td>
-      <td>Custom layer integration framework: extensibility in CUDA deep learning.</td>
+      <td>Improved Leaky ReLU and Lower Triangular Matrix Multiplication kernels.</td>
       <td><a href="./Day_87/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 88</td>
-      <td>Advanced optimization algorithms for CUDA deep learning.</td>
+      <td>Upper Triangular Matrix Multiplication kernel, performance notes.</td>
       <td><a href="./Day_88/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 89</td>
-      <td>Model architecture search: automation and CUDA strategies.</td>
+      <td>L2 Normalization and optimized KL divergence kernels.</td>
       <td><a href="./Day_89/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 90</td>
-      <td>Pipeline parallelism implementation in CUDA projects.</td>
+      <td>Symmetric Matrix Multiplication and GEMM with bias and ReLU kernels.</td>
       <td><a href="./Day_90/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 91</td>
-      <td>Performance tuning and benchmarking for CUDA code.</td>
+      <td>Triplet Margin Loss and optimized Softplus kernel.</td>
       <td><a href="./Day_91/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 92</td>
-      <td>Memory fragmentation handling in CUDA applications.</td>
+      <td>GELU kernel and performance benchmarking.</td>
       <td><a href="./Day_92/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 93</td>
-      <td>Advanced data preprocessing on GPU with CUDA.</td>
+      <td>Product Over a Dimension kernel: two implementations, performance notes.</td>
       <td><a href="./Day_93/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 94</td>
-      <td>Custom CUDA stream management: techniques and code.</td>
+      <td>2D Convolution kernel: naive, optimized, performance comparison.</td>
       <td><a href="./Day_94/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 95</td>
-      <td>Advanced error handling and recovery in CUDA.</td>
+      <td>MSE Loss kernel and performance on H100 and L40S GPUs.</td>
       <td><a href="./Day_95/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 96</td>
-      <td>Dynamic kernel configuration in CUDA: flexibility and performance.</td>
+      <td>MSE Loss kernel and performance on H100 and L40S GPUs.</td>
       <td><a href="./Day_96/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 97</td>
-      <td>Advanced memory access patterns in CUDA programming.</td>
+      <td>Sigmoid Activation Function kernel and performance notes.</td>
       <td><a href="./Day_97/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 98</td>
-      <td>Performance optimization case studies in CUDA.</td>
+      <td>Matrix Multiplication with Swish Activation and optimized L1 Norm kernel.</td>
       <td><a href="./Day_98/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 99</td>
-      <td>Final project: building a complete deep learning framework in CUDA.</td>
+      <td>2D Average Pooling and optimized MatMul kernel with half2 and __hfma2.</td>
       <td><a href="./Day_99/README.md">README</a></td>
     </tr>
     <tr>
       <td>Day 100</td>
-      <td>Advanced 2D operations and optimizations in CUDA.</td>
+      <td>2D Max Pooling kernel and challenge completion reflection.</td>
       <td><a href="./Day_100/README.md">README</a></td>
     </tr>
   </tbody>
