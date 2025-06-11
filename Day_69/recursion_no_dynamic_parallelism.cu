@@ -36,11 +36,6 @@ int main (){
         return 1;
     }
 
-    // if (n> 20){
-    //     cout << "Number to large limiting to 20" <<endl;
-    //     n= 20;
-    // }
-
     //Device Memory Allocation 
     unsigned long long* d_result;
     cudaMalloc(&d_result, sizeof(unsigned long long));
