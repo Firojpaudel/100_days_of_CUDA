@@ -13,13 +13,6 @@ My learning resources:
   <img src="https://img.shields.io/badge/Deep%20Learning-Projects-orange?style=for-the-badge&logo=deepin" alt="Deep Learning"/>
   <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge" alt="License"/>
 </p>
-
-<h1 align="center">100 Days of CUDA 🚀</h1>
-
-<p align="center" style="font-size:1.2em;">
-  <b>Challenging myself to master CUDA programming, from basics to advanced deep learning, in 100 days.</b>
-</p>
-
 ---
 
 ## 📚 Resources
