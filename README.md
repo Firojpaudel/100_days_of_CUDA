@@ -550,7 +550,6 @@ My learning resources:
 
 ---
 
-## 📊 Visual Summary
 <div align="center">
   <img src=https://www.svgrepo.com/show/373541/cuda.svg alt="Skill Icons" height="48"/>
   <img src="https://miro.medium.com/v2/resize:fit:1280/0*C4839mwCnQDzotdb" alt="Skill Icons" height="48"/>
