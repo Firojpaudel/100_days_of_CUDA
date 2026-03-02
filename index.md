@@ -19,88 +19,63 @@ title: 100 Days of CUDA
 ---
 
 <details markdown="1" open>
-<summary><b>Phase 1: CUDA Basics & Memory (Days 01 - 20)</b></summary>
-<div style="overflow-x:auto;">
-<table>
-  <thead>
-    <tr><th>Day</th><th>Curriculum & Highlights</th><th>Action</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>01-05</td><td>Setup, Hello World, Vector Add, Image Conversion, MatMul Intro.</td><td><a href="./Day_01/">View</a></td></tr>
-    <tr><td>06-10</td><td>Warps, Divergence, Occupancy, Memory Hierarchy.</td><td><a href="./Day_06/">View</a></td></tr>
-    <tr><td>11-15</td><td>Tiling, Dynamic Tiling, Coalescing, Thread Coarsening.</td><td><a href="./Day_11/">View</a></td></tr>
-    <tr><td>16-20</td><td>1D/2D Convolutions, Constant Memory, Halo Cells, Caching.</td><td><a href="./Day_16/">View</a></td></tr>
-  </tbody>
-</table>
-</div>
+<summary>Phase 1: CUDA Basics & Memory (Days 01 - 20)</summary>
+
+| Day | Curriculum & Highlights | Action |
+| :--- | :--- | :--- |
+| 01-05 | Setup, Hello World, Vector Add, Image Conversion, MatMul Intro. | [View](./Day_01/) |
+| 06-10 | Warps, Divergence, Occupancy, Memory Hierarchy. | [View](./Day_06/) |
+| 11-15 | Tiling, Dynamic Tiling, Coalescing, Thread Coarsening. | [View](./Day_11/) |
+| 16-20 | 1D/2D Convolutions, Constant Memory, Halo Cells, Caching. | [View](./Day_16/) |
+
 </details>
 
 <details markdown="1">
-<summary><b>Phase 2: Parallel Algorithms (Days 21 - 40)</b></summary>
-<div style="overflow-x:auto;">
-<table>
-  <thead>
-    <tr><th>Day</th><th>Curriculum & Highlights</th><th>Action</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>21-25</td><td>Stencil Ops, Parallel Histograms, Atomic Ops, Privatization.</td><td><a href="./Day_21/">View</a></td></tr>
-    <tr><td>26-30</td><td>Sum/Max Reduction, Shared Memory Optimizations, Prefix Scan.</td><td><a href="./Day_26/">View</a></td></tr>
-    <tr><td>31-35</td><td>Kogge-Stone, Brent-Kung, Hierarchical Scan.</td><td><a href="./Day_31/">View</a></td></tr>
-    <tr><td>36-40</td><td>Parallel Merge, Co-ranks, Radix Sort Implementation.</td><td><a href="./Day_36/">View</a></td></tr>
-  </tbody>
-</table>
-</div>
+<summary>Phase 2: Parallel Algorithms (Days 21 - 40)</summary>
+
+| Day | Curriculum & Highlights | Action |
+| :--- | :--- | :--- |
+| 21-25 | Stencil Ops, Parallel Histograms, Atomic Ops, Privatization. | [View](./Day_21/) |
+| 26-30 | Sum/Max Reduction, Shared Memory Optimizations, Prefix Scan. | [View](./Day_26/) |
+| 31-35 | Kogge-Stone, Brent-Kung, Hierarchical Scan. | [View](./Day_31/) |
+| 36-40 | Parallel Merge, Co-ranks, Radix Sort Implementation. | [View](./Day_36/) |
+
 </details>
 
 <details markdown="1">
-<summary><b>Phase 3: Sparse Matrices, Graphs & ML Ops (Days 41 - 60)</b></summary>
-<div style="overflow-x:auto;">
-<table>
-  <thead>
-    <tr><th>Day</th><th>Curriculum & Highlights</th><th>Action</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>41-45</td><td>COO, CSR, ELL, Hybrid ELL-COO, JDS Formats.</td><td><a href="./Day_41/">View</a></td></tr>
-    <tr><td>46-50</td><td>Parallel BFS, Vertex/Edge Centric Traversal, Frontiers.</td><td><a href="./Day_46/">View</a></td></tr>
-    <tr><td>51-55</td><td>CNN Intro, Forward Pass, Backpropagation Kernels.</td><td><a href="./Day_51/">View</a></td></tr>
-    <tr><td>56-60</td><td>PyCUDA Integration, Matrix Inversion, Batch/Layer Norm.</td><td><a href="./Day_56/">View</a></td></tr>
-  </tbody>
-</table>
-</div>
+<summary>Phase 3: Sparse Matrices, Graphs & ML Ops (Days 41 - 60)</summary>
+
+| Day | Curriculum & Highlights | Action |
+| :--- | :--- | :--- |
+| 41-45 | COO, CSR, ELL, Hybrid ELL-COO, JDS Formats. | [View](./Day_41/) |
+| 46-50 | Parallel BFS, Vertex/Edge Centric Traversal, Frontiers. | [View](./Day_46/) |
+| 51-55 | CNN Intro, Forward Pass, Backpropagation Kernels. | [View](./Day_51/) |
+| 56-60 | PyCUDA Integration, Matrix Inversion, Batch/Layer Norm. | [View](./Day_56/) |
+
 </details>
 
 <details markdown="1">
-<summary><b>Phase 4: Triton, cuDNN & Advanced MRI (Days 61 - 80)</b></summary>
-<div style="overflow-x:auto;">
-<table>
-  <thead>
-    <tr><th>Day</th><th>Curriculum & Highlights</th><th>Action</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>61-65</td><td>MHA Triton, CNN Inference, cuDNN Integration, LeNet-5.</td><td><a href="./Day_61/">View</a></td></tr>
-    <tr><td>66-70</td><td>MRI Reconstruction, FFT Kernels, Dynamic Parallelism.</td><td><a href="./Day_66/">View</a></td></tr>
-    <tr><td>71-75</td><td>Tensara Prep: Softmax, GEMM with Bias/ReLU, Inclusive Scan.</td><td><a href="./Day_71/">View</a></td></tr>
-    <tr><td>76-80</td><td>Thrust, 4D Tensor MatMul, Swish Activation, RMS Norm.</td><td><a href="./Day_76/">View</a></td></tr>
-  </tbody>
-</table>
-</div>
+<summary>Phase 4: Triton, cuDNN & Advanced MRI (Days 61 - 80)</summary>
+
+| Day | Curriculum & Highlights | Action |
+| :--- | :--- | :--- |
+| 61-65 | MHA Triton, CNN Inference, cuDNN Integration, LeNet-5. | [View](./Day_61/) |
+| 66-70 | MRI Reconstruction, FFT Kernels, Dynamic Parallelism. | [View](./Day_66/) |
+| 71-75 | Tensara Prep: Softmax, GEMM with Bias/ReLU, Inclusive Scan. | [View](./Day_71/) |
+| 76-80 | Thrust, 4D Tensor MatMul, Swish Activation, RMS Norm. | [View](./Day_76/) |
+
 </details>
 
 <details markdown="1">
-<summary><b>Phase 5: Competition & Final Completion (Days 81 - 100)</b></summary>
-<div style="overflow-x:auto;">
-<table>
-  <thead>
-    <tr><th>Day</th><th>Curriculum & Highlights</th><th>Action</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>81-85</td><td>Softplus, 1D Conv, KL-Divergence, High-Performance ReLU.</td><td><a href="./Day_81/">View</a></td></tr>
-    <tr><td>86-90</td><td>Layer Norm (4D), Tri-MatMul, Symmetric MatMul, GEMM+.</td><td><a href="./Day_86/">View</a></td></tr>
-    <tr><td>91-95</td><td>Triplet Margin Loss, GELU, MSE Loss Performance.</td><td><a href="./Day_91/">View</a></td></tr>
-    <tr><td>96-100</td><td>Sigmoid Performance, 2D Pooling, Challenge Completion.</td><td><a href="./Day_96/">View</a></td></tr>
-  </tbody>
-</table>
-</div>
+<summary>Phase 5: Competition & Final Completion (Days 81 - 100)</summary>
+
+| Day | Curriculum & Highlights | Action |
+| :--- | :--- | :--- |
+| 81-85 | Softplus, 1D Conv, KL-Divergence, High-Performance ReLU. | [View](./Day_81/) |
+| 86-90 | Layer Norm (4D), Tri-MatMul, Symmetric MatMul, GEMM+. | [View](./Day_86/) |
+| 91-95 | Triplet Margin Loss, GELU, MSE Loss Performance. | [View](./Day_91/) |
+| 96-100 | Sigmoid Performance, 2D Pooling, Challenge Completion. | [View](./Day_96/) |
+
 </details>
 
 ---

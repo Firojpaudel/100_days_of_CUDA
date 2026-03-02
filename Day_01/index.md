@@ -78,14 +78,12 @@ If you encounter an error about `cl.exe` not being found, add the following path
 - `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\Hostx64\x64`
 - `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\bin\Hostx64\x64\cl.exe`
 
-<details>
-    <summary>
-     <b>* Explaining the device code</b>
-    </summary>
-    <ul>
-        <li>The syntax <code>__global__ void kernel(void)</code> defines a function called <code>kernel</code> that runs on the GPU. The <code>__global__</code> keyword indicates that this function can be called from the host (CPU) and will execute on the device (GPU).</li>
-        <li>The triple angle brackets <code>&lt;&lt;&lt;1, 1&gt;&gt;&gt;</code> specify the execution configuration for the kernel, where the first parameter is the number of thread blocks and the second parameter is the number of threads per block.</li>
-    </ul>
+<details markdown="1">
+<summary>Explaining the device code</summary>
+
+- The syntax `__global__ void kernel(void)` defines a function called `kernel` that runs on the GPU. The `__global__` keyword indicates that this function can be called from the host (CPU) and will execute on the device (GPU).
+- The triple angle brackets `<<<1, 1>>>` specify the execution configuration for the kernel, where the first parameter is the number of thread blocks and the second parameter is the number of threads per block.
+
 </details>
 
 ---
