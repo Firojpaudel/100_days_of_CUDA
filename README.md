@@ -2,7 +2,7 @@
 Challenging myself to learn CUDA (Basics ⇾ Intermediate) these 100 days. 
 
 > [!TIP]
-> **View these notes as a beautifully rendered webpage at [cuda.firojpaudel.com.np](https://cuda.firojpaudel.com.np)** ✨
+> **View these notes as a beautifully rendered webpage at [cuda.firojpaudel.com.np](https://cuda.firojpaudel.com.np)**
 
 My learning resources: 
 1. **Books**:
