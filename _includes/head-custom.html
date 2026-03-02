@@ -4,6 +4,7 @@
 <link
   href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
   rel="stylesheet">
+<link rel="icon" type="image/png" href="https://www.nvidia.com/favicon.ico">
 
 <!-- Highlight.js for IDE-style syntax highlighting -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
@@ -165,10 +166,23 @@
         el.style.setProperty('color', '#ffffff', 'important');
       });
     });
-    // 5. Transform GitHub Link to Premium Logo
     function transformGitHubLink() {
       const ghLinkStr = "View the Project on GitHub";
       const headerLinks = document.querySelectorAll('header a');
+      const header = document.querySelector('header');
+
+      // Add NVIDIA Logo to Header if not present
+      if (header && !document.getElementById('nvidia-brand-logo')) {
+        const logoDiv = document.createElement('div');
+        logoDiv.id = 'nvidia-brand-logo';
+        logoDiv.style.cssText = "position: absolute; top: 20px; right: 40px; opacity: 0.8; transition: opacity 0.3s; cursor: pointer;";
+        logoDiv.innerHTML = `<svg viewBox="0 0 24 24" width="40" height="40" fill="#76b900"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6z"/></svg>`;
+        logoDiv.onclick = () => window.open('https://www.nvidia.com/en-us/technologies/cuda/', '_blank');
+        logoDiv.onmouseover = () => logoDiv.style.opacity = "1";
+        logoDiv.onmouseout = () => logoDiv.style.opacity = "0.8";
+        header.appendChild(logoDiv);
+      }
+
       headerLinks.forEach(link => {
         if (link.textContent.includes(ghLinkStr)) {
           link.innerHTML = `
