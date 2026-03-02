@@ -77,7 +77,7 @@ Stencil operations - critical for solving PDEs in fluid dynamics, weather modeli
         inCurr_s[threadIdx.y][threadIdx.x] = inNext_s[threadIdx.y][threadIdx.x];
     }
     ```
-<details>
+<details markdown="1">
 <summary>Detailed breakdown of the kernel code (Click to expand)</summary>
 
 ### Kernel Function Signature

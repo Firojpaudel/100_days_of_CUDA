@@ -18,7 +18,7 @@ title: 100 Days of CUDA
 
 ---
 
-<details open>
+<details markdown="1" open>
 <summary><b>Phase 1: CUDA Basics & Memory (Days 01 - 20)</b></summary>
 <div style="overflow-x:auto;">
 <table>
@@ -35,7 +35,7 @@ title: 100 Days of CUDA
 </div>
 </details>
 
-<details>
+<details markdown="1">
 <summary><b>Phase 2: Parallel Algorithms (Days 21 - 40)</b></summary>
 <div style="overflow-x:auto;">
 <table>
@@ -52,7 +52,7 @@ title: 100 Days of CUDA
 </div>
 </details>
 
-<details>
+<details markdown="1">
 <summary><b>Phase 3: Sparse Matrices, Graphs & ML Ops (Days 41 - 60)</b></summary>
 <div style="overflow-x:auto;">
 <table>
@@ -69,7 +69,7 @@ title: 100 Days of CUDA
 </div>
 </details>
 
-<details>
+<details markdown="1">
 <summary><b>Phase 4: Triton, cuDNN & Advanced MRI (Days 61 - 80)</b></summary>
 <div style="overflow-x:auto;">
 <table>
@@ -86,7 +86,7 @@ title: 100 Days of CUDA
 </div>
 </details>
 
-<details>
+<details markdown="1">
 <summary><b>Phase 5: Competition & Final Completion (Days 81 - 100)</b></summary>
 <div style="overflow-x:auto;">
 <table>
