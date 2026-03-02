@@ -432,7 +432,6 @@ My learning resources:
       <td>Frobenius Normalization implementation.</td>
       <td><a href="./Day_81/">README</a></td>
     </tr>
-
     <tr>
       <td>Day 82</td>
       <td>Softplus kernel and Min Over Dimension kernel, performance notes.</td>
