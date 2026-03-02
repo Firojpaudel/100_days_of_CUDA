@@ -3,10 +3,7 @@ layout: default
 title: 100 Days of CUDA
 ---
 
-# 100_days_of_CUDA
-Challenging myself to learn CUDA (Basics ⇾ Intermediate) these 100 days. 
-
-My learning resources: 
+## My learning resources: 
 1. **Books**:
     - **Cuda By Example** _An Introduction to General-Purpose GPU Programming_ — Jason Sandres, Edward Kandrot
     - **PMPP**; _*4th Edition_ — Wen-mei, David, Izzat
@@ -105,8 +102,6 @@ My learning resources:
 </table>
 </div>
 </details>
-
-</div>
 
 ---
 
