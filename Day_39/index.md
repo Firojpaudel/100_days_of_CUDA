@@ -1,8 +1,3 @@
----
-title: Day 39
-layout: default
----
-
 ## Summary of Day 39:
 
 > *Exercises from chapter 12- Merge
@@ -14,7 +9,7 @@ layout: default
 ***Solution:***
 
 First, let's merge the the lists $A$ and $B$:
-$$C= (1,7,7,8,9,10,10,10,12)$$
+$$C= (1,7,7,8,9,10,10,10,12)```math
 
 Here, the $8^\text{th}$ element of $C$ is :
 
@@ -41,7 +36,7 @@ At position $3$ in list $C$, we have $C[3] =8$.
 
 So same as in qn 1, A= (1, 7, 8) and from B= (7). 
 
-$$\therefore \space\text{co-rank would be}\space (3,1) $$
+```\therefore \space\text{co-rank would be}\space (3,1) $$
 
 3. For the for-loops that load A and B tiles in code below, add a call to the co-rank function so that we can load only the $A$ and $B$ elements that will be consumed in the current generation of the while-loop.
 ```cpp
@@ -418,4 +413,4 @@ Let's use figure above as an example. We have a list of $4$-bit integers that we
     - Finally, we repeat the process, considering the most significant bit (MSB), which is the leftmost bit.
     - After this iteration, the numbers are fully sorted by all four bits.
 
-> [Click Here](./radix_sort_normie.cu) to redirect towards a simple radix sort implementation. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_39/radix_sort_normie.cu) to redirect towards a simple radix sort implementation. 

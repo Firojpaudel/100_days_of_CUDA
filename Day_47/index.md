@@ -1,8 +1,3 @@
----
-title: Day 47
-layout: default
----
-
 ## Summary of Day 47:
 
 > * Chapter 15- Graph Traversal Starts
@@ -89,7 +84,7 @@ graph LR
 ```
 Simple as that. 
 
->*[Click Here](./bfs_simple.cu) to redirect towards a simple BFS kernel implementation*. 
+>*[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_47/bfs_simple.cu) to redirect towards a simple BFS kernel implementation*. 
 >
 > It's output looks like this:
 >```shell

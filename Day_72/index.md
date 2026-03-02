@@ -1,8 +1,3 @@
----
-title: Day 72
-layout: default
----
-
 ## Summary of Day 72:
 
 > *Still grinding the leaderboards...
@@ -11,20 +6,20 @@ layout: default
 
 1. **Matrix Scalar Multiplication**:
 
-    $$C[i][j] = A[i][j] \cdot s$$
+    $$C[i][j] = A[i][j] \cdot s```math
 
     Where, $s$ is scalar value. 
 
     > Taking input as a square matrix.
 
-- **Fist Approach:** Normal with Blocksize of 32: [Click Here](./matrix_scalar_1.cu) to access the code.
+- **Fist Approach:** Normal with Blocksize of 32: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/matrix_scalar_1.cu) to access the code.
 
 > [!note]
 > - Performance: $2390.3 \text{ GFLOPs}$
 > - Runtime: $0.37 \text{ ms}$
 > - Device: **NVIDIA H100**
 
-- **Second Approach:** Adding shared memory in the same code: [Click Here](./matrix_scalar2.cu) to access the code.
+- **Second Approach:** Adding shared memory in the same code: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/matrix_scalar2.cu) to access the code.
 
 > [!note]
 > - Performance: $217.42 \text{ GFLOPs}$
@@ -34,16 +29,16 @@ layout: default
 
 2. **Matrix Vector Multiplication:**
 
-$$C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
+```C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
 
-- **First Approach:** Simple: [Click Here](./mat_vect_1.cu) to view the code.
+- **First Approach:** Simple: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_1.cu) to view the code.
 
 > [!note]
 > - Performance: $24.87 \text{ GFLOPs}$
 > - Runtime: $2.46 \text{ ms}$
 > - Device: **NVIDIA H100**
 
-- **Second Approach:** Using atomic add: [Click Here](./mat_vect_2.cu) to view the code.
+- **Second Approach:** Using atomic add: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_2.cu) to view the code.
 
 > [!note]
 > - Performance: $254.17 \text{ GFLOPs}$
@@ -51,7 +46,7 @@ $$C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
 > - Device: **NVIDIA H100**
 >   - Wayyy Better
 
-- **Third Approach**: Shared Memory with partial sum: [Click Here](./mat_vect_3.cu) to view the code.
+- **Third Approach**: Shared Memory with partial sum: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_3.cu) to view the code.
 
 > [!note]
 > - Performance: $761.22 \text{ GFLOPs}$
@@ -59,7 +54,7 @@ $$C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
 > - Device: **NVIDIA H100**
 >   - 🥳 Yayyy!! 
 
-- **Fourth Approach:** With warp-level reduction [Click Here](./mat_vect_5.cu) to view the code.
+- **Fourth Approach:** With warp-level reduction [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_5.cu) to view the code.
 
 > [!note]
 > - Performance: $798.03 \text{ GFLOPs}$
@@ -67,7 +62,7 @@ $$C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
 > - Device: **NVIDIA H100**
 >   - 💪 Yass!! 
 
-- **Fifth Approach:** With loop unrolling and Warp-=level reduction: [Click Here](./mat_vect_4.cu) to view the code.
+- **Fifth Approach:** With loop unrolling and Warp-=level reduction: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_4.cu) to view the code.
 
 > [!note]
 > - Performance: $1.14 \text{ TFLOPs}$

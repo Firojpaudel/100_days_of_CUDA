@@ -1,8 +1,3 @@
----
-title: Day 19
-layout: default
----
-
 ## Summary of Day 19:
 
 > **Chapter 7 continue*

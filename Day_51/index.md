@@ -1,8 +1,3 @@
----
-title: Day 51
-layout: default
----
-
 ## Summary of Day 51:
 
 > *Starting of Chapter 16- Deep Learning
@@ -11,7 +6,7 @@ layout: default
 >
 > **Core Equation**:  
 > Most machine learning tasks use:  
-> $$y = Wx + b$$  
+> $$y = Wx + b```math
 > - $W$: Weight matrix  
 > - $x$: Input  
 > - $b$: Bias  
@@ -127,7 +122,7 @@ Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convol
 3. **Fully Connected Layers**:  
    - **Role**: Combine high-level features for classification.  
    - **Math**:  
-     $$Y = W \cdot X + b$$  
+```Y = W \cdot X + b```math
      - $W$: Weight matrix, $X$: Input, $b$: Bias.  
 
 ---
@@ -148,17 +143,17 @@ Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convol
 1. **Supervised Learning**:  
    - **Input**: Labeled data (e.g., images tagged with digits).  
    - **Error Function**:  
-     $$E = \frac{(y - t)^2}{2}$$  
+```E = \frac{(y - t)^2}{2}```math
      - $y$: Predicted output, $t$: True label.  
 
 2. **Stochastic Gradient Descent (SGD)**:  
    - **Update Rule**:  
-     $$w_i = w_i - \epsilon \frac{\partial E}{\partial w_i}$$  
+```w_i = w_i - \epsilon \frac{\partial E}{\partial w_i}```math
      - $\epsilon$: Learning rate.  
 
 3. **Backpropagation**:  
    - Computes gradients via chain rule:  
-     $$\frac{\partial E}{\partial w_i} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial w_i}$$  
+```\frac{\partial E}{\partial w_i} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial w_i}$$  
    - Propagates errors backward to adjust weights.  
 
 ___
@@ -171,4 +166,4 @@ ___
 ---
 Okay, enough of theory, let's code as well. This time first write some code based on C *(not going into kernels and parallization yet!)* 
 
-[Click Here](./CNN_implementation.cu) to redirect to the code implementation. 
+[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_51/CNN_implementation.cu) to redirect to the code implementation. 

@@ -1,8 +1,3 @@
----
-title: Day 20
-layout: default
----
-
 ## Summary of Day 20
 
 > **Ending Chapter 7*
@@ -47,7 +42,7 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 2. Convolution is applied using shared memory (for tile) and L2 cache or global memory (for halo).
 3. The output is stored in global memory, ready for the next step.
 
-> [Click Here](./tiled_2D_with_cache.cu) to view the modified code. Modified on yesterday.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_20/tiled_2D_with_cache.cu) to view the modified code. Modified on yesterday.
 
 ---
 
@@ -72,9 +67,9 @@ In traditional tiled convolution, each block loads an input tile into shared mem
     </div>
 
     Then using  the function provided; 
-$$
+```math
 \text{y}[0] =  0 \times 1 + 0 \times 3 + 8 \times 5 + 2 \times 3 + 5 \times 1 = 40 + 6 + 5 = \boxed{51}
-$$
+```
 
 2. Consider performing a 1D convolution on array $\text{N} = \{4,1,3,2,3\}$ with filter $\text{F}= \{2,1,4\}$. What is the resulting output array?
 

@@ -1,8 +1,3 @@
----
-title: Day 12
-layout: default
----
-
 ## Summary of Day 12:
 
  > *First explanation of the code  of yesterday's "the tiled matrix multiplication" code.
@@ -97,9 +92,9 @@ Boundary condition handling for non-divisible matrix sizes
     3. **Compute Characteristics:**
         - *Operational intensity:* $O(n)$ operations per byte
         - *Theoretical peak performance:*
-$$
+```math
 \text{GFLOPS} = \frac{2 \times N^3}{\text{time taken}} \times 10^{-9}
-$$
+```
 
 > This implementation demonstrates effective heterogeneous computing by:
 >- Leveraging CPU strengths for small problems
@@ -148,7 +143,7 @@ $$
         // Mds[ty * tile_width + tx] instead of Mds[ty][tx]
     }
     ```
-    > For Full Implementation, [Click Here](./Day_12_updated_code.cu)
+    > For Full Implementation, [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_12/Day_12_updated_code.cu)
 
 3. **Performance Optimization Strategy**
 

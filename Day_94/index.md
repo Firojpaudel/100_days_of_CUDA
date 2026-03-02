@@ -1,20 +1,15 @@
----
-title: Day 94
-layout: default
----
-
 ## Summary of Day 94:
 
 Today's Kernel: **Product Over a Dimension**
 
-> [Click Here](./product_over_dim_1.cu) to redirect to code implementation 1 that uses cooperative groups.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_94/product_over_dim_1.cu) to redirect to code implementation 1 that uses cooperative groups.
 
 > [!note]
 > - Performance: $713.60 \text{ GFLOPs}$
 > - Runtime: $0.07 \text{ ms}$
 > - GPU: **NVIDIA H100**
 
-> [Click Here](./product_over_dim_2.cu) to redirect to code implementation 2.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_94/product_over_dim_2.cu) to redirect to code implementation 2.
 
 > [!note]
 > - Performance: $5.13 \text{ TFLOPs}$

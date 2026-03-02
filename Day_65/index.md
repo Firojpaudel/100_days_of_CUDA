@@ -1,8 +1,3 @@
----
-title: Day 65
-layout: default
----
-
 ## Summary of Day 65:
 
 > *Exercises from Chapter 16
@@ -31,14 +26,14 @@ In case of LeNet-5, we use average pooling over a $2 \times 2$ neighborhood with
 
 - **Output:** Now after applying the pooling filter — A $3D$ array $Y[C, H/2, W/2]$ with the same number of feature maps $(C)$, but well it reduced the spatial dimension. For $S2$, its $Y[6, 14,14]$. 
 
-> [Click Here](./pooling_fwd.cu) to redirect towards the code implementation for this.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_65/pooling_fwd.cu) to redirect towards the code implementation for this.
 
 #### Qn 2. We used an $[N \times C \times H \times W]$ layout for input and output features. Can we reduce the memory bandwidth by changing it to an $[N \times H \times W \times C]$ layout? What are potential benefits of using a $[C \times H \times W \times N]$ layout?
 
 ***Solution:***
 
 Our Current Layout is:
-$$[N \times C \times H \times W]$$
+$$[N \times C \times H \times W]```math
 *which means:*
 
 The data is stored with $N$ as the outermost dimension, followed by $C$, then $H$ and $W$ as the innermost dimension. 
@@ -64,7 +59,7 @@ In code during average calculation *(during pooling)* we had:
     - This is **not fully coalesced** because adjacent threads (example: incrementing `w`) access memory locations separated by `W` leading to suboptimal memory bandwidth usage.
 
 ***Proposed Layout 1:***
-$$[N \times H \times W \times C]$$
+```[N \times H \times W \times C]```math
 
 >[!note]
 >*which means:*
@@ -88,7 +83,7 @@ sum += X[n * (H * W * C) + in_h * (W * C) + in_w * C + m];
 > This approach uses more bandwidth because the GPU has to work harder to fetch scattered data. A single fetch ($128$ bytes = $32$ floats) can’t cover the $168$ -spot row jump or even the $6$ - spot `w` jump efficiently.
 
 ***Proposed Layout 2:***  
-$$[C \times H \times W \times N]$$
+```[C \times H \times W \times N]$$
 
 >[!note]  
 >*Which means:*  

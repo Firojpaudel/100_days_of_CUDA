@@ -1,8 +1,3 @@
----
-title: Day 50
-layout: default
----
-
 ## Summary of Day 50:
 
 > *Reducing contention with Privatization
@@ -56,7 +51,7 @@ So, above **Figure 50_01**, works like this:
     - After all threads have finished processing, one thread allocates space in the global frontier for all elements in the local frontier.
     - Threads then copy elements from `currFrontier_s` to `currFrontier` using coalesced memory accesses.
 
-> [Click Here](./privatization.cu) to redirect towards code implementation.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_50/privatization.cu) to redirect towards code implementation.
 
 ---
 ***Exercise***:

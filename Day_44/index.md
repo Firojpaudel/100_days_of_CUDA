@@ -1,8 +1,3 @@
----
-title: Day 44
-layout: default
----
-
 ## Summary of Day 44:
 
 > *Starting from **CSR**  format :) 
@@ -69,7 +64,7 @@ __global__ void spmv_csr_kernel(CSRMatrix csrMatrix, float* x, float* y) {
     }
 }
 ```
-> [Click Here](./CSR_Implementation.cu) for full CSR implementation.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_44/CSR_Implementation.cu) for full CSR implementation.
 
 If we compare this kernel with previous **COO** implementation; 
 
@@ -79,7 +74,7 @@ If we compare this kernel with previous **COO** implementation;
     - Memory access pattern is random as elements are stored in `(row, col, value)` format without row-wise ordering.
     - ***Performance Bottleneck***: High contention due to frequent `atomicAdd` operations.
 
-2. [**CSR Implementation:**](./CSR_Implementation.cu)
+2. [**CSR Implementation:**](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_44/CSR_Implementation.cu)
     - Each row of the matrix is assigned to a thread.
     - The thread iterates through the row’s nonzero elements using row pointers (`rowPtrs`), accumulating the result in a local variable sum, which is finally written to `y[row]`.
     - No atomic operations are needed since a single thread computes the full sum for a row.

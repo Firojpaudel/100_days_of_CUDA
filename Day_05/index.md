@@ -1,8 +1,3 @@
----
-title: Day 05
-layout: default
----
-
 ## Summary of Day 05:
 
 ### Chapter_04: Compute Architecture and Scheduling 
@@ -64,7 +59,7 @@ As explained earlier, barrier synchronization makes sure that all threads in a b
 
 - Threads in different blocks cannot use `__syncthreads()` to synchronize with each other. There's a workaround, but has so many catch.
 
-Example Code to show `__syncthreads()` in action. — [Click Here](./barrier_sync.cu)to redirect.
+Example Code to show `__syncthreads()` in action. — [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_05/barrier_sync.cu)to redirect.
  
 Okay so in the code, I've implemented the kernel functions for both correct and incorrect implementation in the code mentioned above. The correct kernel uses `__syncthreads()` properly by ensuring that all threads in the block reach the barrier, resulting in the expected output. In contrast, the incorrect kernel conditionally calls `__syncthreads()` only for threads with an index less than 5. This violates the rule that every thread in a block must participate in the barrier, leading to undefined behavior.
 

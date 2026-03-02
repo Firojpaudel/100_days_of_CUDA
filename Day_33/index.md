@@ -1,8 +1,3 @@
----
-title: Day 33
-layout: default
----
-
 ## Summary of Day: 33
 
 > *Coarsening for Even More Work Efficiency:

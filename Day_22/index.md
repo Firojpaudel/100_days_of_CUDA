@@ -1,8 +1,3 @@
----
-title: Day 22
-layout: default
----
-
 ## Summary of Day 22:
 
 > _*Starting of Thread Coarsening_
@@ -156,7 +151,7 @@ Stencil operations - critical for solving PDEs in fluid dynamics, weather modeli
     This shifts the stencil window, making the next iteration efficient.
 </details>
 
-> [Click Here](./thread_coarsening1.cu) to redirect to the full code implementation. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_22/thread_coarsening1.cu) to redirect to the full code implementation. 
 
 > ***Output looks like:***
 > ```shell
@@ -244,7 +239,7 @@ Stencil operations - critical for solving PDEs in fluid dynamics, weather modeli
         }
     }
     ```
-    > For Full Code implementation of this [Click Here](./thread_coarsening2.cu)
+    > For Full Code implementation of this [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_22/thread_coarsening2.cu)
 
 > ***Output looks like:***
 > ```shell

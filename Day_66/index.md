@@ -1,8 +1,3 @@
----
-title: Day 66
-layout: default
----
-
 ## Summary of Day 66:
 
 > *Starting new chapter- Chapter 17

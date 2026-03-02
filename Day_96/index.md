@@ -1,13 +1,8 @@
----
-title: Day 96
-layout: default
----
-
 ## Summary of Day 96:
 
 Today's kernel: **MSE Loss**
 
-> [Click Here](./mse_loss.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_96/mse_loss.cu) to redirect to the code.
 
 > [!note]
 > 1. GPU: **H100**

@@ -1,8 +1,3 @@
----
-title: Day 99
-layout: default
----
-
 ## Summary of Day 99: 
 
 > 1 Day left 🔥
@@ -11,7 +6,7 @@ Today's kernels:
 
 1. **2D Average Pooling**:
 
-> [Click Here](./2d_avg_pool.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_99/2d_avg_pool.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $962 \text{ GFLOPs}$
@@ -23,7 +18,7 @@ Today's kernels:
 >[!tip]
 > This time I used __hfma2 and half2
 
-> [Click Here](./optimized_matmul.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_99/optimized_matmul.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $38.4 \text{ TFLOPs}$ 🔥

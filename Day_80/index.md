@@ -1,13 +1,8 @@
----
-title: Day 80
-layout: default
----
-
 ## Summary of Day 80:
 
 Today I wrote a kernel for RMS Normalization:
 
-> [Click Here](./rms.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_80/rms.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $512.36 \text{ GFLOPs}$

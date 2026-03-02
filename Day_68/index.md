@@ -1,8 +1,3 @@
----
-title: Day 68
-layout: default
----
-
 ## Summary of Day 68:
 
 > Optimizing the $F^H D$ kernel step by step approach:
@@ -243,4 +238,4 @@ So we need to reduce the memory traffic.
 >- **Tuning**: Threads and unrolling for max performance.
 
 Now let's create the most optimized $F^H D$ kernel:
-> [Click Here](./optimized_FHD.cu) to redirect towards the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_68/optimized_FHD.cu) to redirect towards the code.

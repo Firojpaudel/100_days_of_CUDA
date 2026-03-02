@@ -1,8 +1,3 @@
----
-title: Day 07
-layout: default
----
-
 ## Summary of Day 07:
 
 > *Continuation of Control Divergence
@@ -15,7 +10,7 @@ layout: default
 
 1. If-Else Divergence
 
-Example Code : [Click here](./if-else_diverge.cu) to redirect.
+Example Code : [Click here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_07/if-else_diverge.cu) to redirect.
 
 **_Output of the code:_**
 ```shell
@@ -39,7 +34,7 @@ Thread 9: Value = 27
 
 2. For-Loop Divergence
 
-Example implementation of Code: [Click Here](./loops_warp_divergence.cu) to redirect.
+Example implementation of Code: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_07/loops_warp_divergence.cu) to redirect.
 
 _**Output of the above implementation code:**_
 

@@ -1,8 +1,3 @@
----
-title: Day 25
-layout: default
----
-
 ## Summary of Day 25:
 
 > * Starting from 9.3 onwards
@@ -61,7 +56,7 @@ layout: default
         <p><b>Fig 25_03: </b><i>Interleaved Partitioning</i></p>
         </div>
 
-    > [Click Here](./coarserning.cu) _to redirect to example code that uses CUDA Histogram with Shared Memory Coarsening with both **Contiguous and Interleaving Kernels**.Interleaved Partitioning_
+    > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_25/coarserning.cu) _to redirect to example code that uses CUDA Histogram with Shared Memory Coarsening with both **Contiguous and Interleaving Kernels**.Interleaved Partitioning_
 
 #### Aggregation
 - *Purpose:* Reduce contention by aggregating updates locally before committing them to the histogram.

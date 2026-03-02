@@ -1,8 +1,3 @@
----
-title: Day 53
-layout: default
----
-
 ## Summary of Day 53:
 
 > *Going for Triton based CNN implementation

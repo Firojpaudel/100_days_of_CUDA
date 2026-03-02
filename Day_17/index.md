@@ -1,8 +1,3 @@
----
-title: Day 17
-layout: default
----
-
 ## Summary of Day 17:
 
 >* Starting from Parallel Convolution:
@@ -13,7 +8,7 @@ Convolution is highly parallelizable since each output element can be computed i
 
 ##### Trying to implement 2D Conv Kernel: _Inspired by Parallel Matrix Multiplication_
 
-> To view the code implementation, [Click Here](./2D_convo.cu)
+> To view the code implementation, [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_17/2D_convo.cu)
 > Output of the code:
 > ```shell
 > Convolution result:
@@ -77,6 +72,6 @@ Convolution is highly parallelizable since each output element can be computed i
 
 #### Trying to Implement a Simple Image Convolution Kernel:
 
-> _The code is in_ [image_conv](./image_conv.cu).
+> _The code is in_ [image_conv](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_17/image_conv.cu).
 
 

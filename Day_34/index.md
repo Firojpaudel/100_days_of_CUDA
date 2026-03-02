@@ -1,8 +1,3 @@
----
-title: Day 34
-layout: default
----
-
 ## Summary of Day 34:
 
 > ****Continuing yesterdays:***
@@ -15,12 +10,12 @@ layout: default
 >3. **Phase 3**: $O(N/T)$ work per thread for propagation.
 >
 >***Overall Complexity:***
->$$
+>```math
 >O(\frac{N}{T} + \log T)
 >```
 
 ***Code Example:***
-> *[Click Here](./coarsening.cu) to redirect towards the code implementation for Coarsening.*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_34/coarsening.cu) to redirect towards the code implementation for Coarsening.*
 
 <blockquote style="border-left: 6px solid #2196F3; padding: 10px;">
   ⓘ <strong>Note:</strong> Since there are three phases, it's also called as <strong>Three Phase Scan Algo</strong>.
@@ -77,7 +72,7 @@ The hierarchical scan solves these issues by:
 
 Here, 
 **Input Array**:
-$$text
+```text
 [2, 1, 3, 1, 0, 4, 1, 2, 0, 3, 1, 2, 5, 3, 1, 2] → (X)
 ```
 Again as Before, *(we called Threads in prev but well pretty similar)* we divide into sections and calculate the cumulative sums in each sections. Let's assign that to (Y)
@@ -122,4 +117,4 @@ Leading  to the answer in Figure above.
     - Local scans and second-level scans are highly parallelizable.
 
 ***Code Example:***
-> *[Click Here](./hierarchial.cu) to redirect towards the code implementation for Hierarchial Scan.*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_34/hierarchial.cu) to redirect towards the code implementation for Hierarchial Scan.*

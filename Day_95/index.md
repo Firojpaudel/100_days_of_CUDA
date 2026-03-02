@@ -1,15 +1,10 @@
----
-title: Day 95
-layout: default
----
-
 ## Summary for Day 95:
 
 So, today was al about the 2D Convolution Kernel:
 
 1. Implementation 1: 
 
-> [Click Here](./2d_conv_1.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_95/2d_conv_1.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $2.93 \text{ TFLOPs}$
@@ -18,7 +13,7 @@ So, today was al about the 2D Convolution Kernel:
 
 2. Implementation 2: Naive Kernel *yeah! this performed surprisingly well*
 
-> [Click Here](./2d_conv_2.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_95/2d_conv_2.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $3.29 \text{ TFLOPs}$
@@ -27,7 +22,7 @@ So, today was al about the 2D Convolution Kernel:
 
 3. Implementation 3: Optimized Kernel
 
-> [Click Here](./2d_conv_3.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_95/2d_conv_3.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $3.45 \text{ TFLOPs}$

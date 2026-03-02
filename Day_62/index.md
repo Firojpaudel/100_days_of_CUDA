@@ -1,8 +1,3 @@
----
-title: Day 62
-layout: default
----
-
 ## Summary of Day 62:
 
 > *Continuing from Chapter 16— where I left off
@@ -136,4 +131,4 @@ The convolutional layer in CNNs can be reformulated as a GEMM operation to lever
 > - $H_\text{out}, W_\text{out}$: Output feature map dimensions
 > - $H_\text{in}, W_\text{in}$: Input feature map dimensions
 
-> [Click Here](./Conv_GEMM.cu) to redirect to the code for GEMM with X_unrolled implemented. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_62/Conv_GEMM.cu) to redirect to the code for GEMM with X_unrolled implemented. 

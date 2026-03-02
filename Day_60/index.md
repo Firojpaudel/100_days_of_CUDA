@@ -1,8 +1,3 @@
----
-title: Day 60
-layout: default
----
-
 ## Summary of Day 60:
 
 > [!Note]
@@ -10,7 +5,7 @@ layout: default
 
 Okay, so today I'll try to implement the Multi-Head Self-Attention in Triton.
 
-> [Click Here](./MHA.py) to redirect to code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_60/MHA.py) to redirect to code.
 
 > [!important]
 > ***Current Output:***

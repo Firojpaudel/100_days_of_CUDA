@@ -1,15 +1,10 @@
----
-title: Day 100
-layout: default
----
-
 ## Day: 100 
 
 > #The End of Challenge !! 🙌
 
 Okay, so today's kernel was: **2D Max Pooling**
 
-> [Click Here](./2d_max.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_100/2d_max.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $1.14 \text{ TFLOPs}$ 🔥

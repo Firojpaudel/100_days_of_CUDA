@@ -1,8 +1,3 @@
----
-title: Day 37
-layout: default
----
-
 ## Summary of Day 37:
 
 > *Learning in detail about Parallelization approach of Merging
@@ -85,7 +80,7 @@ The co-rank function is designed to:
 > [Click Here](corank.cu) to redirect towards the code implementation. 
 
 > Misc. Codes:
-> Using divide and Conquer rather than Binary Search. [Click Here](./div_conq.cu) to view.
+> Using divide and Conquer rather than Binary Search. [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_37/div_conq.cu) to view.
 
 ---
 <div align="center">

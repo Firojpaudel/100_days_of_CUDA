@@ -1,8 +1,3 @@
----
-title: Day 76
-layout: default
----
-
 ## Summary of Day 75:
 
 Trying out cummulative product today.
@@ -13,7 +8,7 @@ Assumption both vectors are of same sizes. ie., $N$
 
 $1^{st}$ ***approach:*** Naive simplest kernel:
 
->[Click Here](./naive_1.cu) to redirect to the code.
+>[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_76/naive_1.cu) to redirect to the code.
 
 The performance of this one was very bad. Like very very bad. 
 
@@ -24,7 +19,7 @@ The performance of this one was very bad. Like very very bad.
 
 $2^{nd}$ ***approach:*** Multikernel approach
 
-> [Click Here](./multikernel.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_76/multikernel.cu) to redirect to the code.
 
 > [!note]
 > - Perfromance: $5.5 \text{ GFLOPs}$

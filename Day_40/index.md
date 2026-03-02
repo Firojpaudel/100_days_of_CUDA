@@ -1,8 +1,3 @@
----
-title: Day 40
-layout: default
----
-
 ## Summary of Day 40:
 
 > *Starting from Parallel Radix Sort
@@ -58,4 +53,4 @@ So here are the steps we follow:
     - Writing from shared memory to the final output is now coalesced *(neighboring threads write to neighboring memory)*.
     - Way more effecient than the original direct writing approach.
 
-> [Click Here](./parallel_radix.cu) to redirect towards code implementation for parallel radix sort. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_40/parallel_radix.cu) to redirect towards code implementation for parallel radix sort. 

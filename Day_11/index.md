@@ -1,8 +1,3 @@
----
-title: Day 11
-layout: default
----
-
 ## Summary of Day 11:
 
 > _Okay so yesterday, I explored the different types of memory available, such as global memory (large but slow) and shared memory (small but fast). This understanding laid the foundation for learning about the tiling concept, which optimizes memory usage and improves computational efficiency._
@@ -36,7 +31,7 @@ _**Example case:**_
     - The reduction in global memory traffic is proportional to the tile size. For instance:
         - With $16×16$ tiles, global memory traffic can be reduced to $1/16$ of the original level.
 
-[Click Here](./tiled_mat_mul.cu) to view the full implementation of tiled matrix multiplication.
+[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_11/tiled_mat_mul.cu) to view the full implementation of tiled matrix multiplication.
 
 
 ---

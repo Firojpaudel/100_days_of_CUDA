@@ -1,8 +1,3 @@
----
-title: Day 73
-layout: default
----
-
 ## Summary of Day 73:
 
 Trying to implement GEMM with bias and RELU activation.
@@ -16,4 +11,4 @@ Where:
 - $b \in \mathbb{R}^{M} $: bias vector  
 - $C \in \mathbb{R}^{B \times M}$: output after applying matrix multiplication, bias addition, and ReLU activation
 
-> [Click Here](./GEMM_bias_relu.py) to see the code implementation
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_73/GEMM_bias_relu.py) to see the code implementation

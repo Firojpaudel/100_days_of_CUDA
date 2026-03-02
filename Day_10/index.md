@@ -1,8 +1,3 @@
----
-title: Day 10
-layout: default
----
-
 ## Summary of Day 10:
 
 > _*Chapter 5 continuation_
@@ -121,7 +116,7 @@ Use `__syncthreads()` to ensure proper synchronization among threads in a block 
 - `__shared__`: Declares shared variables.
 - `__constant__`: Declares constant variables.
 
-[Click Here](./mem_types_in_action.cu) to view the code that implements all of these in one spot.
+[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_10/mem_types_in_action.cu) to view the code that implements all of these in one spot.
 
 > **How this Explains CUDA Memory Types:** 
 ><br><br>

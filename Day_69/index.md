@@ -1,8 +1,3 @@
----
-title: Day 69
-layout: default
----
-
 ## Summary of Day 69:
 
 > **Skipping 3 chaps and starting from Chap 21— Dynamic Parallelism 
@@ -33,7 +28,7 @@ The support for dynamic parallelism allows algorithms that dynamically discover 
 
 As I mentioned recursion earlier; first I'll write a kernel code for recursion without any dynamic paralleism and measure its runtime.
 
-> [Click here](./recursion_no_dynamic_parallelism.cu) to redirect towards kernel with no dynamic parallelism
+> [Click here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_69/recursion_no_dynamic_parallelism.cu) to redirect towards kernel with no dynamic parallelism
 
-> [Click Here](./recursion_dynamic_parallelism.cu) to redirect towards kernel with dynamic parallelism
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_69/recursion_dynamic_parallelism.cu) to redirect towards kernel with dynamic parallelism
 

@@ -1,8 +1,3 @@
----
-title: Day 91
-layout: default
----
-
 ## Summary of Day 91:
 
 Kernel's of the day:

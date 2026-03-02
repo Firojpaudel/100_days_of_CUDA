@@ -1,8 +1,3 @@
----
-title: Day 41
-layout: default
----
-
 ## Summary of Day 41:
 
 > *Continuation from choice of radix:
@@ -190,7 +185,7 @@ Okay, let's compare this figure with previous (**[Fig 41_02](#optimizing-memory-
 > 2. **Increased Complexity**
 > - Thread coarsening increases the complexity of the code, as each thread must manage multiple keys.
 
-> [Click Here](./coarsening_applied.cu) to redirect towards radix sort with thread coarsening implemented!
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_41/coarsening_applied.cu) to redirect towards radix sort with thread coarsening implemented!
 
 #### Parallel Merge Sorting
 
@@ -208,4 +203,4 @@ The above **Figure 41_ 05** shows how merge sort can be parallelized:
 - Each segment is sorted independently in the first stage.
 - **In subsequent stages**, pairs of segments are merged in **parallel until the entire list is sorted**.
 
-> [Click Here](./parallel_merge_sort.cu) to redirect towards code implementation 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_41/parallel_merge_sort.cu) to redirect towards code implementation 

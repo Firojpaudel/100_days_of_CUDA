@@ -1,15 +1,10 @@
----
-title: Day 71
-layout: default
----
-
 ## Summary of Day 71:
 
 > *Im still competing today as well. 
 
 1. Tanh implementation:
 
-> [Click Here](./tanh1.cu) to see the implementation using manual tanh 🙂‍↕️
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_71/tanh1.cu) to see the implementation using manual tanh 🙂‍↕️
 
 > [!Note]
 > - Average performance: $28.74 \text{ GFLOPs}$
@@ -47,7 +42,7 @@ Trying loop unrolling *(4 elements per thread)*
 
 Using Shared Memory
 
-> [Click Here](./vect_add_approach_shared_mem.cu) to redirect towards the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_71/vect_add_approach_shared_mem.cu) to redirect towards the code.
 
 > [!Note]
 > - Average performance: $166.15 \text{ GFLOPs}$
@@ -56,7 +51,7 @@ Using Shared Memory
 
 Using both at the same time:
 
-> [Click Here](./vect_add_approach_both.cu) to redirect towards the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_71/vect_add_approach_both.cu) to redirect towards the code.
 
 > [!Note]
 > - Average performance: $245.66 \text{ GFLOPs}$

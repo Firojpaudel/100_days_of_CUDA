@@ -1,8 +1,3 @@
----
-title: Day 45
-layout: default
----
-
 ## Summary of Day 45:
 
 > *Continuation from Hybrid **ELL-COO** format
@@ -77,7 +72,7 @@ Hybrid **ELL-COO** sacrifices accessibility compared to pure **ELL**:
     - This overhead can be significant if **SpMV** is performed only once on the matrix.
     - However, in iterative solvers where **SpMV** is repeated many times _(e.g., conjugate gradient methods)_, this overhead can be distributed across iterations.
 
-> [Click Here](./ELL_COO.cu)to open the source code implementation. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_45/ELL_COO.cu)to open the source code implementation. 
 
 ### Jagged Diagonal Storage (JDS) Format:
 

@@ -1,8 +1,3 @@
----
-title: Day 09
-layout: default
----
-
 ## Summary of Day 09:
 
 > * Starting of Chapter 5
@@ -28,7 +23,7 @@ for (int k = 0; k < Width; ++k){
     Pvalue += M[row*Width+k] * N[k*Width+col]
 }
 ```
-To view complete Matrix Multiplication code, [Click Here](./matrix_multiplication.cu)
+To view complete Matrix Multiplication code, [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_09/matrix_multiplication.cu)
 
 Each loop iteration involves:
 
@@ -82,7 +77,7 @@ So, this means:
 - Instead of $0.25 \space \text{FLOP/B}$, we need $50$ floating-point operations per $4$-byte data fetch.
 - Achieving this depends on data reuse _(performing more operations per memory access)_.
 
-Code Implementation: [Click Here](./optimized_mat_mul.cu)
+Code Implementation: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_09/optimized_mat_mul.cu)
 
 > **Code Explanation** _(Why this code is better than earlier one)_
 > <br>

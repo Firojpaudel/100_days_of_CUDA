@@ -12,6 +12,13 @@ kramdown:
   mathjax_inline_math: [['$','$'], ['\\(','\\)']]
   mathjax_display_math: [['$$','$$'], ['\\[','\\]']]
 
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
 include: [ "_includes/head-custom.html" ]
 
 

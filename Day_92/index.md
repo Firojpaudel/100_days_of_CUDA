@@ -1,15 +1,10 @@
----
-title: Day 92
-layout: default
----
-
 ## Summary of Day 92:
 
 Kernels of the day:
 
 1. Triplet Margin Loss:
 
-> [Click Here](./triplet.cu) to redirect to code
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_92/triplet.cu) to redirect to code
 
 > [!note]
 > - Performance: $519.17 \text{ GFLOPs}$
@@ -18,7 +13,7 @@ Kernels of the day:
 
 2. Optimized Softplus Kernel a bit:
 
-> [Click Here](./softplus_optimized.cu) to redirect to code
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_92/softplus_optimized.cu) to redirect to code
 
 > [!note]
 > - Performance: $1 \text{ TFLOP}$

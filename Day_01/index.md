@@ -1,9 +1,4 @@
----
-title: Day 01
-layout: default
----
-
-## Summmary of Day 01: 
+## Summary of Day 01: 
 
 Went through the Book: **Cuda By Example** _An Introduction to General-Purpose GPU Programming_
 

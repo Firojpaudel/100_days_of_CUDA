@@ -1,8 +1,3 @@
----
-title: Day 52
-layout: default
----
-
 ## Summary of Day 52:
 
 > *Outside of PMPP Learning Triton 
@@ -19,7 +14,7 @@ layout: default
 
 Okay now that the installation is done, let's learn some basic syntaxes!
 
-> *[Click Here](./vect_add.py) to redirect to Code_Example1- Vector addition*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_52/vect_add.py) to redirect to Code_Example1- Vector addition*
 >
 > ***This is how output would look like:***
 > ```bash
@@ -31,7 +26,7 @@ Okay now that the installation is done, let's learn some basic syntaxes!
 > ```
 
 
-> *[Click Here](./mat_mul.py) to redirect to Code_Example2- Matrix Multiplication*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_52/mat_mul.py) to redirect to Code_Example2- Matrix Multiplication*
 >
 > ***This is how output would look like:***
 > ```bash 
@@ -54,7 +49,7 @@ Okay now that the installation is done, let's learn some basic syntaxes!
 > Maximum Difference: 0.049560546875
 > ```
 
-> *[Click Here](./Softmax.py) to redirect to Code_Example3- Softmax*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_52/Softmax.py) to redirect to Code_Example3- Softmax*
 >
 > ***This is how output would look like:***
 > ```bash

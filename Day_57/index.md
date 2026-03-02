@@ -1,15 +1,10 @@
----
-title: Day 57
-layout: default
----
-
 ## Summary of Day 57:
 
 > Days until exams are over: $3$
 
 Okay so today I thought of calculating inverse of a matrix using Triton 
 
-> [Click Here](./inverse_matrix_kernel.py) to redirect towards code
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_57/inverse_matrix_kernel.py) to redirect towards code
 
 > ***Output:***
 > ```bash

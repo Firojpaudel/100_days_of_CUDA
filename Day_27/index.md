@@ -1,8 +1,3 @@
----
-title: Day 27
-layout: default
----
-
 ## Summary of Day 27:
 
 > *Starting from 10.3 — A simple sum reduction kernel
@@ -26,7 +21,7 @@ layout: default
 
 - Thread 0 writes the final sum to the output after all iterations.
 
-> [Click Here](./SimpleSumReductionKernel.cu) to redirect towards fully implemented Simple Sum Reduction Kernel Code. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_27/SimpleSumReductionKernel.cu) to redirect towards fully implemented Simple Sum Reduction Kernel Code. 
 
 <div align="center">
 <img src="./images/SimpleSumreduction.png/" width="500px">
@@ -61,7 +56,7 @@ layout: default
 
 - This keeps active threads grouped together within warps, significantly reducing control divergence.
 
-> [Click Here](./optimizedKernel.cu) to redirect towards fully implemented Convergent Sum Reduction Kernel Code comparing against Simple Sum Reduction.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_27/optimizedKernel.cu) to redirect towards fully implemented Convergent Sum Reduction Kernel Code comparing against Simple Sum Reduction.
 
 > ***Output:***
 > ```pwsh

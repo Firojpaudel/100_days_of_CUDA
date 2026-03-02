@@ -1,8 +1,3 @@
----
-title: Day 63
-layout: default
----
-
 ## Summary of Day 63:
 
 > Exploring CUDNN Library
@@ -73,7 +68,8 @@ So, for the convolution;
     if (returnedAlgoCount > 0 && algoPerf[0].status == CUDNN_STATUS_SUCCESS) {
         algo = algoPerf[0].algo;
     } else {
-        std::cerr << "No suitable algorithm found\n";
+        std::cerr << "No suitable algorithm found
+";
         exit(1);
     }
     #else
@@ -132,4 +128,4 @@ So, for the convolution;
 > - **FFT**: Shines with larger filters, though it eats more memory.  
 > - **GEMM**: The reliable go-to, especially if memory’s tight.
 
-> [Click Here](./cuDNN_convolution.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_63/cuDNN_convolution.cu) to redirect to the code.

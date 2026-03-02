@@ -1,8 +1,3 @@
----
-title: Day 42
-layout: default
----
-
 ## Summary of Day 42:
 
 > \*Solving exercises from Chapter 13- Sorting
@@ -119,7 +114,7 @@ __global__ void radix_sort_iter (unsigned int* input, unsigned int* output, unsi
 
 ***Solution***:
 
-> [Click Here](./exercise_02_solution.cu) to redirect towards the solution code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_42/exercise_02_solution.cu) to redirect towards the solution code.
 
 3. Extend the same kernel by applying thread coarsening to improve memory coarsening.
 

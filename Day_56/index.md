@@ -1,15 +1,10 @@
----
-title: Day 56
-layout: default
----
-
 ## Summary of Day 56:
 
 > *Exam week so doing something not that heavy.
 
 So today, I'll try to implement a ReLU in triton:
 
-> [Click Here](./relu.py) to redirect towards code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_56/relu.py) to redirect towards code.
 
 > ***Output Check***:
 >```bash

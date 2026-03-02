@@ -1,8 +1,3 @@
----
-title: Day 24
-layout: default
----
-
 ## Summary of Day 24:
 
 >**Starting of Chapter 9 — Parallel Histogram*
@@ -28,7 +23,7 @@ The parallel histogram computation pattern differs from previous parallel comput
 
 ---
 
-[Click Here](./parallel_hist.cu) to redirect towards a simple parallel Histogram Using Atomic Operations 
+[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_24/parallel_hist.cu) to redirect towards a simple parallel Histogram Using Atomic Operations 
 
 > Output looks like:
 > ```shell
@@ -48,7 +43,7 @@ The parallel histogram computation pattern differs from previous parallel comput
 
 I also createad a python file that plots the histogram _(might as well)_.
 
-[Click Here](./parallel_hist_plot.py) to redirect to python file. 
+[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_24/parallel_hist_plot.py) to redirect to python file. 
 > ***Output image:***
 > <div align="center">
 >   <img src="./images/histogram_plot.png" width="500px">

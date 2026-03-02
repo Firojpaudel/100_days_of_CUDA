@@ -1,13 +1,8 @@
----
-title: Day 90
-layout: default
----
-
 ## Summary of Day 90:
 
 First; wrote a kernel for L2 Normalization 
 
-> [Click Here](./l2_norm.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_90/l2_norm.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $221.41 \text{ GFLOPs}$
@@ -16,7 +11,7 @@ First; wrote a kernel for L2 Normalization
 
 Next, tried to optimize KL divergence code a bit more: Using early exit and dynamic thread block size.
 
-> [Click Here](./kl_optimized.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_90/kl_optimized.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $1.4 \text{ TFLOPs}$

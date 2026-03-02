@@ -1,8 +1,3 @@
----
-title: Day 13
-layout: default
----
-
 ## Summary of Day 13:
 
 > *Start of Chapter 6: "Performance Considerations"
@@ -104,7 +99,7 @@ _**Example**_: If Thread $0$ accesses $X$, Thread $1$ accesses $X+1$, Thread $2$
 > | Coalesced access | Non-coalesced access |
 > | Favorable for row-wise iteration | Favorable for column-wise iteration |
 
-I've implemented a simple example code to show the difference in execution times between row-major and column-major storage. [Click Here](./row_vs_column_major.cu) to redirect. 
+I've implemented a simple example code to show the difference in execution times between row-major and column-major storage. [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_13/row_vs_column_major.cu) to redirect. 
 
 > ***Output_Example***
 >```shell

@@ -1,8 +1,3 @@
----
-title: Day 61
-layout: default
----
-
 ## Summary of Day 61:
 
 > _So, today I fixed my yesterday's [MHA triton implementation](../Day_60/MHA.py). Took a lot of time so not going into CUDA today. However, will explain the code mechanism in very minute detail. So that well, evry one could understand. Also, this would be a revision for me._
@@ -135,7 +130,7 @@ Now explaining the inner mechanism:
 
 ***Computing Attention Scores:***
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$$
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V```math
 
 - So, next we calulate the `Q * K^T`:
     - Here we have not explicitly used any transpose operation. Instead, we are defining the offset values of $Q$ and $K$ such that there is no need to physically transpose $K$.
@@ -161,7 +156,7 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V$
 
 Next, we have softmax calculation:
 
-$$\text{Softmax}(X_i) = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}$$
+```\text{Softmax}(X_i) = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}$$
 
 - First we **find the max score** for numerical stability.
     - We initialize the `max_score` to negative infinity.

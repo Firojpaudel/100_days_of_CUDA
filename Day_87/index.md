@@ -1,15 +1,10 @@
----
-title: Day 87
-layout: default
----
-
 ## Summary of Day 87:
 
 Today's Submissions:
 
 - Layer Normalization kernel on $4D$ Tensor:
 
-> [Click Here](./layer_norm_4D.cu) to redirect to the code
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_87/layer_norm_4D.cu) to redirect to the code
 
 > [!note]
 > - Performance: $419.33 \text{ GFLOPs}$

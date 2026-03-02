@@ -1,8 +1,3 @@
----
-title: Day 15
-layout: default
----
-
 ## Summary of Day 15:
 
 > *Chapter 6: Endings...
@@ -40,7 +35,7 @@ layout: default
 
 3. **Implementing Thread Coarsening in Tiled Mat Mul:**
 
-    > [Click Here](./thread_coarsening.cu) to redirect to the code implementation of Thread Coarsening in Tiled Matrix Multiplication.
+    > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_15/thread_coarsening.cu) to redirect to the code implementation of Thread Coarsening in Tiled Matrix Multiplication.
     >
     >***Output:***
 >```shell
@@ -88,9 +83,9 @@ layout: default
     - Memory transactions happen efficiently in one step instead of multiple.
 
     Hence, to completely avoid uncoalesced memory accesses, `BLOCK_SIZE`should be a multiple of warp size (32). That means:
-$$
+```math
 \text{BLOCK SIZE} \in \{32, 64, 96, 128, \ldots, 32 \times N\}
-$$
+```
 ---
 <div align="center">
     <b>

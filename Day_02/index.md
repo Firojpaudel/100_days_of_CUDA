@@ -1,9 +1,4 @@
----
-title: Day 02
-layout: default
----
-
-## Summmary of Day 02:
+## Summary of Day 02:
 
 
 ### 1. Parameters passing in `.cu`:
@@ -88,7 +83,7 @@ Below are the properties and their descriptions:
 | `maxTexture2DArray[3]` | Maximum dimension of layered 2D textures. |
 | `concurrentKernels` | Number of concurrent kernels. |
 
-Exmaple code: [Click here](./dev_queries.cu) to redirect to `dev_queries.cu` file.
+Exmaple code: [Click here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_02/dev_queries.cu) to redirect to `dev_queries.cu` file.
 
 ---
 
@@ -98,7 +93,7 @@ Exmaple code: [Click here](./dev_queries.cu) to redirect to `dev_queries.cu` fil
 
 Okay so bofore I went through parameters assignmet. Now, time for "Vector Addition Kernel"
 
-Redirect to code by clicking [here](./vect_addn.cu)
+Redirect to code by clicking [here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_02/vect_addn.cu)
 
 It's pretty similar to the one done before. 
 However explaining the reasoning behind some code snippets:
@@ -139,13 +134,13 @@ _Chapter 2: Exercises_
 4.  For a vector addition, assume that the vector length is 8000, each thread calculates one output element, and the thread block size is 1024 threads. The programmer configures the kernel call to have a minimum number of thread blocks to cover all output elements.How many threads will be in the grid?
     - *Answer* : 8192 
     - *Reasoning* : $\text{numblocks} = \frac{\text{TotalVectLen}}{\text{ThreadBlockSize}}$. So, that means: 
-$$ 
+```math
 \text{numblocks} = \frac{8000}{1024}= 7.8 \sim 8 \text{blocks}
-$$
+```
 Hence, total number of threads would be:
-$$
+```math
 \text{numblocks} \times \text{blockDim.x} = 8 \times 1024 = 8192
-$$
+```
 
 5. If we want to allocate an array of v integer elements in the CUDA device `global` memory, what would be an appropriate expression for the second argument of the `cudaMalloc` call?
     - *Answer* : `v * sizeof(int)`
@@ -185,13 +180,13 @@ kernel_name<<<number_of_blocks, number_of_threads_per_block>>>(args);
 ```
 
 b. What is the number of threads in the grid?
-$$
+```math
 \text{numblocks} = \frac{\text{N} + 128 -1}{128} = \frac{200000 + 128 -1}{128} = 1562 \space \text{blocks}
-$$
+```
 So, 
-$$
+```math
 \text{totalthreads} = \text{numblocks} \times \text{threads per block} = 1562 \times 128 = 200000 \space \text{threads}
-$$
+```
 
 c.  What is the number of blocks in the grid?
 _Calculated earlier_: `1562 blocks`
@@ -202,12 +197,12 @@ Answer would be the $\text{totalthreads}$ ie., $200,000$
 
 e. What is the number of threads that execute the code on line 04?
 
-$$
+```
 \text{i ranges from} = 0 \space \text{to} \space \text{N}-1
-$$
-$$
+```math
+```
 \text{N} = 200000
-$$
+```
 the code below checks for iterations in which i is less than N. ie., $0- (200000-1) \space \text{times}$
 ```cpp
 if(i , N) {

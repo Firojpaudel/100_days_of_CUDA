@@ -1,8 +1,3 @@
----
-title: Day 58
-layout: default
----
-
 ## Summary of Day 58:
 
 > Days until my exams are over: $2$
@@ -24,9 +19,9 @@ Batch Normalization (BatchNorm) is a clutch move in deep learning—stabilizes t
 #### Step 1: Compute the Mean
 For a batch $X= {x_{i,j}}$ where $i=1,\dots,\text{batch size}$ (samples) and $j=1,\dots,\text{features}$ (channels/features), compute the mean per feature $j$ across the batch:
 
-$$
+```math
 \mu_j = \frac{1}{\text{batch size}} \sum_{i=1}^{\text{batch size}} x_{i,j}
-$$
+```
 
 - $\mu_j$: Mean of feature $j$ over all batch samples.
 - Why? Centers data around $0$, cutting down internal covariate shift.
@@ -34,9 +29,9 @@ $$
 #### Step 2: Compute the Variance
 Next, get the variance per feature $j$ across the batch, using that mean:
 
-$$
+```math
 \sigma_j^2 = \frac{1}{\text{batch size}} \sum_{i=1}^{\text{batch size}} (x_{i,j} - \mu_j)^2
-$$
+```
 
 - $\sigma_j^2$: Variance of feature $j$, showing the spread.
 - Note: Some use $\frac{1}{\text{batch size}-1}$ (unbiased), but training rolls with $\frac{1}{\text{batch size}}$.
@@ -44,9 +39,9 @@ $$
 #### Step 3: Normalize
 Normalize each value with the mean and variance, tossing in a tiny $\epsilon$ to dodge division-by-zero drama:
 
-$$
+```math
 \hat{x}_{i,j} = \frac{x_{i,j} - \mu_j}{\sqrt{\sigma_j^2 + \epsilon}}
-$$
+```
 
 - $\hat{x}_{i,j}$: Normalized value—mean ≈ $0$, variance ≈ $1$ (tweaked by $\epsilon$).
 - $\epsilon$: Small constant (e.g., $1\times10^{-5}$) for stability.
@@ -54,9 +49,9 @@ $$
 #### Step 4: Scale and Shift
 Hit it with learnable params $\gamma_j$ (scale) and $\beta_j$ (shift) per feature:
 
-$$
+```math
 y_{i,j} = \gamma_j \cdot \hat{x}_{i,j} + \beta_j
-$$
+```
 
 - $y_{i,j}$: Final BatchNorm output.
 - $\gamma_j,\beta_j$: Trained to adjust the normalized data’s range.
@@ -110,4 +105,4 @@ We’re splitting BatchNorm into two kernels: one for stats (mean/variance), one
 - **Efficiency**: Stats need a reduction (sum over batch), normalization’s pointwise. Splitting skips sync chaos.
 - **Parallelism**: First kernel scales with $\text{features}$, second with $\text{batch size}$—maxes GPU threads.
 
-> [Click Here](./batch_norm.py) to redirect towards the code implementation
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_58/batch_norm.py) to redirect towards the code implementation

@@ -1,8 +1,3 @@
----
-title: Day 48
-layout: default
----
-
 ## Summary of Day 48:
 
 Okay so yesterday, we studied and implemented a normal BFS code. Today let's buff it up with Parallelization. We'll dive into vertex-centric approaches that dramatically improve BFS performance on large graphs. These techniques are fundamental to graph processing frameworks and were key innovations in early Graph500 competition winners.
@@ -56,7 +51,7 @@ In this approach ([**Figure 48_01**](#example-execution)):
  search</i></p>
 </div>
 
-> [Click Here](./vertex_centric_push.cu) to redirect to the code implementation of Vertex Centric Push BFS.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_48/vertex_centric_push.cu) to redirect to the code implementation of Vertex Centric Push BFS.
 
 
 #### The Pull Approach (Bottom-Up BFS)
@@ -92,7 +87,7 @@ In the provided example traversing from level $1$ to level $2$:
 - When a thread finds a neighbor in level $1$, it labels its vertex as level $2$ and stops
 - Vertex $8$ examines all its neighbors but doesn't find any in level $1$, so it remains unvisited
 
-> [Click Here](./vertex_centric_pull.cu) to redirect to the code implementation of Vertex Centric Pull BFS.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_48/vertex_centric_pull.cu) to redirect to the code implementation of Vertex Centric Pull BFS.
 
 > #### Key Differences Between Push and Pull Approaches
 > | Aspect | Push Approach | Pull Approach |

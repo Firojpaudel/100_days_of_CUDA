@@ -1,14 +1,9 @@
----
-title: Day 89
-layout: default
----
-
 ## Summary of Day 89:
 
 Today's kernel:
 - Upper Traiangular Matrix Multiplication
 
-> [Click Here](./upp_mat_mul.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_89/upp_mat_mul.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $4.83 \text{ TFLOPs}$

@@ -1,8 +1,3 @@
----
-title: Day 67
-layout: default
----
-
 ## Summary of Day 67:
 
 Okay so yesterday, we studied about Fourier Transform and FFT. Also, we were discussing that FFT is widely used in signal processing and image reconstruction. Today let's discuss on this.
@@ -240,4 +235,4 @@ Likewise in the code above:
 
 #### Implementing in Kernel:
 
-> [Click Here](./FHD.cu) to redirect towards the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_67/FHD.cu) to redirect towards the code.

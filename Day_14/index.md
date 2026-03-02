@@ -1,8 +1,3 @@
----
-title: Day 14
-layout: default
----
-
 ## Summary of Day 14:
 
 > *Explaining the Corner Turning in Matrix Multiplication the one I studied yesterday in detail.
@@ -45,7 +40,7 @@ _Here,_
     - Each thread loads an element from the same column instead of the same row.
     - This transformation improves memory access efficiency by reducing global memory traffic.
 
-> I've implemented a code comparing the Naive way with the Corner Turning and shared memory optimized approach: [Click Here](./corner_turning.cu) to view the code.
+> I've implemented a code comparing the Naive way with the Corner Turning and shared memory optimized approach: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_14/corner_turning.cu) to view the code.
 ---
 #### Memory Coalascing conditions and _a bit of analogy explained in the book_: 
 

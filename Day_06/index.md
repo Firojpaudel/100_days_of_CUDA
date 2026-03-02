@@ -1,8 +1,3 @@
----
-title: Day 06
-layout: default
----
-
 ## Summary of Day 06:
 
 > *Continuation of chapter 4: 
@@ -28,13 +23,13 @@ layout: default
     > ⚠️ _As said earlier it's standard to have 32 threads_
 
     - Example: For a block of 256 threads; 
-$$
+```math
 \text{Number of warps} = \frac{256}{32} = 8 \space \text{wraps}
-$$
+```
 and, if there are like 3 blocks in the SM;
-$$
+```math
 \text{Total warps} = 8 \times 3 = 24 \space \text{warps in total}
-$$ 
+``` 
 
 3. **Warp Partitioning Based on Thread Indices:**
     - For **1-D block**, threads are partitioned straightforward way:

@@ -1,13 +1,8 @@
----
-title: Day 97
-layout: default
----
-
 ## Summary of Day 97:
 
 Today's Kernel: **Sigmoid Activation Function**
 
-> [Click Here](./sigmoid.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_97/sigmoid.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $448.29 \text{ GFLOPs}$

@@ -1,8 +1,3 @@
----
-title: Day 31
-layout: default
----
-
 ## Summary of Day 31:
 
 > **Detailed Explanation of Kogge Stone Algo Continued*
@@ -32,8 +27,9 @@ for $k = 0$ to $\log_2(N) - 1$:
 
 1. Compute the stride as $2^k$.
 2. For each element $i$:
-   - If $i \geq \text{stride}$, update:
-     $$XY[i] = XY[i] + XY[i - \text{stride}]$$
+     ```math
+     XY[i] = XY[i] + XY[i - \text{stride}]
+     ```
    - Otherwise, leave $XY[i]$ unchanged.
 
 ##### **Final State**
@@ -50,18 +46,26 @@ After all iterations, $\text{XY}$ contains the inclusive scan results.
 **Step-by-step Execution:**
 
 1. Initial State: Each element in $\text{XY}$ contains its corresponding input value:
-$$\text{XY} = [x_0, x_1, x_2, ..., x_{15}]$$
+```math
+\text{XY} = [x_0, x_1, x_2, ..., x_{15}]
+```
 
 2. Iteration 1 _(Stride= 1)_: Each element $XY[i]$ is updated  by adding it's immediate left neighbour
 $(XY[i-1])$
-$$\text{XY} = [x_0, x_0 + x_1, x_1+x_2, ..., x_{14}+x_{15}]$$
+```math
+\text{XY} = [x_0, x_0 + x_1, x_1+x_2, ..., x_{14}+x_{15}]
+```
 
 3. Iteration 2 _(Stride= 2)_: Each element $XY[i]$ is updated  by adding the value two positions into its left $(XY[i-2])$:
-$$\text{XY}= [x_0, x_0 + x_1, x_0+x_1+x_2, x_0+x_1+x_2+x_3, ... ]$$
+```math
+\text{XY}= [x_0, x_0 + x_1, x_0+x_1+x_2, x_0+x_1+x_2+x_3, ... ]
+```
 
 4. Iteration 3 _(Stride= 4)_: Each element $XY[i]$ is updated  by adding the value four positions into its left $(XY[i-4])$:
 
-$$\text{XY}= [x_0, x_0 + x_1, x_0+x_1+x_2, x_0+x_1+x_2+x_3, x_0+x_1+x_2+x_3+x_4, ... ]$$
+```math
+\text{XY}= [x_0, x_0 + x_1, x_0+x_1+x_2, x_0+x_1+x_2+x_3, x_0+x_1+x_2+x_3+x_4, ... ]
+```
 
 5. Continue untill all cumulative sums are computed.
 
@@ -69,9 +73,9 @@ $$\text{XY}= [x_0, x_0 + x_1, x_0+x_1+x_2, x_0+x_1+x_2+x_3, x_0+x_1+x_2+x_3+x_4,
 
 #### ***Implementation:***
 
-> *[Click Here](./inclusive_scan.cu) to redirect towards complete inclusive scan.*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_31/inclusive_scan.cu) to redirect towards complete inclusive scan.*
 
-> *[Click Here](./exclusive_scan.cu) to redirect towards complete exclusive scan.*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_31/exclusive_scan.cu) to redirect towards complete exclusive scan.*
 
 #### So how different is Exclusive from Inclusive?
 
@@ -133,7 +137,9 @@ The exclusive scan can be implemented by performing an inclusive scan and then s
       -   Compute the stride as $2^k$.
       -   For each element $i$:
           -   If $i \geq \text{stride}$, update:
-                $$XY[i] = XY[i] + XY[i - \text{stride}]$$
+```math
+XY[i] = XY[i] + XY[i - \text{stride}]
+```
           -   Otherwise, leave $XY[i]$ unchanged.
 
 ##### **Shift Right:**

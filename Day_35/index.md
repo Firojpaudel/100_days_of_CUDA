@@ -1,8 +1,3 @@
----
-title: Day 35
-layout: default
----
-
 ## Summary of Day 35: 
 
 > *Exercises from Chapter 11 _(Page: 260 onwards)_
@@ -19,27 +14,26 @@ Okay, first let's solve this theoritically then the code implementation:
 
 Here, 
 **Initial Input Array**:
-$$A = [4 \space 6\space  7\space  1\space  2\space  8\space  5\space  2]$$
-
+$$A = [4 \space 6\space  7\space  1\space  2\space  8\space  5\space  2]```math
 **Step 1: *Stride 1***
 
 The output from this step would be:
 
-$$A' = [ 4 \space 10 \space 13 \space 8 \space 3 \space 10 \space 13 \space 7]$$
+```A' = [ 4 \space 10 \space 13 \space 8 \space 3 \space 10 \space 13 \space 7]```math
 
 > Consult the notes if you don't get what's going on 😪.
 
 **Step 2: *Stride 2***
 
-$$A'' = [4 \space 10 \space 17 \space 18 \space 16 \space 18 \space 16 \space 17]$$
+```A'' = [4 \space 10 \space 17 \space 18 \space 16 \space 18 \space 16 \space 17]```math
 
 **Step 3: *Stride 4***
 
-$$A''' = [4 \space 10 \space 17 \space 18 \space 20 \space 28 \space 33 \space 35]$$
+```A''' = [4 \space 10 \space 17 \space 18 \space 20 \space 28 \space 33 \space 35]```math
 
 _(*Stopping condition since futher strides would go out of bounds)_
 
-> Also code implementation is here! [Click Here](./Qn1.cu) to redirect!!
+> Also code implementation is here! [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_35/Qn1.cu) to redirect!!
 
 ##### Qn.2 Modify the Kogge-Stone parallel scan kernel in Code below to use double buffering instead of a second call to `__syncthreads()` to overcome the write after-read race condition.
 
@@ -236,22 +230,22 @@ First in **Brent-Kung Scan**;
 - In the down-sweep phase, the algorithm propagates the partial sums back down the tree to produce the final prefix sums.
 - **Key Point:** Not every node needs to be updated in this phase. For the Brent-Kung scan, the inverse phase requires fewer operations.
 - The number of additions performed in the inverse phase is given by:
-$$
+```
 (N-1) - \log _2 (N)
-$$
+```math
 - For $N=2048$, note that:
-$$
+```
 \log_2(2048) =11
-$$
+```math
 so, inverse phase performs:
-$$
+```
 2047- 11 = 2036 \space \text  {additions}
-$$
+```math
 Hence, total additions would be:
 
-$$
+```
 \text{Total Additions} = 2047 + 2036 = 4083 \space \text  {additions}
-$$
+```
 
 ---
 <div align="center">

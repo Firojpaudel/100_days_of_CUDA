@@ -1,8 +1,3 @@
----
-title: Day 36
-layout: default
----
-
 ## Summary of Day 36:
 
 > *Starting of Chapter 12 — Merge
@@ -60,7 +55,7 @@ The sequential merge algorithm merges two sorted arrays, $A$ and $B$, into a sin
 > **Time Complexity:** $O(m+n) \sim O(i+j)$\
 > **Space Complexity:** $O(m+n)$
 
-> [Click Here](./seq_merge.cu) to redirect towards sequential merge implementation comparing with parallel approach ***(GPU based)***.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_36/seq_merge.cu) to redirect towards sequential merge implementation comparing with parallel approach ***(GPU based)***.
 
 <blockquote style="border-left: 6px solid #2196F3; padding: 10px;">
   ⓘ <strong>Note:</strong> While running the above code, the CPU execution time is way quicker than GPU for smaller arrays (Even till 10,000 elements), however when we put the input array sizes like in range of 10000000's parallesim starts kicking in.

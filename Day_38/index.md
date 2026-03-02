@@ -1,8 +1,3 @@
----
-title: Day 38
-layout: default
----
-
 ## Summary of Day 38:
 
 > *Merge continues...
@@ -116,7 +111,7 @@ Okay, so from the above diagram; let's talk about some of the key components dur
 > **3. Scalability:**
 > The tiled approach allows large arrays to be processed efficiently by dividing work among blocks and threads.
 
-> _[Click Here](./tiled_merged.cu) to redirect towards complete code implementation._
+> _[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_38/tiled_merged.cu) to redirect towards complete code implementation._
 
 ---
 <div align="center">

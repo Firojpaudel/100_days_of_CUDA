@@ -1,8 +1,3 @@
----
-title: Day 49
-layout: default
----
-
 ## Summary of Day 49:
 
 > *Edge Centric Parallelization
@@ -65,7 +60,7 @@ In the above **Figure 49_01**;
     - COO format requires more storage space than CSR or CSC formats used in vertex-centric parallelization.
     - Storing both row and column indices for each edge increases memory overhead.
 
-> [Click Here](./edge_centric.cu) to view the compete code implementation for edge-centric BFS Kernel.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_49/edge_centric.cu) to view the compete code implementation for edge-centric BFS Kernel.
 
 ### Improving Effeciency with Frontiers
 
@@ -124,6 +119,6 @@ So, here is the example diagram that well explains this visually:
 >- Threads process outgoing edges of $1$ and $2$, adding their unvisited neighbors ($3, 4, 5, 6,$ and $7$) to `currFrontier`.
 >- The next iteration will process vertices in `currFrontier`.
 
-> [Click Here](./frontier.cu) to redirect to full code implementation using Frontiers in BFS_CSR kernel.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_49/frontier.cu) to redirect to full code implementation using Frontiers in BFS_CSR kernel.
 
 ---

@@ -1,8 +1,3 @@
----
-title: Day 43
-layout: default
----
-
 ## Summary of Day 43:
 
 > *SmPV with COO format starts:
@@ -127,4 +122,4 @@ Okay, so now lets implement **SpMV with COO**.
 > 
 > and so on...
 
-> [Click Here](./SpMV_COO.cu)
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_43/SpMV_COO.cu)

@@ -1,8 +1,3 @@
----
-title: Day 32
-layout: default
----
-
 ## Summary of Day 32:
 
 > *Brent-Kung Parallel Inclusive Scan Algorithm
@@ -75,7 +70,7 @@ This table shows how values evolve during the reverse tree phase for an array of
 - Each level progressively fills in more values with cumulative sums.
 - By Level 3, all positions contain their final inclusive scan result.
 
-> [Click Here](./Brent_kung.cu) to redirect towards complete code implementation for Brent-Kung algorithm.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_32/Brent_kung.cu) to redirect towards complete code implementation for Brent-Kung algorithm.
 
 ---
 <div align="center">

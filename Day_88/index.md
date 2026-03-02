@@ -1,13 +1,8 @@
----
-title: Day 88
-layout: default
----
-
 ## Summary of Day 88:
 
 1. Improvised the code for **Leaky RELU**:
 
-> [Click Here](./leaky_imp.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_88/leaky_imp.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $421.30 \text{ GFLOPs}$
@@ -16,7 +11,7 @@ layout: default
 
 2. Lower Traiangular Matrix Multiplication
 
-> [Click Here](./lower_tri.cu) to redirect to the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_88/lower_tri.cu) to redirect to the code.
 
 > [!note]
 > - Performance: $3.26 \text{ TFLOPs}$

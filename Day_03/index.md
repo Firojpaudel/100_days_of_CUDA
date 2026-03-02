@@ -1,8 +1,3 @@
----
-title: Day 03
-layout: default
----
-
 ## Summary of Day 03:
 
 ### Reading Chapter 3: Multidimensional Grids & Data
@@ -11,7 +6,7 @@ layout: default
 - A grid consists of one or more blocks and each block consits of one or more threads.
 - So, in general, a grid is a 3D array of blocks and each block is a 3D array of threads.
 
-Example program to show this: [Click here](./grids.cu) to redirect.
+Example program to show this: [Click here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_03/grids.cu) to redirect.
 
 #### Mapping threads to a multidimensional data
 
@@ -19,12 +14,12 @@ Assuming, we are dealing with a picture **P** with the dimension of $62 \times 7
 
 Then, Calculating the grid sizes in along the dimensions:
 
-$$
+```math
 \text{Grid size in x }= \lceil \frac{\text{Image width}}{\text{Block width}} \rceil = \lceil\frac{76}{16} \rceil = \lceil4.75\rceil = 5
-$$
-$$
+```
+```math
 \text{Grid size in y }= \lceil \frac{\text{Image height}}{\text{Block height}}\rceil = \lceil\frac{62}{16}\rceil = \lceil3.87\rceil=4
-$$
+```
 Hence, **total number of blocks in the grid** is: $5 \times 4 = 20$
 
 > _**Note**_: <br>
@@ -39,7 +34,7 @@ CUDA follows a (x, y, z) ordering for thread/block indexing, but image dimension
 
 - Statically allocated arrays allow 2D indexing, but compilers internally convert them into 1D representations.
 
-Example code for converting a RGB image to grayscale image: [Click Here](./image_color_conv.cu) to redirect.
+Example code for converting a RGB image to grayscale image: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_03/image_color_conv.cu) to redirect.
 
 |Before                   |  After                  |
 |-------------------------|-------------------------|

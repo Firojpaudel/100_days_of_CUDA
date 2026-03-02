@@ -1,8 +1,3 @@
----
-title: Day 29
-layout: default
----
-
 ## Summary of Day 29
 
 > *Exercises from Chapter 10
@@ -249,9 +244,9 @@ Each iteration reduces elements spaced by a stride of
 $2^n$, with the first thread working on elements at index $0, 2, 4, ...$, the second on index $4, 8, ...$, and so on.
 
 **Initial Array:**
-$$
+```math
 [6,2,7,4,5,8,3,1]
-$$
+```
 **Step-By-Step Execution**:
 
 **Iteration 1** _(Stride 1)_
@@ -280,9 +275,9 @@ $$
 This kernel performs **more efficient memory accesses by reducing in a tree-like fashion**, where each thread updates elements based on the next half of the array, reducing warp divergence.
 
 **Initial Array:**
-$$
+```math
 [6,2,7,4,5,8,3,1]
-$$
+```
 **Step-By-Step Execution**:
 > Stride progresses as $4 \rightarrow 2 \rightarrow 1$
 
