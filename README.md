@@ -1,6 +1,9 @@
 # 100_days_of_CUDA
 Challenging myself to learn CUDA (Basics ⇾ Intermediate) these 100 days. 
 
+> [!TIP]
+> **View these notes as a beautifully rendered webpage at [cuda.firojpaudel.com.np](https://cuda.firojpaudel.com.np)** ✨
+
 My learning resources: 
 1. **Books**:
     - **Cuda By Example** _An Introduction to General-Purpose GPU Programming_ — Jason Sandres, Edward Kandrot
