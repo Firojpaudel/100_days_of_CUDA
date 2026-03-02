@@ -1,4 +1,9 @@
----\ntitle: Day 13\nlayout: default\n---\n\n## Summary of Day 13:
+---
+title: Day 13
+layout: default
+---
+
+## Summary of Day 13:
 
 > *Start of Chapter 6: "Performance Considerations"
 

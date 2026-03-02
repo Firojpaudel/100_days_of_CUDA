@@ -1,4 +1,9 @@
----\ntitle: Day 79\nlayout: default\n---\n\n## Summary of Day 79:
+---
+title: Day 79
+layout: default
+---
+
+## Summary of Day 79:
 
 > Quite a busy day today. 
 

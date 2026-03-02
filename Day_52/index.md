@@ -1,4 +1,9 @@
----\ntitle: Day 52\nlayout: default\n---\n\n## Summary of Day 52:
+---
+title: Day 52
+layout: default
+---
+
+## Summary of Day 52:
 
 > *Outside of PMPP Learning Triton 
 

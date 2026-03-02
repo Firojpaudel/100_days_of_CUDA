@@ -1,4 +1,9 @@
----\ntitle: Day 99\nlayout: default\n---\n\n## Summary of Day 99: 
+---
+title: Day 99
+layout: default
+---
+
+## Summary of Day 99: 
 
 > 1 Day left 🔥
 

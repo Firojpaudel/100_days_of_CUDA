@@ -1,4 +1,9 @@
----\ntitle: Day 95\nlayout: default\n---\n\n## Summary for Day 95:
+---
+title: Day 95
+layout: default
+---
+
+## Summary for Day 95:
 
 So, today was al about the 2D Convolution Kernel:
 

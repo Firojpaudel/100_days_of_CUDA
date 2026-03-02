@@ -1,4 +1,9 @@
----\ntitle: Day 37\nlayout: default\n---\n\n## Summary of Day 37:
+---
+title: Day 37
+layout: default
+---
+
+## Summary of Day 37:
 
 > *Learning in detail about Parallelization approach of Merging
 

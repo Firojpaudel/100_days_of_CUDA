@@ -1,4 +1,9 @@
----\ntitle: Day 30\nlayout: default\n---\n\n## Summary of Day 30:
+---
+title: Day 30
+layout: default
+---
+
+## Summary of Day 30:
 
 > *Starting Chapter 11
 
@@ -9,14 +14,14 @@
 #### Types of Scans:
 1. **Inclusive Scan:** Includes the current element in the sum.
 
-```math
+$$
 \text{out}[i] = \sum_{j=0}^{i} \text{in}[j]
-```
+$$
 2. **Exclusive Scan:** Does not include the current element in the sum.
 
-```math 
+$$
 \text{out}[i] = \sum_{j=0}^{i-1} \text{in}[j]
-```
+$$
 ---
 ### Koggle-Stone Parallel Prefix Sum Algorithm
 The **Kogge-Stone algorithm** is a parallel prefix sum algorithm optimized for fast execution with minimal dependencies. It works by:

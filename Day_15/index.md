@@ -1,4 +1,9 @@
----\ntitle: Day 15\nlayout: default\n---\n\n## Summary of Day 15:
+---
+title: Day 15
+layout: default
+---
+
+## Summary of Day 15:
 
 > *Chapter 6: Endings...
 
@@ -83,9 +88,9 @@
     - Memory transactions happen efficiently in one step instead of multiple.
 
     Hence, to completely avoid uncoalesced memory accesses, `BLOCK_SIZE`should be a multiple of warp size (32). That means:
-```math
+$$
 \text{BLOCK SIZE} \in \{32, 64, 96, 128, \ldots, 32 \times N\}
-```
+$$
 ---
 <div align="center">
     <b>

@@ -1,4 +1,9 @@
----\ntitle: Day 91\nlayout: default\n---\n\n## Summary of Day 91:
+---
+title: Day 91
+layout: default
+---
+
+## Summary of Day 91:
 
 Kernel's of the day:
 1. Symmetric Matrix Multiplication:

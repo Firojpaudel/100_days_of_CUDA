@@ -1,4 +1,9 @@
----\ntitle: Day 100\nlayout: default\n---\n\n## Day: 100 
+---
+title: Day 100
+layout: default
+---
+
+## Day: 100 
 
 > #The End of Challenge !! 🙌
 

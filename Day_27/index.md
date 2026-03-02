@@ -1,4 +1,9 @@
----\ntitle: Day 27\nlayout: default\n---\n\n## Summary of Day 27:
+---
+title: Day 27
+layout: default
+---
+
+## Summary of Day 27:
 
 > *Starting from 10.3 — A simple sum reduction kernel
 

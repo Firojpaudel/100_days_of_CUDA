@@ -1,4 +1,9 @@
----\ntitle: Day 78\nlayout: default\n---\n\n## Summary of Day 78:
+---
+title: Day 78
+layout: default
+---
+
+## Summary of Day 78:
 
 > Back to Tensara Grind:
 

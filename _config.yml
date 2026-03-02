@@ -9,6 +9,9 @@ kramdown:
   input: GFM
   math_engine: mathjax
   syntax_highlighter: rouge
+  mathjax_inline_math: [['$','$'], ['\\(','\\)']]
+  mathjax_display_math: [['$$','$$'], ['\\[','\\]']]
 
 include: [ "_includes/head-custom.html" ]
+
 

@@ -1,4 +1,9 @@
----\ntitle: Day 75\nlayout: default\n---\n\n## Summary of Day 75:
+---
+title: Day 75
+layout: default
+---
+
+## Summary of Day 75:
 
 I tried to rethink on yesterday's Prefix Sum *(Inclusive Scan)* approach and well used Kogge Stone algo. This approach got me $11.24$ GFLOPS plus runtime of $0.07$ ms on H100 GPU.
 

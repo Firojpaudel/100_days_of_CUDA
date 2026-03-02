@@ -1,4 +1,9 @@
----\ntitle: Day 48\nlayout: default\n---\n\n## Summary of Day 48:
+---
+title: Day 48
+layout: default
+---
+
+## Summary of Day 48:
 
 Okay so yesterday, we studied and implemented a normal BFS code. Today let's buff it up with Parallelization. We'll dive into vertex-centric approaches that dramatically improve BFS performance on large graphs. These techniques are fundamental to graph processing frameworks and were key innovations in early Graph500 competition winners.
 

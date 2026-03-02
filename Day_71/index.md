@@ -1,4 +1,9 @@
----\ntitle: Day 71\nlayout: default\n---\n\n## Summary of Day 71:
+---
+title: Day 71
+layout: default
+---
+
+## Summary of Day 71:
 
 > *Im still competing today as well. 
 

@@ -1,4 +1,9 @@
----\ntitle: Day 92\nlayout: default\n---\n\n## Summary of Day 92:
+---
+title: Day 92
+layout: default
+---
+
+## Summary of Day 92:
 
 Kernels of the day:
 

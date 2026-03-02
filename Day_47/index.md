@@ -1,4 +1,9 @@
----\ntitle: Day 47\nlayout: default\n---\n\n## Summary of Day 47:
+---
+title: Day 47
+layout: default
+---
+
+## Summary of Day 47:
 
 > * Chapter 15- Graph Traversal Starts
 

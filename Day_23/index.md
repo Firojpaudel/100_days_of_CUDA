@@ -1,4 +1,9 @@
----\ntitle: Day 23\nlayout: default\n---\n\n## Summary of Day 23:
+---
+title: Day 23
+layout: default
+---
+
+## Summary of Day 23:
 
 > **Well in day 23; I reinstalled the windows and Visual Studio kinda messed up my CUDA installation. But solved it after installing the previous version of Visual Studio (2019 Community Edition). However, I learnt a bit.* 
 

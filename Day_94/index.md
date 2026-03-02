@@ -1,4 +1,9 @@
----\ntitle: Day 94\nlayout: default\n---\n\n## Summary of Day 94:
+---
+title: Day 94
+layout: default
+---
+
+## Summary of Day 94:
 
 Today's Kernel: **Product Over a Dimension**
 

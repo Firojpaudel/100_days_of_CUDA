@@ -1,4 +1,9 @@
----\ntitle: Day 73\nlayout: default\n---\n\n## Summary of Day 73:
+---
+title: Day 73
+layout: default
+---
+
+## Summary of Day 73:
 
 Trying to implement GEMM with bias and RELU activation.
 

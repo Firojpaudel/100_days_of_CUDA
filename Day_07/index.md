@@ -1,4 +1,9 @@
----\ntitle: Day 07\nlayout: default\n---\n\n## Summary of Day 07:
+---
+title: Day 07
+layout: default
+---
+
+## Summary of Day 07:
 
 > *Continuation of Control Divergence
 

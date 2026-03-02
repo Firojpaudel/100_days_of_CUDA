@@ -1,4 +1,9 @@
----\ntitle: Day 66\nlayout: default\n---\n\n## Summary of Day 66:
+---
+title: Day 66
+layout: default
+---
+
+## Summary of Day 66:
 
 > *Starting new chapter- Chapter 17
 

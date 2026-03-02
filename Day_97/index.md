@@ -1,4 +1,9 @@
----\ntitle: Day 97\nlayout: default\n---\n\n## Summary of Day 97:
+---
+title: Day 97
+layout: default
+---
+
+## Summary of Day 97:
 
 Today's Kernel: **Sigmoid Activation Function**
 

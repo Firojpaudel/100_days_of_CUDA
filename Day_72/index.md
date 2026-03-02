@@ -1,4 +1,9 @@
----\ntitle: Day 72\nlayout: default\n---\n\n## Summary of Day 72:
+---
+title: Day 72
+layout: default
+---
+
+## Summary of Day 72:
 
 > *Still grinding the leaderboards...
 

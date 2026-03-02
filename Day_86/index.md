@@ -1,4 +1,9 @@
----\ntitle: Day 86\nlayout: default\n---\n\n## Summary of Day 86:
+---
+title: Day 86
+layout: default
+---
+
+## Summary of Day 86:
 
 Improved my prev vector addition kernel and made it working with more GFLOPs
 

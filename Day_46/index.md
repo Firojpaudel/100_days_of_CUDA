@@ -1,18 +1,23 @@
----\ntitle: Day 46\nlayout: default\n---\n\n## Summary of Day 46:
+---
+title: Day 46
+layout: default
+---
+
+## Summary of Day 46:
 
 > *Exercises from Chapter-14
  
 ###
 1. Consider the following sparse matrix:
 
-```math 
+$$
 \begin{bmatrix}
     1 & 0 & 7 & 0 \\
     0 & 0 & 8 & 0 \\ 
     0 & 4 & 3 & 0 \\
     2 & 0 & 0 & 1 \\
     \end{bmatrix}
-```
+$$
 
 Represent it in each of the following formats: 
 1. **COO**
@@ -29,7 +34,7 @@ Okay, so let's represent first into **COO** format:
 > - `rowIdx`
 > - `colIdx`
 
-```math 
+$$
 \begin{bmatrix}
     1 & 0 & 7 & 0 \\
     0 & 0 & 8 & 0 \\ 
@@ -41,13 +46,13 @@ Okay, so let's represent first into **COO** format:
     \text{rowIdx:} & 0 \quad 0 \quad 1 \quad 2 \quad 2 \quad 3 \quad 3 \\
     \text{colIdx:} & 0 \quad 2 \quad 2 \quad 1 \quad 2 \quad 0 \quad 3 
     \end{array}
-```
+$$
 
 > ***Will implemnet kernel in a while***
 
 Onto **CSR**:
 
-```math 
+$$
 \begin{bmatrix}
     1 & 0 & 7 & 0 \\
     0 & 0 & 8 & 0 \\ 
@@ -59,13 +64,13 @@ Onto **CSR**:
     \text{colIdx:} & 0 \quad 2 \quad 2 \quad 1 \quad 2 \quad 0 \quad 3 \\
     \text{value:} & 1 \quad 7 \quad 8 \quad 4 \quad 3 \quad 2 \quad 1
     \end{array}
-```
+$$
 
 > ***Didn't get what I did here?***: [Click Here](../Day_44/README.md#how-csr-works) to revise
 
 Okay, so let's go into **ELL** next:
 
-```math 
+$$
     \begin{bmatrix}
     1 & 0 & 7 & 0 \\
     0 & 0 & 8 & 0 \\ 
@@ -84,9 +89,9 @@ Okay, so let's go into **ELL** next:
     4 & 3  \\
     2 & 1  \\
     \end{bmatrix} 
-```
+$$
 
-```math
+$$
 \begin{bmatrix}
     0 & 2  \\
     2 & *  \\ 
@@ -103,7 +108,7 @@ Okay, so let's go into **ELL** next:
     \text{colIdx:} & 0 \quad 2 \quad 1 \quad 0 \quad 2 \quad * \quad 2 \quad 3 \\
     \text{value:} & 1 \quad 8 \quad 4 \quad 2 \quad 7 \quad * \quad 3 \quad 1
     \end{array}
-```
+$$
 > **ⓘ Note:** Column-major scan looks like this: 
 > <div align="center">
 >   <img src= "./images/column_major_order.png" width="200">
@@ -111,7 +116,7 @@ Okay, so let's go into **ELL** next:
 
 And Finally **JDS**
 
-```math
+$$
     \begin{bmatrix}
     1 & 0 & 7 & 0 \\
     0 & 0 & 8 & 0 \\ 
@@ -130,9 +135,9 @@ And Finally **JDS**
     4 & 3  \\
     2 & 1  \\
     \end{bmatrix}
-```
+$$
 
-```math
+$$
 \begin{bmatrix}
     0 & 2  \\
     2 & *  \\ 
@@ -162,9 +167,9 @@ And Finally **JDS**
     3 \\
     1 \\ 
     \end{bmatrix}
-```
+$$
 
-```math
+$$
     \begin{bmatrix}
     0 & 2  \\ 
     1 & 2  \\
@@ -188,7 +193,7 @@ And Finally **JDS**
     \text{colIdx:} & 0 \quad 1 \quad 0 \quad 2 \quad 2^* \quad 2 \quad 3 \\
     \text{value:} & 1 \quad 4 \quad 2 \quad 8 \quad 7^* \quad 3 \quad 1
     \end{array}
-```
+$$
 > **ⓘ FYI:** \
 >`iterPointer` array is also known as jagged diagonal pointer array.
 

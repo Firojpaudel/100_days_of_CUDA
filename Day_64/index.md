@@ -1,4 +1,9 @@
----\ntitle: Day 64\nlayout: default\n---\n\n## Summary of Day 64:
+---
+title: Day 64
+layout: default
+---
+
+## Summary of Day 64:
 
 > [!tip]
 > So today I planned to learn implementing cuDNN even more. This time I'll try implementing Batch Norm with cuDNN.

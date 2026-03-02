@@ -1,4 +1,9 @@
----\ntitle: Day 51\nlayout: default\n---\n\n## Summary of Day 51:
+---
+title: Day 51
+layout: default
+---
+
+## Summary of Day 51:
 
 > *Starting of Chapter 16- Deep Learning
 

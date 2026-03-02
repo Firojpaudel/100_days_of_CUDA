@@ -1,4 +1,9 @@
----\ntitle: Day 89\nlayout: default\n---\n\n## Summary of Day 89:
+---
+title: Day 89
+layout: default
+---
+
+## Summary of Day 89:
 
 Today's kernel:
 - Upper Traiangular Matrix Multiplication

@@ -1,4 +1,9 @@
----\ntitle: Day 62\nlayout: default\n---\n\n## Summary of Day 62:
+---
+title: Day 62
+layout: default
+---
+
+## Summary of Day 62:
 
 > *Continuing from Chapter 16— where I left off
 

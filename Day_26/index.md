@@ -1,4 +1,9 @@
----\ntitle: Day 26\nlayout: default\n---\n\n## Summary of Day 26:
+---
+title: Day 26
+layout: default
+---
+
+## Summary of Day 26:
 
 > *Exercises from Chapter — 9 first
 
@@ -9,20 +14,20 @@
 
 First, mathematical definition of **throughput**:
 
-```math
+$$
     \text{Throughput} = \frac{\text{Number of operations}}{\text{Time taken}}
-```
+$$
 Since each atomic operation takes $100 \space ns$, the throughput in operations per second is:
 
-```math 
+$$
     \frac{1}{100 \space ns}
-```
+$$
 Now converting this in seconds:
 
-```math
+$$
     = \frac{1}{100\space \times 10^{-9} \space s}
     = 10^7 \text{operations per second}
-```
+$$
 
 2.  For a processor that supports atomic operations in **L2 cache**, assume that each atomic operation takes $4\space ns$ to complete in **L2 cache** and $100 \space ns$ to complete in DRAM. Assume that $90\%$ of the atomic operations hit in **L2 cache**. What is the approximate throughput for atomic operations on the same global memory variable?
 
@@ -35,22 +40,22 @@ Given:
 - L2 cache miss rate= $1- 0.9$ = $10\%$
 
 First, calculating the average latency:
-```math 
+$$
     \text{Average Latency} = (\text{L2 Hit Rate} \times \text{L2 Latency}) + (\text{L2 Miss Rate} \times \text{DRAM Latency})
-```
+$$
 Substituting the values:
-```math 
+$$
     = (0.9 \times 4 \space ns )+ (0.1 \times 100 \space ns)
-```
-```math
+$$
+$$
     = 3.6 + 10 = 13.6 \space ns
-```
+$$
 
 Hence, the throughput  is $\frac{1}{\text{Average Latency}}$. So, 
-```math 
+$$
 = \frac{1}{13.6 \times 10^-9 \space s} 
 = 73.5 \space\text{million operations per second} 
-```
+$$
 
 3.  In Qn 1 *(above)*, assume that a kernel performs *five floating-point operations per atomic operation*. What is the maximum floating-point throughput of the kernel execution as limited by the throughput of the atomic operations?
 
@@ -60,11 +65,11 @@ So, from previous ***(Qn. 1)*** calculation, the max throughput we got was=  $10
 
 Now, the maximum floating point throughput of kernel execution as limited by the throughput of atomic operations is given by:
 
-```math
+$$
     \text{Floating-Point Throughput} = (\text{Atomic Operations Throughput}) \times (\text{FLOPs/atomic operation}) \\
     = (10^7) \times 5 = 50 \times 10^6 \space\text{FLOPs/sec}\\
     = 50 \space\text{MFLOPs}
-```
+$$
 
 4.  In ***Qn 1***, assume that we privatize the global memory variable into shared memory variables in the kernel and that the shared memory access latency is $1 \space ns$. All original global memory atomic operations are converted into shared memory atomic operation. For simplicity, assume that the additional global memory atomic operations for accumulating privatized variable into the global variable adds $10\%$ to the total execution time. Assume that a kernel performs five floating-point operations per atomic operation. What is the maximum floating-point throughput of the kernel execution as limited by the throughput of the atomic operations?
 
@@ -76,22 +81,22 @@ Next, going into **shared memory privatization**,
 - shared memory atomic operation latency = $1\space ns$
 - additional execution time due to accumulation into the global memory = $10\%$ overhead
 - The new **effective atomic operation latency** considering the $10\%$ overhead:
-```math 
+$$
 \text{Effective Latency} = 1 \times (1 + 0.1) \space ns = 1.1 \space ns
-```
+$$
 
 Hence, the new throughput becomes:
 
-```math
+$$
 = \frac{1}{\text{Effective Latency}} = \frac{1}{1.1 \times 10^-9 \space s} = 0.909 \times 10^9 \space s
-```
+$$
 
 Now, finally: the maximum floating-point throughput of atomic operations given $5 \space \text{FLOPs/operation}$
 
-```math 
+$$
 \text{Floating point Throughput} = (0.909 \times 10^9) \times 5 = 4.545 \times 10^9 \text{FLOPs/sec} \\
 = 4.545 \text{GFLOPs}
-```
+$$
 
 >*That's it for the exercises from ***Chapter 9****
 ---
@@ -105,9 +110,9 @@ When we talk about reduction, we mean taking a large dataset (like an array of n
 Reduction is a fundamental computation pattern because it helps us summarize large amounts of data into something manageable.
 
 ***For Example***: if we have an array `{7.0, 2.1, 5.3, 9.0, 11.2}`, performing a sum reduction would give us:
-```math
+$$
 7.0+2.1+5.3+9.0+11.2=34.6
-```
+$$
 
 > ***Key Components of Reduction:***
 > 1. **Binary Operator:**

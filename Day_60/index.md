@@ -1,4 +1,9 @@
----\ntitle: Day 60\nlayout: default\n---\n\n## Summary of Day 60:
+---
+title: Day 60
+layout: default
+---
+
+## Summary of Day 60:
 
 > [!Note]
 >**Exams are over:** Will start diving more into CUDA stuff tomorrow onwards. Today I'm just going light on README.

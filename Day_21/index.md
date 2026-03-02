@@ -1,4 +1,9 @@
----\ntitle: Day 21\nlayout: default\n---\n\n## Summary of Day 21:
+---
+title: Day 21
+layout: default
+---
+
+## Summary of Day 21:
 
 > **Starting of new chapter; Chapter — 8 **Stencil***
 
@@ -30,20 +35,20 @@ Though both apply a kernel to a region of data, they differ in intent:
 1. **Finite-Difference Approximation**
 For a function $f(x)$, the first derivative is approximated as:
 
-```math 
+$$
 f'(x) = \frac{f(x+h)- f(x-h)}{2h} + O(h^2)
-```
+$$
 where:
 - $h$: grid spacing
 - $O(h^2)$: error term, proportional to $h^2$
 
 > **Discrete Derivative Example:**
 > Given grid array $F[i]$, 
-> ```math
+> $$
 > F_{D}[i] = \frac{F[i+1]- F[i-1]}{2h}
 > ```
 > Rewriting as a weighted sum:
-> ```math 
+> $$
 > F_{D}[i] = - \frac{1}{2h}F[i-1] + \frac{1}{2h} F[i+1]
 > ```
 > This defines a **three-point stencil**.
@@ -75,7 +80,7 @@ where:
 Boundary cells store fixed values and do not update during computation.
 
 *Kernel Code for basic CUDA for Stencil Swap:*
-```cpp
+$$cpp
 __global__ void stencil_kernel(float* in, float* out, unsigned int N) {
     unsigned int i = blockIdx.z * blockDim.z + threadIdx.z;
     unsigned int j = blockIdx.y * blockDim.y + threadIdx.y;
@@ -92,7 +97,7 @@ __global__ void stencil_kernel(float* in, float* out, unsigned int N) {
             + c6 * in[(i + 1)*N*N + j*N + k];
     }
 }
-```
+$$
 The full code implementation: [Click Here](./basic_stencil.cu) to redirect!
 
 > ***Performance Analysis:***
@@ -102,7 +107,7 @@ The full code implementation: [Click Here](./basic_stencil.cu) to redirect!
 > - Loads **7 input values** from global memory.
 > 
 > Arithmetic Intensity:
-> ```math
+> $$
 >   \text{Ratio} =  \frac{13}{7 \times 4} = 0.46 \space \text{OP/B}
 > ```
 > _This **low ratio** suggests the kernel is memory-bound._
@@ -114,7 +119,7 @@ The full code implementation: [Click Here](./basic_stencil.cu) to redirect!
 > **Input tile:** Includes **halo regions** around the output tile.
 
 _Kernel Code for Optimized Kernel using Shared Memory_
-```cpp
+$$cpp
 __global__ void tiled_stencil_kernel(float* in, float* out, unsigned int N) {
     __shared__ float tile[IN_TILE_DIM][IN_TILE_DIM][IN_TILE_DIM];
 
@@ -151,14 +156,14 @@ Full code implementation: [Click Here](./optimized_stencil.cu) to redirect!
 
 #### Improved Arithmetic-to-Memory Ratio
 With shared memory tiling:
-```math 
+$$
 \text{Ratio} = \frac{13(T-2)^3}{4T^3}
-```
+$$
 
 For **large tiles** $(T >> Halo)$:
-```math 
+$$
 \text{Ratio} \approx 3.25 \space \text{OP/B}
-```
+$$
 
 > ***Challenges with Small Tile Sizes:***
 > - Small tiles (e.g., $T=8$) limit reuse ratio to $≈1.37 \space OP/B$.

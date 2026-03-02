@@ -1,4 +1,9 @@
----\ntitle: Day 83\nlayout: default\n---\n\n## Summary of Day 83:
+---
+title: Day 83
+layout: default
+---
+
+## Summary of Day 83:
 
 1. Wrote Softplus kernel:
 

@@ -1,4 +1,9 @@
----\ntitle: Day 59\nlayout: default\n---\n\n## Summary of Day 59:
+---
+title: Day 59
+layout: default
+---
+
+## Summary of Day 59:
 
 > Days until Exams are over: $1$
 

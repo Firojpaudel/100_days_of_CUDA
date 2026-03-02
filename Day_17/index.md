@@ -1,4 +1,9 @@
----\ntitle: Day 17\nlayout: default\n---\n\n## Summary of Day 17:
+---
+title: Day 17
+layout: default
+---
+
+## Summary of Day 17:
 
 >* Starting from Parallel Convolution:
 

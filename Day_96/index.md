@@ -1,4 +1,9 @@
----\ntitle: Day 96\nlayout: default\n---\n\n## Summary of Day 96:
+---
+title: Day 96
+layout: default
+---
+
+## Summary of Day 96:
 
 Today's kernel: **MSE Loss**
 

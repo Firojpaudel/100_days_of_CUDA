@@ -1,4 +1,9 @@
----\ntitle: Day 14\nlayout: default\n---\n\n## Summary of Day 14:
+---
+title: Day 14
+layout: default
+---
+
+## Summary of Day 14:
 
 > *Explaining the Corner Turning in Matrix Multiplication the one I studied yesterday in detail.
 

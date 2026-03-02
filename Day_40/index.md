@@ -1,4 +1,9 @@
----\ntitle: Day 40\nlayout: default\n---\n\n## Summary of Day 40:
+---
+title: Day 40
+layout: default
+---
+
+## Summary of Day 40:
 
 > *Starting from Parallel Radix Sort
 

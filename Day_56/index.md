@@ -1,4 +1,9 @@
----\ntitle: Day 56\nlayout: default\n---\n\n## Summary of Day 56:
+---
+title: Day 56
+layout: default
+---
+
+## Summary of Day 56:
 
 > *Exam week so doing something not that heavy.
 

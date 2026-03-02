@@ -1,4 +1,9 @@
----\ntitle: Day 03\nlayout: default\n---\n\n## Summary of Day 03:
+---
+title: Day 03
+layout: default
+---
+
+## Summary of Day 03:
 
 ### Reading Chapter 3: Multidimensional Grids & Data
 
@@ -14,12 +19,12 @@ Assuming, we are dealing with a picture **P** with the dimension of $62 \times 7
 
 Then, Calculating the grid sizes in along the dimensions:
 
-```math
+$$
 \text{Grid size in x }= \lceil \frac{\text{Image width}}{\text{Block width}} \rceil = \lceil\frac{76}{16} \rceil = \lceil4.75\rceil = 5
-```
-```math
+$$
+$$
 \text{Grid size in y }= \lceil \frac{\text{Image height}}{\text{Block height}}\rceil = \lceil\frac{62}{16}\rceil = \lceil3.87\rceil=4
-```
+$$
 Hence, **total number of blocks in the grid** is: $5 \times 4 = 20$
 
 > _**Note**_: <br>

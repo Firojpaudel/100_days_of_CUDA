@@ -1,4 +1,9 @@
----\ntitle: Day 43\nlayout: default\n---\n\n## Summary of Day 43:
+---
+title: Day 43
+layout: default
+---
+
+## Summary of Day 43:
 
 > *SmPV with COO format starts:
 

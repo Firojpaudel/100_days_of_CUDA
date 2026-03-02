@@ -1,4 +1,9 @@
----\ntitle: Day 90\nlayout: default\n---\n\n## Summary of Day 90:
+---
+title: Day 90
+layout: default
+---
+
+## Summary of Day 90:
 
 First; wrote a kernel for L2 Normalization 
 

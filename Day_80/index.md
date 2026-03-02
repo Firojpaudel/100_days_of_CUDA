@@ -1,4 +1,9 @@
----\ntitle: Day 80\nlayout: default\n---\n\n## Summary of Day 80:
+---
+title: Day 80
+layout: default
+---
+
+## Summary of Day 80:
 
 Today I wrote a kernel for RMS Normalization:
 

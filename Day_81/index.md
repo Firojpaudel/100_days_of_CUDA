@@ -1,4 +1,9 @@
----\ntitle: Day 81\nlayout: default\n---\n\n## Day: 81
+---
+title: Day 81
+layout: default
+---
+
+## Day: 81
 
 > Today's kernel: **Frobenius Normalization**
 

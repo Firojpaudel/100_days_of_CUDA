@@ -1,4 +1,9 @@
----\ntitle: Day 65\nlayout: default\n---\n\n## Summary of Day 65:
+---
+title: Day 65
+layout: default
+---
+
+## Summary of Day 65:
 
 > *Exercises from Chapter 16
 

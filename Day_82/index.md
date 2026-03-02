@@ -1,4 +1,9 @@
----\ntitle: Day 82\nlayout: default\n---\n\n## Summary of Day 82:
+---
+title: Day 82
+layout: default
+---
+
+## Summary of Day 82:
 
 1. Optimized yesterday's Frobenius Norm kernel to run on more GFLOPs. 
 

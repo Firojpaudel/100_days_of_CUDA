@@ -1,4 +1,9 @@
----\ntitle: Day 42\nlayout: default\n---\n\n## Summary of Day 42:
+---
+title: Day 42
+layout: default
+---
+
+## Summary of Day 42:
 
 > \*Solving exercises from Chapter 13- Sorting
 

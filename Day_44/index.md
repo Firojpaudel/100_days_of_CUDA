@@ -1,4 +1,9 @@
----\ntitle: Day 44\nlayout: default\n---\n\n## Summary of Day 44:
+---
+title: Day 44
+layout: default
+---
+
+## Summary of Day 44:
 
 > *Starting from **CSR**  format :) 
 

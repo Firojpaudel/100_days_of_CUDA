@@ -1,4 +1,9 @@
----\ntitle: Day 10\nlayout: default\n---\n\n## Summary of Day 10:
+---
+title: Day 10
+layout: default
+---
+
+## Summary of Day 10:
 
 > _*Chapter 5 continuation_
 

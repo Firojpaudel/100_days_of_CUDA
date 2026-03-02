@@ -1,4 +1,9 @@
----\ntitle: Day 68\nlayout: default\n---\n\n## Summary of Day 68:
+---
+title: Day 68
+layout: default
+---
+
+## Summary of Day 68:
 
 > Optimizing the $F^H D$ kernel step by step approach:
 

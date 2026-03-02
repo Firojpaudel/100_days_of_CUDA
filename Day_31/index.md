@@ -1,4 +1,9 @@
----\ntitle: Day 31\nlayout: default\n---\n\n## Summary of Day 31:
+---
+title: Day 31
+layout: default
+---
+
+## Summary of Day 31:
 
 > **Detailed Explanation of Kogge Stone Algo Continued*
 

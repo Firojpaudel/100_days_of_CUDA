@@ -1,4 +1,9 @@
----\ntitle: Day 77\nlayout: default\n---\n\n## Summary of Day 77: 
+---
+title: Day 77
+layout: default
+---
+
+## Summary of Day 77: 
 
 1. Fixed yesterday's sliggish code for cumm_Prod.
 

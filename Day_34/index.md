@@ -1,4 +1,9 @@
----\ntitle: Day 34\nlayout: default\n---\n\n## Summary of Day 34:
+---
+title: Day 34
+layout: default
+---
+
+## Summary of Day 34:
 
 > ****Continuing yesterdays:***
 
@@ -10,7 +15,7 @@
 >3. **Phase 3**: $O(N/T)$ work per thread for propagation.
 >
 >***Overall Complexity:***
->```math 
+>$$
 >O(\frac{N}{T} + \log T)
 >```
 
@@ -72,7 +77,7 @@ The hierarchical scan solves these issues by:
 
 Here, 
 **Input Array**:
-```text
+$$text
 [2, 1, 3, 1, 0, 4, 1, 2, 0, 3, 1, 2, 5, 3, 1, 2] → (X)
 ```
 Again as Before, *(we called Threads in prev but well pretty similar)* we divide into sections and calculate the cumulative sums in each sections. Let's assign that to (Y)

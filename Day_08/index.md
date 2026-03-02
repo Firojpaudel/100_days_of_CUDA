@@ -1,4 +1,9 @@
----\ntitle: Day 08\nlayout: default\n---\n\n## Summary of Day 08:
+---
+title: Day 08
+layout: default
+---
+
+## Summary of Day 08:
 
 > *The final day for Chapter 4
 
@@ -87,9 +92,9 @@ Here, we have:
 
         - **SIMD effeciency of Warp 1 Block 0:**<br>
             - Only the threads (32-39) execute the branch. ie., $39-32 = 8 \space \text{threads are active}$
-```math
+$$
     \text{i.e., SIMD Effeciency} = \frac{8}{32} \times 100\% = 25\%
-```
+$$
 Simlar for `Warp 3 Block 0`. _And other questions as well._ 
 
 2. For a vector addition, assume that the vector length is 2000, each thread calculates one output element, and the thread block size is 512 threads. How many threads will be in the grid?

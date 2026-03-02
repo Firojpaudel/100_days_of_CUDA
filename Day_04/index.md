@@ -1,4 +1,9 @@
----\ntitle: Day 04\nlayout: default\n---\n\n## Summary of Day 04:
+---
+title: Day 04
+layout: default
+---
+
+## Summary of Day 04:
 
 Continuation of yesterday: 
 

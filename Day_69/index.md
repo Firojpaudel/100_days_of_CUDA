@@ -1,4 +1,9 @@
----\ntitle: Day 69\nlayout: default\n---\n\n## Summary of Day 69:
+---
+title: Day 69
+layout: default
+---
+
+## Summary of Day 69:
 
 > **Skipping 3 chaps and starting from Chap 21— Dynamic Parallelism 
 

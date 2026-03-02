@@ -1,4 +1,9 @@
----\ntitle: Day 49\nlayout: default\n---\n\n## Summary of Day 49:
+---
+title: Day 49
+layout: default
+---
+
+## Summary of Day 49:
 
 > *Edge Centric Parallelization
 

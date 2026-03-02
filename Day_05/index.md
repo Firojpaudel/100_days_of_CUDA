@@ -1,4 +1,9 @@
----\ntitle: Day 05\nlayout: default\n---\n\n## Summary of Day 05:
+---
+title: Day 05
+layout: default
+---
+
+## Summary of Day 05:
 
 ### Chapter_04: Compute Architecture and Scheduling 
 

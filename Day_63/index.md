@@ -1,4 +1,9 @@
----\ntitle: Day 63\nlayout: default\n---\n\n## Summary of Day 63:
+---
+title: Day 63
+layout: default
+---
+
+## Summary of Day 63:
 
 > Exploring CUDNN Library
 

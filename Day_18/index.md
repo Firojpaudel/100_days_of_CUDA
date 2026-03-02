@@ -1,4 +1,9 @@
----\ntitle: Day 18\nlayout: default\n---\n\n## Summary of Day 18:
+---
+title: Day 18
+layout: default
+---
+
+## Summary of Day 18:
 
 Today, I implemented convolution on a 2D image using a modular approach.
 

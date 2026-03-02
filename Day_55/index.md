@@ -1,4 +1,9 @@
----\ntitle: Day 55\nlayout: default\n---\n\n## Summary of Day 55:
+---
+title: Day 55
+layout: default
+---
+
+## Summary of Day 55:
 
 Okay so yesterday, I focused on the $∂E/∂X$ calculation for the backpropagation of a convolutional layer in a CNN using CUDA C++. I derived the gradient of the loss $E$ with respect to the input $X$, which involved applying the chain rule and carefully handling the kernel offsets and bounds. Today, I’ll dive into the $∂E/∂W$ calculation, which is the gradient of the loss with respect to the weights $W$ of the convolutional layer. Let’s compare what’s different and build on yesterday’s understanding.
 

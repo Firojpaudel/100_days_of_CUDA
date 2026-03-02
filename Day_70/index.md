@@ -1,4 +1,9 @@
----\ntitle: Day 70\nlayout: default\n---\n\n## Summary of Day 70:
+---
+title: Day 70
+layout: default
+---
+
+## Summary of Day 70:
 
 > *Trying to compete in CUDA kerenels leaderboard.
 

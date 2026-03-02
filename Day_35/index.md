@@ -1,4 +1,9 @@
----\ntitle: Day 35\nlayout: default\n---\n\n## Summary of Day 35: 
+---
+title: Day 35
+layout: default
+---
+
+## Summary of Day 35: 
 
 > *Exercises from Chapter 11 _(Page: 260 onwards)_
 
@@ -231,22 +236,22 @@ First in **Brent-Kung Scan**;
 - In the down-sweep phase, the algorithm propagates the partial sums back down the tree to produce the final prefix sums.
 - **Key Point:** Not every node needs to be updated in this phase. For the Brent-Kung scan, the inverse phase requires fewer operations.
 - The number of additions performed in the inverse phase is given by:
-```math 
+$$
 (N-1) - \log _2 (N)
-```
+$$
 - For $N=2048$, note that:
-```math 
+$$
 \log_2(2048) =11
-```
+$$
 so, inverse phase performs:
-```math
+$$
 2047- 11 = 2036 \space \text  {additions}
-```
+$$
 Hence, total additions would be:
 
-```math
+$$
 \text{Total Additions} = 2047 + 2036 = 4083 \space \text  {additions}
-```
+$$
 
 ---
 <div align="center">

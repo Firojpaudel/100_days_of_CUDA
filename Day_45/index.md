@@ -1,4 +1,9 @@
----\ntitle: Day 45\nlayout: default\n---\n\n## Summary of Day 45:
+---
+title: Day 45
+layout: default
+---
+
+## Summary of Day 45:
 
 > *Continuation from Hybrid **ELL-COO** format
 

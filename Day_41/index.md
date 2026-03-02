@@ -1,4 +1,9 @@
----\ntitle: Day 41\nlayout: default\n---\n\n## Summary of Day 41:
+---
+title: Day 41
+layout: default
+---
+
+## Summary of Day 41:
 
 > *Continuation from choice of radix:
 

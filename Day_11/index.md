@@ -1,4 +1,9 @@
----\ntitle: Day 11\nlayout: default\n---\n\n## Summary of Day 11:
+---
+title: Day 11
+layout: default
+---
+
+## Summary of Day 11:
 
 > _Okay so yesterday, I explored the different types of memory available, such as global memory (large but slow) and shared memory (small but fast). This understanding laid the foundation for learning about the tiling concept, which optimizes memory usage and improves computational efficiency._
 

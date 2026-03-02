@@ -1,4 +1,9 @@
----\ntitle: Day 36\nlayout: default\n---\n\n## Summary of Day 36:
+---
+title: Day 36
+layout: default
+---
+
+## Summary of Day 36:
 
 > *Starting of Chapter 12 — Merge
 

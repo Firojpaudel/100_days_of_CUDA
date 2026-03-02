@@ -1,4 +1,9 @@
----\ntitle: Day 85\nlayout: default\n---\n\n## Summary of Day 85:
+---
+title: Day 85
+layout: default
+---
+
+## Summary of Day 85:
 
 Wrote a kernel for **KL- Divergence** and benchmarked @ tensara.
 

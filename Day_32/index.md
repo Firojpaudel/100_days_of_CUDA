@@ -1,4 +1,9 @@
----\ntitle: Day 32\nlayout: default\n---\n\n## Summary of Day 32:
+---
+title: Day 32
+layout: default
+---
+
+## Summary of Day 32:
 
 > *Brent-Kung Parallel Inclusive Scan Algorithm
 

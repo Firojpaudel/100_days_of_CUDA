@@ -1,4 +1,9 @@
----\ntitle: Day 50\nlayout: default\n---\n\n## Summary of Day 50:
+---
+title: Day 50
+layout: default
+---
+
+## Summary of Day 50:
 
 > *Reducing contention with Privatization
 

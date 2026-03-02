@@ -1,4 +1,9 @@
----\ntitle: Day 87\nlayout: default\n---\n\n## Summary of Day 87:
+---
+title: Day 87
+layout: default
+---
+
+## Summary of Day 87:
 
 Today's Submissions:
 

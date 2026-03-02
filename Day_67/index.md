@@ -1,4 +1,9 @@
----\ntitle: Day 67\nlayout: default\n---\n\n## Summary of Day 67:
+---
+title: Day 67
+layout: default
+---
+
+## Summary of Day 67:
 
 Okay so yesterday, we studied about Fourier Transform and FFT. Also, we were discussing that FFT is widely used in signal processing and image reconstruction. Today let's discuss on this.
 

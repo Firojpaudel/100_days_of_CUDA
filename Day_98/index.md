@@ -1,4 +1,9 @@
----\ntitle: Day 98\nlayout: default\n---\n\n## Summary of Day 98:
+---
+title: Day 98
+layout: default
+---
+
+## Summary of Day 98:
 
 Todays' kernel: **Matrix Multiplication with Swish Activation**
 

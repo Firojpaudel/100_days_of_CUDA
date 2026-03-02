@@ -1,4 +1,9 @@
----\ntitle: Day 28\nlayout: default\n---\n\n## Summary of Day 28:
+---
+title: Day 28
+layout: default
+---
+
+## Summary of Day 28:
 
 > _*We are now focusing on more advanced CUDA reduction techniques, including shared memory usage, hierarchical reductions, and thread coarsening. These methods aim to improve performance by reducing global memory accesses, minimizing hardware underutilization, and optimizing thread execution._
 

@@ -1,4 +1,9 @@
----\ntitle: Day 12\nlayout: default\n---\n\n## Summary of Day 12:
+---
+title: Day 12
+layout: default
+---
+
+## Summary of Day 12:
 
  > *First explanation of the code  of yesterday's "the tiled matrix multiplication" code.
 
@@ -92,9 +97,9 @@ Boundary condition handling for non-divisible matrix sizes
     3. **Compute Characteristics:**
         - *Operational intensity:* $O(n)$ operations per byte
         - *Theoretical peak performance:*
-```math
+$$
 \text{GFLOPS} = \frac{2 \times N^3}{\text{time taken}} \times 10^{-9}
-```
+$$
 
 > This implementation demonstrates effective heterogeneous computing by:
 >- Leveraging CPU strengths for small problems

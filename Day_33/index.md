@@ -1,4 +1,9 @@
----\ntitle: Day 33\nlayout: default\n---\n\n## Summary of Day: 33
+---
+title: Day 33
+layout: default
+---
+
+## Summary of Day: 33
 
 > *Coarsening for Even More Work Efficiency:
 

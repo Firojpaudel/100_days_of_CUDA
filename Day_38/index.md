@@ -1,4 +1,9 @@
----\ntitle: Day 38\nlayout: default\n---\n\n## Summary of Day 38:
+---
+title: Day 38
+layout: default
+---
+
+## Summary of Day 38:
 
 > *Merge continues...
 

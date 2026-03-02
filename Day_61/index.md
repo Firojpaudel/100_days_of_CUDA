@@ -1,4 +1,9 @@
----\ntitle: Day 61\nlayout: default\n---\n\n## Summary of Day 61:
+---
+title: Day 61
+layout: default
+---
+
+## Summary of Day 61:
 
 > _So, today I fixed my yesterday's [MHA triton implementation](../Day_60/MHA.py). Took a lot of time so not going into CUDA today. However, will explain the code mechanism in very minute detail. So that well, evry one could understand. Also, this would be a revision for me._
 

@@ -1,4 +1,9 @@
----\ntitle: Day 09\nlayout: default\n---\n\n## Summary of Day 09:
+---
+title: Day 09
+layout: default
+---
+
+## Summary of Day 09:
 
 > * Starting of Chapter 5
 

@@ -1,4 +1,9 @@
----\ntitle: Day 22\nlayout: default\n---\n\n## Summary of Day 22:
+---
+title: Day 22
+layout: default
+---
+
+## Summary of Day 22:
 
 > _*Starting of Thread Coarsening_
 

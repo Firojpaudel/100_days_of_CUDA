@@ -1,4 +1,9 @@
----\ntitle: Day 25\nlayout: default\n---\n\n## Summary of Day 25:
+---
+title: Day 25
+layout: default
+---
+
+## Summary of Day 25:
 
 > * Starting from 9.3 onwards
 

@@ -1,4 +1,9 @@
----\ntitle: Day 24\nlayout: default\n---\n\n## Summary of Day 24:
+---
+title: Day 24
+layout: default
+---
+
+## Summary of Day 24:
 
 >**Starting of Chapter 9 — Parallel Histogram*
 

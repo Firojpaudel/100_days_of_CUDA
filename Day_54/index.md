@@ -1,4 +1,9 @@
----\ntitle: Day 54\nlayout: default\n---\n\n## Summary of Day 54:
+---
+title: Day 54
+layout: default
+---
+
+## Summary of Day 54:
 
 Today, I'll try to learn the backpropagation in CNN using CUDA C++. 
 

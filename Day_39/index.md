@@ -1,4 +1,9 @@
----\ntitle: Day 39\nlayout: default\n---\n\n## Summary of Day 39:
+---
+title: Day 39
+layout: default
+---
+
+## Summary of Day 39:
 
 > *Exercises from chapter 12- Merge
 

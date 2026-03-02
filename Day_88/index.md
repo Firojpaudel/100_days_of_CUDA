@@ -1,4 +1,9 @@
----\ntitle: Day 88\nlayout: default\n---\n\n## Summary of Day 88:
+---
+title: Day 88
+layout: default
+---
+
+## Summary of Day 88:
 
 1. Improvised the code for **Leaky RELU**:
 

@@ -1,4 +1,9 @@
----\ntitle: Day 76\nlayout: default\n---\n\n## Summary of Day 75:
+---
+title: Day 76
+layout: default
+---
+
+## Summary of Day 75:
 
 Trying out cummulative product today.
 
