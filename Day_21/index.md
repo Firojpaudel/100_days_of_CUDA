@@ -15,11 +15,12 @@ Each point in a grid is updated by applying a fixed pattern (stencil) over its n
 ---
 #### Difference Between Stencil Computation and Convolution:
 Though both apply a kernel to a region of data, they differ in intent:
-|**Features**|	**Stencil Computation**|	**Convolution**|
-|-------|----------------------|----------------|
-|Purpose|	Used in PDEs, scientific computing|	Mostly used in deep learning & signal/image processing|
-|Operation|	Updates each grid point based on its neighbors|	Computes weighted sum using a kernel|
-|Data Dependency|	Strong dependencies on neighboring values|	Often applied with independent operations|
+
+| **Features** | **Stencil Computation** | **Convolution** |
+| :--- | :--- | :--- |
+| **Purpose** | Used in PDEs, scientific computing | Mostly used in deep learning & signal/image processing |
+| **Operation** | Updates each grid point based on its neighbors | Computes weighted sum using a kernel |
+| **Data Dependency** | Strong dependencies on neighboring values | Often applied with independent operations |
 
 > _Stencil computations typically involve solving **differential equations**, while convolution is a **mathematical operation** used in filtering and feature extraction._
 

@@ -6,8 +6,7 @@
   rel="stylesheet">
 
 <!-- Highlight.js for IDE-style syntax highlighting -->
-<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/tokyo-night-dark.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/cpp.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
@@ -31,28 +30,23 @@
   </script>
 
 <!-- Premium UI Components -->
-<div class="dark-aurora-bg"></div>
 <div id="premium-code-modal" class="code-modal-overlay" style="display:none;">
   <div class="code-modal-container">
     <div class="code-modal-header">
+      <div class="macos-controls">
+        <div class="dot close red" id="close-modal-btn"></div>
+        <div class="dot minimize yellow"></div>
+        <div class="dot maximize green"></div>
+      </div>
       <div class="modal-file-info">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="var(--accent-secondary)" stroke-width="2" fill="none">
-          <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-          <polyline points="13 2 13 9 20 9" />
-        </svg>
         <span id="modal-filename">filename.cu</span>
       </div>
       <div class="modal-controls">
         <button id="copy-code-btn" class="modal-btn" title="Copy Code">
-          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
             <path d="M8 4v8H4V4h4m2-2H2v12h8V2zM18 12v8h-4v-8h4m2-2h-8v12h8V10z" />
           </svg>
           <span>Copy</span>
-        </button>
-        <button id="close-modal-btn" class="modal-btn close-btn" title="Close">
-          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
-            <path d="M18 6L6 18M6 6l12 12" />
-          </svg>
         </button>
       </div>
     </div>
@@ -113,7 +107,7 @@
     copyBtn.onclick = () => {
       navigator.clipboard.writeText(codeBlock.textContent);
       const originalContent = copyBtn.innerHTML;
-      copyBtn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" stroke="#10b981" stroke-width="2" fill="none"><path d="M20 6L9 17l-5-5"/></svg><span>Copied!</span>';
+      copyBtn.innerHTML = '<svg viewBox="0 0 24 24" width="14" height="14" stroke="#10b981" stroke-width="2" fill="none"><path d="M20 6L9 17l-5-5"/></svg><span>Copied!</span>';
       setTimeout(() => {
         copyBtn.innerHTML = originalContent;
       }, 2000);
@@ -147,10 +141,10 @@
         const nav = document.createElement('div');
         nav.className = 'premium-nav-bar';
 
-        let navContent = `<a href="../" class="nav-link home-link"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home</a>`;
+        let navContent = `<a href="../" class="nav-link home-link"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Home</a>`;
 
-        if (prevDay) navContent += `<a href="../${prevDay}/" class="nav-link"><svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"/></svg> Prev</a>`;
-        if (nextDay) navContent += `<a href="../${nextDay}/" class="nav-link">Next <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"/></svg></a>`;
+        if (prevDay) navContent += `<a href="../${prevDay}/" class="nav-link"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"/></svg> Prev</a>`;
+        if (nextDay) navContent += `<a href="../${nextDay}/" class="nav-link">Next <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"/></svg></a>`;
 
         nav.innerHTML = navContent;
         document.querySelector('.wrapper').prepend(nav);
@@ -161,16 +155,14 @@
 
 <style>
   :root {
-    --bg-color: #020617;
-    --surface-color: rgba(15, 23, 42, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --accent-primary: #a855f7;
-    --accent-secondary: #22d3ee;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --text-bright: #ffffff;
-    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --bg-color: #000000;
+    --surface-color: rgba(20, 20, 20, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --accent-main: #ffffff;
+    --text-main: #f5f5f7;
+    --text-muted: #86868b;
+    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
   }
 
   body {
@@ -179,75 +171,48 @@
     font-family: var(--font-sans) !important;
     margin: 0 !important;
     padding: 0 !important;
-    line-height: 1.8 !important;
-    overflow-x: hidden;
+    line-height: 1.6 !important;
+    -webkit-font-smoothing: antialiased;
   }
 
-  /* Dark Aurora Animated Background */
-  .dark-aurora-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(circle at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 50% 10%, rgba(30, 58, 138, 0.2) 0%, transparent 60%);
-    filter: blur(80px);
-    z-index: -1;
-    animation: aurora-shift 20s ease-in-out infinite alternate;
-  }
-
-  @keyframes aurora-shift {
-    0% {
-      transform: scale(1) translate(0, 0);
-    }
-
-    100% {
-      transform: scale(1.1) translate(2%, 2%);
-    }
-  }
-
+  /* Apple Glassmorphism */
   .wrapper {
-    max-width: 1000px !important;
-    margin: 80px auto !important;
-    padding: 60px !important;
+    max-width: 900px !important;
+    margin: 100px auto !important;
+    padding: 80px !important;
     background: var(--surface-color) !important;
-    backdrop-filter: blur(28px) saturate(160%);
-    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
     border: 1px solid var(--glass-border) !important;
-    border-radius: 40px !important;
-    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8),
-      inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+    border-radius: 48px !important;
+    box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5) !important;
     float: none !important;
     position: relative !important;
-    z-index: 100 !important;
   }
 
   header {
     width: 100% !important;
     float: none !important;
     position: static !important;
-    padding: 0 0 40px 0 !important;
-    margin: 0 0 40px 0 !important;
+    padding: 0 0 60px 0 !important;
+    margin: 0 0 60px 0 !important;
     border-bottom: 1px solid var(--glass-border) !important;
   }
 
   header h1 {
-    font-size: 3.2rem !important;
-    font-weight: 900 !important;
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
     letter-spacing: -0.05em !important;
-    background: linear-gradient(135deg, var(--text-bright) 30%, var(--accent-secondary)) !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    margin-bottom: 12px !important;
+    color: #ffffff !important;
+    margin-bottom: 8px !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
   }
 
   header p {
-    font-size: 1.2rem !important;
+    font-size: 1.25rem !important;
     color: var(--text-muted) !important;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
   }
 
   section {
@@ -255,295 +220,267 @@
     float: none !important;
   }
 
-  /* Critical Bold Fix: Ensure bold text pops */
-  strong,
-  b {
-    color: var(--text-bright) !important;
-    font-weight: 700 !important;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-  }
-
+  /* Typography Refinement */
   h1,
   h2,
   h3,
   h4 {
-    color: var(--text-bright) !important;
-    margin-top: 2.5em !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    margin-top: 3em !important;
+    background: none !important;
+    /* Fix for clunky highlights */
+    padding: 0 !important;
+  }
+
+  h2 {
+    font-size: 2.2rem !important;
     margin-bottom: 1em !important;
-    letter-spacing: -0.02em !important;
+  }
+
+  h3 {
+    font-size: 1.6rem !important;
+  }
+
+  h4 {
+    font-size: 1.3rem !important;
+    color: var(--text-muted) !important;
   }
 
   p,
   li {
-    font-size: 1.1rem !important;
-    color: #cbd5e1 !important;
-    margin-bottom: 1.2em !important;
+    font-size: 1.15rem !important;
+    color: #d1d1d6 !important;
+    margin-bottom: 1.5em !important;
+  }
+
+  strong,
+  b {
+    color: #ffffff !important;
+    font-weight: 600 !important;
   }
 
   a {
-    color: var(--accent-secondary) !important;
+    color: #0071e3 !important;
+    /* Apple blue */
     text-decoration: none !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    border-bottom: 1px solid transparent;
+    transition: opacity 0.2s !important;
   }
 
   a:hover {
-    color: var(--text-bright) !important;
-    border-bottom-color: var(--accent-secondary);
-    text-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+    opacity: 0.7;
   }
 
   /* Navigation Bar */
   .premium-nav-bar {
     display: flex;
-    gap: 12px;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
+    gap: 16px;
+    margin-bottom: 60px;
+    padding-bottom: 24px;
     border-bottom: 1px solid var(--glass-border);
   }
 
   .nav-link {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.04);
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
-    border-radius: 14px;
-    color: var(--text-main) !important;
+    border-radius: 12px;
+    color: #ffffff !important;
     font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.3s !important;
+    font-weight: 500;
+    transition: all 0.2s !important;
   }
 
   .nav-link:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent-secondary);
+    background: rgba(255, 255, 255, 0.1);
   }
 
-  /* Tables Enhancement */
+  /* Fix for Table Rendering */
   table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     margin: 40px 0;
     border: 1px solid var(--glass-border);
     border-radius: 20px;
     overflow: hidden;
-    background: rgba(0, 0, 0, 0.2);
+    display: table !important;
+    /* Force table display */
   }
 
   th {
-    background: rgba(255, 255, 255, 0.05) !important;
-    color: var(--text-bright) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: #ffffff !important;
     padding: 20px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
+    text-align: left !important;
+    font-weight: 600 !important;
+    border-bottom: 1px solid var(--glass-border);
   }
 
   td {
     padding: 20px !important;
-    border-top: 1px solid var(--glass-border);
-    transition: background 0.2s;
+    border-bottom: 1px solid var(--glass-border);
+    color: #d1d1d6 !important;
   }
 
-  tr:hover td {
-    background: rgba(255, 255, 255, 0.03);
+  tr:last-child td {
+    border-bottom: none;
   }
 
+  /* Details Adjustment */
   details {
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 24px;
     border: 1px solid var(--glass-border);
-    padding: 0 30px;
+    border-radius: 24px;
+    padding: 30px;
     margin: 30px 0;
-    transition: all 0.3s;
-  }
-
-  details[open] {
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
   summary {
-    padding: 24px 0;
-    font-weight: 800;
-    color: var(--accent-secondary);
+    font-weight: 600;
+    color: #ffffff;
     cursor: pointer;
     list-style: none;
     font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
   }
 
-  summary::before {
-    content: '→';
-    display: inline-block;
-    transition: transform 0.3s;
-    color: var(--accent-primary);
+  summary::marker,
+  summary::-webkit-details-marker {
+    display: none;
   }
 
-  details[open] summary::before {
-    transform: rotate(90deg);
-  }
-
-  /* Code Viewer Modal */
+  /* Code Modal Overhaul (macOS Style) */
   .code-modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(2, 6, 23, 0.9);
-    backdrop-filter: blur(20px);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(30px) saturate(150%);
     z-index: 10000;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
-    animation: modalFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 60px;
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .code-modal-container {
     width: 100%;
-    max-width: 1300px;
-    height: 90%;
-    background: #0f172a;
-    border-radius: 32px;
-    border: 1px solid var(--glass-border);
+    max-width: 1200px;
+    height: 85%;
+    background: #111111;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 60px 120px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 80px 160px rgba(0, 0, 0, 0.8);
     overflow: hidden;
   }
 
   .code-modal-header {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 24px 40px;
+    background: #1c1c1e;
+    padding: 16px 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  #modal-filename {
-    color: var(--text-bright);
-    font-family: var(--font-mono);
-    font-size: 1rem;
+  .macos-controls {
+    display: flex;
+    gap: 8px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .red {
+    background: #ff5f57;
+  }
+
+  .yellow {
+    background: #febc2e;
+  }
+
+  .green {
+    background: #28c840;
+  }
+
+  .modal-file-info {
+    font-family: var(--font-sans);
     font-weight: 500;
+    font-size: 0.95rem;
+    color: #ffffff;
   }
 
   .modal-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    transition: all 0.2s;
-  }
-
-  .modal-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-  }
-
-  .close-btn {
-    color: #f87171 !important;
-  }
-
-  .close-btn:hover {
-    background: rgba(248, 113, 113, 0.1) !important;
+    gap: 8px;
   }
 
   .code-modal-body {
     flex: 1;
     overflow: auto;
-    padding: 0;
-    background: #020617;
+    background: #000000 !important;
   }
 
+  /* Force background transparent to avoid the white box issue */
   pre code.hljs {
-    padding: 40px !important;
     background: transparent !important;
-    font-family: var(--font-mono) !important;
+    padding: 40px !important;
     font-size: 1rem !important;
-    line-height: 1.6 !important;
+    line-height: 1.5 !important;
   }
 
-  /* Math Blocks */
-  .premium-math-block {
-    background: rgba(139, 92, 246, 0.03);
-    border-radius: 24px;
-    padding: 50px;
-    margin: 50px 0;
-    border: 1px solid rgba(139, 92, 246, 0.1);
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
-    text-align: center;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   footer {
     display: none !important;
   }
 
+  /* Custom Scrollbar */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #020617;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #1e293b;
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 10px;
-    border: 2px solid #020617;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #334155;
-  }
-
-  @keyframes modalFadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95) translateY(20px);
-    }
-
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .wrapper {
-      margin: 20px !important;
-      padding: 25px !important;
-      border-radius: 24px !important;
-    }
-
-    header h1 {
-      font-size: 2.2rem !important;
-    }
-
-    .nav-link span {
-      display: none;
-    }
-
-    .code-modal-overlay {
-      padding: 15px;
-    }
+    background: rgba(255, 255, 255, 0.25);
   }
 </style>

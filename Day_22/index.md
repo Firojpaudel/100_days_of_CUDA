@@ -77,112 +77,115 @@ Stencil operations - critical for solving PDEs in fluid dynamics, weather modeli
         inCurr_s[threadIdx.y][threadIdx.x] = inNext_s[threadIdx.y][threadIdx.x];
     }
     ```
-    <details>
-    <summary> <b>In detail breakdown of the kernel code: </b><i>(Click to expand)</i></summary>
-    
-    **Kernel Function Signature**
-    ```cpp
-    __global__ void stencil_kernel(float* in, float* out, unsigned int N)
-    ```
-    - **__global__** → Indicates this is a CUDA kernel that runs on the GPU.
-    - **float* in** → Pointer to input data in **global memory**.
-    - **float* out** → Pointer to output data in **global memory**.
-    - **unsigned int N** → Grid size (NxNxN).<br><br>
-    
-    **Compute Thread and Block Indices**
-    Each thread operates on a **3D grid**. We calculate `(i, j, k)` indices:
-    ```cpp
-    int iStart = blockIdx.z * OUT_TILE_DIM;
-    int j = blockIdx.y * OUT_TILE_DIM + threadIdx.y - 1;
-    int k = blockIdx.x * OUT_TILE_DIM + threadIdx.x - 1;
-    ```
-    - **iStart** → The depth index (**z** dimension).
-    - **j, k** → Row (**y**) and column (**x**) positions.
-    - Subtracting `1` helps with handling boundary conditions.<br><br>
-    
-    **Shared Memory Allocation**
-    To speed up memory access, we use **shared memory** for storing slices:
-    ```cpp
-    __shared__ float inPrev_s[IN_TILE_DIM][IN_TILE_DIM];
-    __shared__ float inCurr_s[IN_TILE_DIM][IN_TILE_DIM];
-    __shared__ float inNext_s[IN_TILE_DIM][IN_TILE_DIM];
-    ```
-    - **inPrev_s** → Stores values from the **previous depth (z-1)**.
-    - **inCurr_s** → Stores values from the **current depth (z)**.
-    - **inNext_s** → Stores values from the **next depth (z+1)**.<br><br>
-   
-    **Load Data from Global Memory to Shared Memory**
-    ```cpp
-    if (iStart - 1 >= 0 && iStart - 1 < N) 
-        inPrev_s[threadIdx.y][threadIdx.x] = in[(iStart - 1) * N * N + j * N + k];
+<details>
+<summary>Detailed breakdown of the kernel code (Click to expand)</summary>
 
-    if (iStart >= 0 && iStart < N) 
-        inCurr_s[threadIdx.y][threadIdx.x] = in[iStart * N * N + j * N + k];
+### Kernel Function Signature
 
-    if (iStart + 1 >= 0 && iStart + 1 < N) 
-        inNext_s[threadIdx.y][threadIdx.x] = in[(iStart + 1) * N * N + j * N + k];
-    ```
-    **`__syncthreads();`** is called to synchronize all threads before proceeding.<br>
+```cpp
+__global__ void stencil_kernel(float* in, float* out, unsigned int N)
+```
 
-    **Apply the Stencil Computation**
-    ```cpp
-    if (iStart >= 1 && iStart < N - 1 && j >= 1 && j < N - 1 && k >= 1 && k < N - 1) {
-        if (threadIdx.y >= 1 && threadIdx.y < IN_TILE_DIM - 1 &&
-            threadIdx.x >= 1 && threadIdx.x < IN_TILE_DIM - 1) {
-            out[iStart * N * N + j * N + k] =
-                c0 * inCurr_s[threadIdx.y][threadIdx.x] +
-                c1 * inCurr_s[threadIdx.y][threadIdx.x - 1] +  // Left neighbor
-                c2 * inCurr_s[threadIdx.y][threadIdx.x + 1] +  // Right neighbor
-                c3 * inCurr_s[threadIdx.y + 1][threadIdx.x] +  // Bottom neighbor
-                c4 * inCurr_s[threadIdx.y - 1][threadIdx.x] +  // Top neighbor
-                c5 * inPrev_s[threadIdx.y][threadIdx.x] +      // Previous depth
-                c6 * inNext_s[threadIdx.y][threadIdx.x];       // Next depth
-        }
+- **`__global__`**: Indicates this is a CUDA kernel that runs on the GPU.
+- **`float* in`**: Pointer to input data in global memory.
+- **`float* out`**: Pointer to output data in global memory.
+- **`unsigned int N`**: Grid size (NxNxN).
+
+---
+
+### Compute Thread and Block Indices
+
+Each thread operates on a **3D grid**. We calculate `(i, j, k)` indices:
+
+```cpp
+int iStart = blockIdx.z * OUT_TILE_DIM;
+int j = blockIdx.y * OUT_TILE_DIM + threadIdx.y - 1;
+int k = blockIdx.x * OUT_TILE_DIM + threadIdx.x - 1;
+```
+
+- **`iStart`**: The depth index (z dimension).
+- **`j, k`**: Row (y) and column (x) positions.
+- Subtracting `1` helps with handling boundary conditions.
+
+---
+
+### Shared Memory Allocation
+
+To speed up memory access, we use shared memory for storing slices:
+
+```cpp
+__shared__ float inPrev_s[IN_TILE_DIM][IN_TILE_DIM];
+__shared__ float inCurr_s[IN_TILE_DIM][IN_TILE_DIM];
+__shared__ float inNext_s[IN_TILE_DIM][IN_TILE_DIM];
+```
+
+- **`inPrev_s`**: Stores values from the previous depth (z-1).
+- **`inCurr_s`**: Stores values from the current depth (z).
+- **`inNext_s`**: Stores values from the next depth (z+1).
+
+---
+
+### Load Data from Global Memory
+
+```cpp
+if (iStart - 1 >= 0 && iStart - 1 < N) 
+    inPrev_s[threadIdx.y][threadIdx.x] = in[(iStart - 1) * N * N + j * N + k];
+
+if (iStart >= 0 && iStart < N) 
+    inCurr_s[threadIdx.y][threadIdx.x] = in[iStart * N * N + j * N + k];
+
+if (iStart + 1 >= 0 && iStart + 1 < N) 
+    inNext_s[threadIdx.y][threadIdx.x] = in[(iStart + 1) * N * N + j * N + k];
+```
+
+**`__syncthreads();`** is called to synchronize all threads before proceeding.
+
+---
+
+### Apply the Stencil Computation
+
+```cpp
+if (iStart >= 1 && iStart < N - 1 && j >= 1 && j < N - 1 && k >= 1 && k < N - 1) {
+    if (threadIdx.y >= 1 && threadIdx.y < IN_TILE_DIM - 1 &&
+        threadIdx.x >= 1 && threadIdx.x < IN_TILE_DIM - 1) {
+        out[iStart * N * N + j * N + k] =
+            c0 * inCurr_s[threadIdx.y][threadIdx.x] +
+            c1 * inCurr_s[threadIdx.y][threadIdx.x - 1] +  // Left
+            c2 * inCurr_s[threadIdx.y][threadIdx.x + 1] +  // Right
+            c3 * inCurr_s[threadIdx.y + 1][threadIdx.x] +  // Bottom
+            c4 * inCurr_s[threadIdx.y - 1][threadIdx.x] +  // Top
+            c5 * inPrev_s[threadIdx.y][threadIdx.x] +      // Prev Depth
+            c6 * inNext_s[threadIdx.y][threadIdx.x];       // Next Depth
     }
-    ```
-    Each thread updates its `out[i, j, k]` using its neighbors.
+}
+```
 
-    **Prepare for the Next Iteration**
-    ```cpp
-    __syncthreads();
-    inPrev_s[threadIdx.y][threadIdx.x] = inCurr_s[threadIdx.y][threadIdx.x];
-    inCurr_s[threadIdx.y][threadIdx.x] = inNext_s[threadIdx.y][threadIdx.x];
-    ```
-    This shifts the stencil window, making the next iteration efficient.
+---
+
+### Prepare for the Next Iteration
+
+```cpp
+__syncthreads();
+inPrev_s[threadIdx.y][threadIdx.x] = inCurr_s[threadIdx.y][threadIdx.x];
+inCurr_s[threadIdx.y][threadIdx.x] = inNext_s[threadIdx.y][threadIdx.x];
+```
+
+This shifts the stencil window, making the next iteration efficient.
+
 </details>
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_22/thread_coarsening1.cu) to redirect to the full code implementation. 
 
-> ***Output looks like:***
-> ```shell
-> ========================================
->       3D STENCIL GPU ACCELERATOR       
-> ========================================
-> Grid Size: 256x256x256
-> Tile Size: 32x32
-> Shared Memory/Block: 13 KB
-> ========================================
->
-> Execution Summary:
-> Grid Dimensions: 8x8x8
-> Block Dimensions: 34x34
-> Total Time: 30.2896 ms
-> Throughput: 4.43115 GB/s
-> ========================================
-> ```
+---
 
-2. ***Quantitative Improvements***:
+#### Quantitative Improvements
 
-<div align="center">
-
-| Metric|	Original|	Coarsened $(T=32)$|
-|-------|-----------|---------------------|
-|Threads/Block	|$T^3$| $T^2$ $(1024)$ |
-|Shared Memory Usage|	$T^3$ | $3T^2 (3 \space \text{KB})$ |
-|FLOP/Byte Ratio|	1.37|	2.68|
-|Active Outputs/Block	| $(T−2)^3$ |$(T−2)^2 \times T$ |
-
-</div>
+| Metric | Original | Coarsened (T=32) |
+| :--- | :--- | :--- |
+| **Threads/Block** | $T^3$ | $T^2$ (1024) |
+| **Shared Memory Usage** | $T^3$ | $3T^2$ (3 KB) |
+| **FLOP/Byte Ratio** | 1.37 | 2.68 |
+| **Active Outputs/Block** | $(T−2)^3$ | $(T−2)^2 \times T$ |
 
 
 3. ***Register Tiling Optimization***: 
