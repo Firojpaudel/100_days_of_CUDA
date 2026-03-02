@@ -197,6 +197,103 @@
 </script>
 
 <style>
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .wrapper {
+      padding: 24px !important;
+    }
+
+    header {
+      padding: 15px 0 !important;
+    }
+
+    header h1 {
+      font-size: 2.2rem !important;
+      letter-spacing: -0.03em !important;
+    }
+
+    header p {
+      font-size: 1.1rem !important;
+    }
+
+    h1 {
+      font-size: 2.2rem !important;
+    }
+
+    h2 {
+      font-size: 1.8rem !important;
+    }
+
+    h3 {
+      font-size: 1.4rem !important;
+    }
+
+    h4 {
+      font-size: 1.2rem !important;
+    }
+
+    p,
+    li {
+      font-size: 1.05rem !important;
+    }
+
+    .premium-nav-bar {
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 30px;
+    }
+
+    .nav-link {
+      padding: 6px 12px;
+      font-size: 0.85rem;
+    }
+
+    /* Scrollable Tables on Mobile */
+    table {
+      display: block !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      -webkit-overflow-scrolling: touch;
+      margin: 15px 0 !important;
+    }
+
+    /* Code Modal Mobile Optimization */
+    .code-modal-overlay {
+      padding: 0 !important;
+    }
+
+    .code-modal-container {
+      height: 100%;
+      border-radius: 0;
+      border: none;
+    }
+
+    .code-modal-header {
+      padding: 12px 16px;
+    }
+
+    .modal-file-info {
+      font-size: 0.85rem;
+    }
+
+    pre code.hljs {
+      padding: 40px 20px !important;
+      font-size: 0.85rem !important;
+    }
+
+    /* Global Image Responsiveness */
+    img {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+
+    .premium-math-block,
+    mjx-container,
+    .MathJax_Display {
+      padding: 15px 0 !important;
+    }
+  }
+
   :root {
     --bg-color: #000000;
     --surface-color: rgba(20, 20, 20, 0.7);
