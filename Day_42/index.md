@@ -31,81 +31,71 @@ __global__ void radix_sort_iter (unsigned int* input, unsigned int* output, unsi
 ***Solution***:
 
 ```cpp
-__global__ void radix_sort_iter (unsigned int* input, unsigned int* output, unsigned int* bits, unsigned int N, unsigned int iter) {
+__global__ void radix_sort_iter(unsigned int* input, unsigned int* output, unsigned int* bits, unsigned int N, unsigned int iter) {
     // Shared Memory...
     extern __shared__ unsigned int s_data[];
-    unsigned int* S_input = s_data;                 //Stores input keys
-    unsigned int* S_bits = &S_input[blockDim.x];    //Stores bit flags 
-    unsigned int* S_scan = &S_bits[blovkDim.x];     // Store scan results
+    unsigned int* S_input = s_data;                 // Stores input keys
+    unsigned int* S_bits = &S_input[blockDim.x];    // Stores bit flags 
+    unsigned int* S_scan = &S_bits[blockDim.x];     // Store scan results
 
-    unsigned int i = blockIdx.x*blockDim.x + threadIdx.x;
+    unsigned int tid = threadIdx.x;
+    unsigned int i = blockIdx.x * blockDim.x + threadIdx.x;
     unsigned int key, bit;
- 
+
     if (i < N) {
         key = input[i];
-        s_input[tid] = key;
-        bit = (key >> iter) & 1;  // 1 << 2 ~ 100; kinda like shifting 
-        s_bits[tid] = bit;
+        S_input[tid] = key;
+        bit = (key >> iter) & 1;
+        S_bits[tid] = bit;
+        S_scan[tid] = bit; // Initialize scan with bit values
     } else {
-        s_bits[tid] = 0;
+        S_bits[tid] = 0;
+        S_scan[tid] = 0;
     }
     __syncthreads();
-    
+
     // Perform exclusive scan in shared memory
-    // Block-level scan (using work-efficient parallel scan)
-    // idk could have just written Shared_exclusiveScan(); and got rid of this but whatever 
     unsigned int offset = 1;
-    
-    // Build sum in place up the tree
     for (int d = blockDim.x >> 1; d > 0; d >>= 1) {
         __syncthreads();
         if (tid < d) {
             int ai = offset * (2 * tid + 1) - 1;
             int bi = offset * (2 * tid + 2) - 1;
-            if (bi < blockDim.x) {
-                s_scan[bi] += s_scan[ai];
-            }
+            S_scan[bi] += S_scan[ai];
         }
         offset *= 2;
     }
-    
-    // Clear the last element
+
     if (tid == 0) {
-        s_scan[blockDim.x - 1] = 0;
+        S_scan[blockDim.x - 1] = 0;
     }
-    
-    // Traverse down the tree and build scan
+
     for (int d = 1; d < blockDim.x; d *= 2) {
         offset >>= 1;
         __syncthreads();
         if (tid < d) {
             int ai = offset * (2 * tid + 1) - 1;
             int bi = offset * (2 * tid + 2) - 1;
-            if (bi < blockDim.x) {
-                unsigned int temp = s_scan[ai];
-                s_scan[ai] = s_scan[bi];
-                s_scan[bi] += temp;
-            }
+            unsigned int temp = S_scan[ai];
+            S_scan[ai] = S_scan[bi];
+            S_scan[bi] += temp;
         }
     }
     __syncthreads();
-    
-    // Write scan result to global memory for block scans to be combined later
-    if (i < N) {
-        bits[i] = s_scan[tid];
-    }
-    
-    // Perform global scan combination
-    // Note: This assumes exclusiveScan is modified to work with the block scans
-    exclusiveScan(bits, N);
 
+    if (i < N) {
+        bits[i] = S_scan[tid];
+    }
     __syncthreads();
+
+    // Perform global scan combination (conceptually)
+    // exclusiveScan(bits, N); 
 
     if (i < N) {
         unsigned int numOnesBefore = bits[i];
-        unsigned int numOnesTotal = bits[N];
-        unsigned int dst = (bit == 0) ? (i - numOnesBefore) : (N - numOnesTotal - numOnesBefore) ;
-        output [dst] = key;
+        unsigned int numOnesTotal = bits[N]; // This requires global knowledge
+        unsigned int dst = (bit == 0) ? (i - numOnesBefore) : (N - numOnesTotal + numOnesBefore);
+        output[dst] = key;
     }
 }
 ```
@@ -170,7 +160,7 @@ __global__ void radix_sort_iter (unsigned int* input, unsigned int* output, unsi
         - Row $1$: Nonzero elements in columns $0$, $2$, and $3$ indicate that only variables $x_0$, $x_2$, and $x_3$ are involved in equation $1$.
         - And so on...
 
-2. **Matries in Linear Systems**:
+2. **Matrices in Linear Systems**:
 
     <div align="center">
         <img src="./images/spMV.png"  width="300px">

@@ -22,7 +22,7 @@ Just wrote a kernel for **Swish activation function**:
 > - Runtime: $0.18 \text{ ms}$
 > - GPU: **NVIDIA H100**
 
-3. Fall back to 4 elements per thread with device `__expf()` function and 128 threads per block.. 
+3. Fallback to 4 elements per thread with device `__expf()` function and 128 threads per block.. 
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_79/swish3.cu) to redirect to the code.
 

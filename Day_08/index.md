@@ -48,7 +48,7 @@ void foo(int* a_d, int* b_d) {
 - For the statement on line 04:
     - How many warps in the grid are active?
     - How many warps in the grid are divergent?
-    - hat is the SIMD efficiency $(\text{in}\space \%)$ of warp 0 of block 0?
+    - What is the SIMD efficiency $(\text{in}\space \%)$ of warp 0 of block 0?
     - What is the SIMD efficiency $(\text{in}\space \%)$ of warp 1 of block 0?
     - What is the SIMD efficiency $(\text{in}\space \%)$ of warp 3 of block 0?
 - For the statement on line 07:
@@ -82,13 +82,13 @@ Here, we have:
             | Warp 3 | 96-127 | 96-103 dont; 104-127 satisfy `threadIdx.x >=104` | Yes |
 
             Hence, 2 warps are divergent
-        - **SIMD effeciency of Warp 0 of Block 0:**<br>
-        Since all threads execute and there is no divergence, $\text{SIMD effeciency} = \frac{32}{32} \times 100 \% = 100\%$
+        - **SIMD efficiency of Warp 0 of Block 0:**<br>
+        Since all threads execute and there is no divergence, $\text{SIMD efficiency} = \frac{32}{32} \times 100 \% = 100\%$
 
-        - **SIMD effeciency of Warp 1 Block 0:**<br>
+        - **SIMD efficiency of Warp 1 Block 0:**<br>
             - Only the threads (32-39) execute the branch. ie., $39-32 = 8 \space \text{threads are active}$
 ```math
-    \text{i.e., SIMD Effeciency} = \frac{8}{32} \times 100\% = 25\%
+    \text{i.e., SIMD Efficiency} = \frac{8}{32} \times 100\% = 25\%
 ```
 Simlar for `Warp 3 Block 0`. _And other questions as well._ 
 

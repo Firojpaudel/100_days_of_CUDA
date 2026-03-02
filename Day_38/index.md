@@ -34,7 +34,7 @@
 #### Key Components of Tiled Merge kernel
 
 <div align="center">
-<img src="./images/Tiled_merge_01.png", width="500px">
+<img src="./images/Tiled_merge_01.png" width="500px">
 <p><b>Fig 38_01: </b><i>Tiled Merge Kernel Diagramatic Approach</i></p>
 </div>
 
@@ -57,7 +57,7 @@ Okay, so from the above diagram; let's talk about some of the key components dur
 3. **Shared Memory Allocation:**
     - Each block **declares two shared memory arrays**:
         - $A\_S$: Stores tiles of elements from array $A$
-        - $B\_S$: Stores tiles of elemets from array $B$.
+        - $B\_S$: Stores tiles of elements from array $B$.
     - Due to limited shared memory size, these arrays cannot hold the entire input subarrays for the block. Instead, they process data iteratively in smaller chunks *(tiles)*.
 
 4. **Iterative Tiling:**

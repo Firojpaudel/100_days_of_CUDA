@@ -1,6 +1,6 @@
 ## Summary of Day 21:
 
-> **Starting of new chapter; Chapter — 8 **Stencil***
+> **Starting Chapter 8: Stencil**
 
 #### Stencil Computation: _What is it?_
 Stencil computations are a class of numerical algorithms used to **update elements in a data grid based on neighboring values**. They appear in many scientific and engineering applications, such as:

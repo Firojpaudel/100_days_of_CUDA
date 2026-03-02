@@ -24,7 +24,7 @@
 
     - Example: For a block of 256 threads; 
 ```math
-\text{Number of warps} = \frac{256}{32} = 8 \space \text{wraps}
+\text{Number of warps} = \frac{256}{32} = 8 \space \text{warps}
 ```
 and, if there are like 3 blocks in the SM;
 ```math

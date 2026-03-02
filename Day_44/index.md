@@ -20,7 +20,7 @@ Looking in the above figure **44_01**, we can see the CSR uses three arrays:
 > The `rowPtrs` array has `(numRows + 1)` elements, with the last element indicating the total number of nonzeros. **This allows finding both the start and end of any row's elements.**
 
 **Structure Example:**
-For the natrix shown in figure **44_01**:
+For the matrix shown in figure **44_01**:
 - Nonzeros from row $0$ (elements $1$ and $7$) are stored first
 
 - Followed by nonzeros from row $1$ (elements $5$, $3$, and $9$)
@@ -128,16 +128,15 @@ For our example matrix, row $1$ has the most nonzeros (three), so all other rows
 
 Also the kernel code would look like:
 
-```cpp
-__global__ void spmv_ell_kernel (ELLMatrix ellmatrix, float* x, float* y){
-    unsigned int row = blockIdx.x*blockDim.x + threadIdx.x;
+__global__ void spmv_ell_kernel(ELLMatrix ellMatrix, float* x, float* y) {
+    unsigned int row = blockIdx.x * blockDim.x + threadIdx.x;
     if (row < ellMatrix.numRows) {
         float sum = 0.0f;
-        for (unsigned int t = 0; t < ellMatrix.nnzPerRow[row]; t++){
-            unsigned int i = t*ellMatrix.numRows + row;
-            unsigned int col = ellMatrix.value[i];
+        for (unsigned int t = 0; t < ellMatrix.nnzPerRow[row]; t++) {
+            unsigned int i = t * ellMatrix.numRows + row;
+            unsigned int col = ellMatrix.colIdx[i];
             float value = ellMatrix.value[i];
-            sum += x[col]*value;
+            sum += x[col] * value;
         }
         y[row] = sum;
     }
@@ -145,7 +144,7 @@ __global__ void spmv_ell_kernel (ELLMatrix ellmatrix, float* x, float* y){
 ```
 
 As shown in the figure **44_03** and `smpv_ell_kernel` above:
-1. Each thread processes one thread of the matrix.
+1. Each thread processes one row of the matrix.
 2. For each nonZero in its row, the thread:
     - Calculates the array index using: `i = t*ellMatrix.numRows + row`
     - Retrieves columnIndex and value

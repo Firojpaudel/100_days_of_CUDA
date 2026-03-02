@@ -1,8 +1,8 @@
 ## Summary of Day 43:
 
-> *SmPV with COO format starts:
+> *SpMV with COO format starts:
 
-Okay, so first **COO** stands for **(Coordinate List)** format. So lets dive into what it is, pros cons and **SmPV/COO** implementation in the end. 
+Okay, so first **COO** stands for **(Coordinate List)** format. So lets dive into what it is, pros cons and **SpMV/COO** implementation in the end. 
 
 ### What is COO?
 
@@ -99,7 +99,7 @@ Okay, so now lets implement **SpMV with COO**.
     ***Visual representation***
     <div align = 'center'>
         <img src="./images/parallel_SpMV_COO.png" width="500px">
-        <p><b>Fig 43_01: </b><i>Example of parallelizing SpMV with the COO format.</i></p>
+        <p><b>Fig 43_02: </b><i>Example of parallelizing SpMV with the COO format.</i></p>
     </div>
 
 > ***Parallelization Strategy***

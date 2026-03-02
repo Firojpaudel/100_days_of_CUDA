@@ -41,7 +41,7 @@ The algorithm operates in two main phases:
 
 ### Visual Explanation Using Figure:
 <div align="center">
-    <img src="./images/Inclusive_Brent.png"width="500px">
+    <img src="./images/Inclusive_Brent.png" width="500px">
     <p><b>Fig 32_01: </b><i> A parallel inclusive scan algorithm based on Brent-Kung adder design</i></p>
 </div>
 
@@ -60,7 +60,7 @@ This diagram represents how the Brent-Kung algorithm processes an array of size 
 Each $+$ operation represents an addition performed by a thread.
 
 <div align="center">
-    <img src="./images/Reverse_tree.png"width="800px">
+    <img src="./images/Reverse_tree.png" width="800px">
     <p><b>Fig 32_02: </b><i> Progression of values in XY after each level of additions in the reverse tree.</i></p>
 </div>
 

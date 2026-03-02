@@ -1,6 +1,6 @@
-## Summary of Day 75:
+## Summary of Day 76:
 
-Trying out cummulative product today.
+Trying out cumulative product today.
 
 $$\text{output}[i] = \prod_{j=0}^{i} \text{input}[j]$$ 
 
@@ -22,7 +22,7 @@ $2^{nd}$ ***approach:*** Multikernel approach
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_76/multikernel.cu) to redirect to the code.
 
 > [!note]
-> - Perfromance: $5.5 \text{ GFLOPs}$
+> - Performance: $5.5 \text{ GFLOPs}$
 > - Runtime: $0.10 \text{ ms}$
 
 

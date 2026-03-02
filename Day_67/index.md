@@ -7,7 +7,7 @@ Okay so yesterday, we studied about Fourier Transform and FFT. Also, we were dis
 ***Objective***: Reconstruct a voxel-based image $\rho$ from non-Cartesian k-space data $(D)$, using a quasi-Bayesian estimation framework.
 
 >[!Note]
-> Voxel-based image are $3D$ pixels that form a grid. They are particularly used in MRI and CT scans to create detailed $3D$ visualizations of scanned area. 
+> Voxel-based images are $3D$ pixels that form a grid. They are particularly used in MRI and CT scans to create detailed $3D$ visualizations of the scanned area. 
 >
 > quasi-Bayesian estimation is a flexible approach of Bayesian estimation that uses the prior knowledge to estimate the new one.
 
@@ -38,7 +38,7 @@ where:
 
 ***Challenges***:
 
-While reconstructing an image from *k-space* data in medical imaging, such as **MRI** which rely on Fourier Transform we face major challenge of matrix sizes.
+While reconstructing an image from *k-space* data in medical imaging, such as **MRI**, which relies on Fourier Transform, we face major challenges of matrix sizes.
 
 Here's the breakdown:
 - For a modest $128 \times 128 \times 128$ voxel image, $(F)$ has $128^3$ ie $\approx 2 \text{ million columns}$, each column having $(N)$ elements. This leads to significant memory and computational challenges due to:
@@ -61,7 +61,7 @@ Here's the breakdown:
 > - $x$ is the image we want to reconstruct
 > - $b$ is the k-space data
 >
-> Since direct inversion of $A$ is infeasible due to its size, the **CG** provides an effecient way to iteratively *approximate* $x$ **without explicitly computing** $A^{-1}$.
+> Since direct inversion of $A$ is infeasible due to its size, the **CG** provides an efficient way to iteratively *approximate* $x$ **without explicitly computing** $A^{-1}$.
 
 > [!important]
 > ***The Core Idea Behind CG***
@@ -170,7 +170,7 @@ Likewise in the code above:
 >       rMu[m] = rPhi[m]*rD[m] + iPhi[m]*iD[m];
 >       iMu[m] = rPhi[m]*iD[m] - iPhi[m]*rD[m];
 >       ```
->       - This computes the imtermediate complex vector $\text{Mu} = \text{Phi} \times D$ for the `m`th k-space sample.
+>       - This computes the intermediate complex vector $\text{Mu} = \text{Phi} \times D$ for the `m`-th k-space sample.
 >           - $\text{Phi} = \text{rPhi} + i \cdot \text{iPhi}$ — A complex phase term
 >           - $D = \text{rD} + i \cdot \text{iD}$ — A complex k-space sample
 >           - $\text{Mu} = \text{Phi} \times D = (\text{rPhi} + i \cdot \text{iPhi}) \times (\text{rD} + i \cdot \text{iD})$

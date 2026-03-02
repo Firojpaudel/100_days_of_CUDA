@@ -1,6 +1,6 @@
-## Summary for Day 95:
+## Summary of Day 95:
 
-So, today was al about the 2D Convolution Kernel:
+So, today was all about the 2D Convolution Kernel:
 
 1. Implementation 1: 
 

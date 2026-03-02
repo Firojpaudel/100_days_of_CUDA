@@ -120,33 +120,33 @@ And finally, putting boundary check to prevent *out_of_bounds memory access*.
 _Chapter 2: Exercises_
 
 1.  If we want to use each thread in a grid to calculate one output element of a vector addition, what would be the expression for mapping the thread/block indices to the data index (i)?
-    -  *Answer* : `i=blockIdx.xblockDim.x + threadIdx.x;` _option C_ 
+    -  *Answer* : `i = blockIdx.x * blockDim.x + threadIdx.x;` _option C_ 
     > _Just did earlier on vector addition as well_ 🤓.
 
 2. Assume that we want to use each thread to calculate two adjacent elements of a vector addition. What would be the expression for mapping the thread/block indices to the data index (i) of the first element to be processed by a thread?
-    - *Answer* : `i=blockIdx.xblockDim.x2 + threadIdx.x;` _option D_
+    - *Answer* : `i = (blockIdx.x * blockDim.x + threadIdx.x) * 2;` _option D_
 
-3. We want to use each thread to calculate two elements of a vector addition. Each thread block processes `2blockDim.x` consecutive elements that form two sections. All threads in each block will process a section first, each processing one element. They will then all move to the next section, each processing one element. Assume that variable i should be the index for the first element to be processed by a thread. What would be the expression for mapping the thread/block indices to data index of the first element?
-    - *Answer* : `i=(blockIdx.x×blockDim.x+threadIdx.x)×2`
+3. We want to use each thread to calculate two elements of a vector addition. Each thread block processes `2 * blockDim.x` consecutive elements that form two sections. All threads in each block will process a section first, each processing one element. They will then all move to the next section, each processing one element. Assume that variable i should be the index for the first element to be processed by a thread. What would be the expression for mapping the thread/block indices to data index of the first element?
+    - *Answer* : `i = (blockIdx.x * blockDim.x + threadIdx.x) * 2`
     - *Reasoning* : Each thread processes 2 elements of a vector, but instead of processing them consecutively(like in Qn.2), all threads in a block first process one section before moving to the another one. <br>
     So, this means that each block processes $2 \times \text{blockDim.x}$ elements, each thread processes **2 elements**, but in different passes. Hence, leading to the answer provided.  
 
 4.  For a vector addition, assume that the vector length is 8000, each thread calculates one output element, and the thread block size is 1024 threads. The programmer configures the kernel call to have a minimum number of thread blocks to cover all output elements.How many threads will be in the grid?
     - *Answer* : 8192 
     - *Reasoning* : $\text{numblocks} = \frac{\text{TotalVectLen}}{\text{ThreadBlockSize}}$. So, that means: 
-```math
-\text{numblocks} = \frac{8000}{1024}= 7.8 \sim 8 \text{blocks}
-```
-Hence, total number of threads would be:
-```math
-\text{numblocks} \times \text{blockDim.x} = 8 \times 1024 = 8192
-```
+    ```math
+    \text{numblocks} = \lceil \frac{8000}{1024} \rceil = 8 \text{ blocks}
+    ```
+    Hence, total number of threads would be:
+    ```math
+    \text{numblocks} \times \text{blockDim.x} = 8 \times 1024 = 8192
+    ```
 
 5. If we want to allocate an array of v integer elements in the CUDA device `global` memory, what would be an appropriate expression for the second argument of the `cudaMalloc` call?
     - *Answer* : `v * sizeof(int)`
 
 6.  If we want to allocate an array of `n` floating-point elements and have a floating-point pointer variable `A_d` to point to the allocated memory, what would be an appropriate expression for the first argument of the `cudaMalloc()` call?
-    - *Answer* : `cudaMalloc((void**)&A_d, n* sizeof(float))`. So, it would be `(void**)&A_d`
+    - *Answer* : `cudaMalloc((void**)&A_d, n * sizeof(float))`. So, it would be `(void**)&A_d`
 
 7.  If we want to copy 3000 bytes of data from host array `A_h` (`A_h` is a pointer to element 0 of the source array) to device array `A_d` (`A_d` is a pointer to element 0 of the destination array), what would be an appropriate API call for this data copy in CUDA?
     - *Answer* : A typical `cudaMemcpy` syntax would look like:
@@ -161,20 +161,21 @@ Hence, total number of threads would be:
 9. Consider the following CUDA kernel and the corresponding host function that calls it:
 
 ```cpp
- __global__ void foo_kernel(float a, float b, unsigned int N){
-    unsigned int i=blockIdx.xblockDim.x + threadIdx.x;
-    if(i , N) {
-        b[i]=2.7fa[i]- 4.3f;
+__global__ void foo_kernel(float* a, float* b, unsigned int N) {
+    unsigned int i = blockIdx.x * blockDim.x + threadIdx.x;
+    if (i < N) {
+        b[i] = 2.7f * a[i] - 4.3f;
     }
 }
 
-void foo(float a_d, float b_d) {
-    unsigned int N=200000;
-    foo_kernel <<<(N + 128-1)/128, 128>>>(a_d, b_d, N);
- }
+void foo(float* a_d, float* b_d) {
+    unsigned int N = 200000;
+    foo_kernel<<<(N + 128 - 1) / 128, 128>>>(a_d, b_d, N);
+}
 ```
+
 a. What is the number of threads per block? — *Answer*: `128 threads per block`
-> Reasoning: 
+> Reasoning:
 ```cpp
 kernel_name<<<number_of_blocks, number_of_threads_per_block>>>(args);
 ```
@@ -183,10 +184,13 @@ b. What is the number of threads in the grid?
 ```math
 \text{numblocks} = \frac{\text{N} + 128 -1}{128} = \frac{200000 + 128 -1}{128} = 1562 \space \text{blocks}
 ```
-So, 
+
+So,
 ```math
 \text{totalthreads} = \text{numblocks} \times \text{threads per block} = 1562 \times 128 = 200000 \space \text{threads}
 ```
+
+- *Answer*: $200,000$
 
 c.  What is the number of blocks in the grid?
 _Calculated earlier_: `1562 blocks`
@@ -197,18 +201,22 @@ Answer would be the $\text{totalthreads}$ ie., $200,000$
 
 e. What is the number of threads that execute the code on line 04?
 
-```
-\text{i ranges from} = 0 \space \text{to} \space \text{N}-1
 ```math
+\text{i ranges from} = 0 \space \text{to} \space \text{N}-1
 ```
+
+```math
 \text{N} = 200000
 ```
+
 the code below checks for iterations in which i is less than N. ie., $0- (200000-1) \space \text{times}$
+
 ```cpp
 if(i , N) {
         b[i]=2.7fa[i]- 4.3f;
     }
 ```
+
 *Answer* : `200000 threads`
 
 10. A new summer intern was frustrated with CUDA. He has been complaining

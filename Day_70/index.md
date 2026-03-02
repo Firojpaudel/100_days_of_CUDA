@@ -1,6 +1,6 @@
 ## Summary of Day 70:
 
-> *Trying to compete in CUDA kerenels leaderboard.
+> *Trying to compete in the CUDA kernels leaderboard.
 
 Today's submissions:
 

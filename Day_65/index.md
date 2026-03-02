@@ -33,7 +33,7 @@ In case of LeNet-5, we use average pooling over a $2 \times 2$ neighborhood with
 ***Solution:***
 
 Our Current Layout is:
-$$[N \times C \times H \times W]```math
+$$ [N \times C \times H \times W] $$
 *which means:*
 
 The data is stored with $N$ as the outermost dimension, followed by $C$, then $H$ and $W$ as the innermost dimension. 
@@ -59,7 +59,7 @@ In code during average calculation *(during pooling)* we had:
     - This is **not fully coalesced** because adjacent threads (example: incrementing `w`) access memory locations separated by `W` leading to suboptimal memory bandwidth usage.
 
 ***Proposed Layout 1:***
-```[N \times H \times W \times C]```math
+$$ [N \times H \times W \times C] $$
 
 >[!note]
 >*which means:*
@@ -83,7 +83,7 @@ sum += X[n * (H * W * C) + in_h * (W * C) + in_w * C + m];
 > This approach uses more bandwidth because the GPU has to work harder to fetch scattered data. A single fetch ($128$ bytes = $32$ floats) can’t cover the $168$ -spot row jump or even the $6$ - spot `w` jump efficiently.
 
 ***Proposed Layout 2:***  
-```[C \times H \times W \times N]$$
+$$ [C \times H \times W \times N] $$
 
 >[!note]  
 >*Which means:*  

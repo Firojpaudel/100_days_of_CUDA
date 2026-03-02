@@ -18,7 +18,7 @@
 \text{out}[i] = \sum_{j=0}^{i-1} \text{in}[j]
 ```
 ---
-### Koggle-Stone Parallel Prefix Sum Algorithm
+### Kogge-Stone Parallel Prefix Sum Algorithm
 The **Kogge-Stone algorithm** is a parallel prefix sum algorithm optimized for fast execution with minimal dependencies. It works by:
 
 - Performing $log(n)$ steps in parallel.
@@ -32,7 +32,7 @@ The **Kogge-Stone algorithm** is a parallel prefix sum algorithm optimized for f
 > 3. After $log(n)$ steps, the scan is complete.
 
 ---
-> _[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_30/koggle_stone.cu) to look at the koggle stone algorithm implementation._
+> _[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_30/koggle_stone.cu) to look at the kogge stone algorithm implementation._
 
-### The Detailed Explanation of Koggle-Stone Algo: 
+### The Detailed Explanation of Kogge-Stone Algo: 
 

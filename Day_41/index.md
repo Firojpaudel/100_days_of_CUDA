@@ -4,9 +4,9 @@
 
 Okay, so yesterday we discussed how **radix sort** works and how it can be parallelized using a $1$-bit radix. Each iteration of the algorithm focused on sorting the "keys" based on single bit, which required $N$ iterations for $N$-bit keys.
 
-While this approach is straight forward, it can be ineffecient due to the large number of iterations required. 
+While this approach is straight forward, it can be inefficient due to the large number of iterations required. 
 
-So, today we'll explore how the **choice of radix** implements the effeciency of radix sort and how using a **multi-bit radix** can reduce the number of iterations and improve performance. 
+So, today we'll explore how the **choice of radix** implements the efficiency of radix sort and how using a **multi-bit radix** can reduce the number of iterations and improve performance. 
 
 #### Why choose multi-bit radix?
 
@@ -104,7 +104,7 @@ The above figure ***(41_02)*** shows how memory coalescing is optimized for a mu
 > | Radix Value | Advantages | Disadvantages |
 > |-------------|-------------|---------------|
 > | **Small** *(eg. 1)* | Simple implementation | More iterations; *more space-time complexity* | 
-> | **Large** *(> 1)* | Fewer iterations; reduced overhead | More buckets; smaller bucker sizes; reduced coalescing |
+> | **Large** *(> 1)* | Fewer iterations; reduced overhead | More buckets; smaller bucket sizes; reduced coalescing |
 > | **Very Large** | Minimal iterations; minimal kernel launches | High global exclusive scan overhead |
 
 #### Thread Coarsening to Improve Coalescing
@@ -134,7 +134,7 @@ So, the solution?
 > - This **reduces the number of active threads** but increases the workload per thread.
 > - Think of it as having fewer librarians but giving each librarian more books to sort.
 
-#### Benifits of Thread Coarsening
+#### Benefits of Thread Coarsening
 1. **Larger Local Buckets:**
     - Each thread processes more keys, leading to larger local buckets within the shared memory.
 

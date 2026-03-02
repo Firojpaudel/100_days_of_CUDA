@@ -2,7 +2,7 @@
 
 1. Optimized yesterday's Frobenius Norm kernel to run on more GFLOPs. 
 
-> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_82/frob_opt.cu) to redirect to the optimised code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_82/frob_opt.cu) to redirect to the optimized code.
 
 > [!note]
 > - Performance: $341.09 \text{ GFLOPs}$

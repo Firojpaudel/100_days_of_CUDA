@@ -4,11 +4,11 @@
 
 #### Intro to Parallel Merge Kernel
 
-Well, even mentioned yesterday about it. It is a GPU based implementation designed to effeciently merge two sorted arrays ($A$ and $B$) into a single sorted array ($C$) *using multiple threads*.
+Well, even mentioned yesterday about it. It is a GPU based implementation designed to efficiently merge two sorted arrays ($A$ and $B$) into a single sorted array ($C$) *using multiple threads*.
 
 > #### ***So, the purpose??*** 
-> - Utlize GPU threads to perform merge operation in parallel
-> - Dividing works among threads effeciently
+> - Utilize GPU threads to perform merge operation in parallel
+> - Dividing works among threads efficiently
 > - Using co-rank *(will discuss later on)* function to identify input subarrays ($A$ and $B$) for each thread based on its assigned output range in $C$.
 
 #### How Parallel Merge Works:
@@ -51,7 +51,7 @@ Well, even mentioned yesterday about it. It is a GPU based implementation design
     - Subarray ${A[}$ `i_curr:i_next` ${]}$.
     - Subarray ${B[}$ `j_curr:j_next` ${]}$.
 
-#### Well we did talk about Co-Rank earlier but what actually is it??
+#### Well we did talk about Co-Rank earlier but why it matters??
 
 <details>
     <summary><b>Co-ranks Defined:</b></summary>

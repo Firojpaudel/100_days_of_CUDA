@@ -96,7 +96,7 @@ __global__ void cmpFhD(float *rPhi, iPhi, phiMag, kx, ky, kz, x, y, z, rMu, iMu,
 }
 ```
 
-This kernel is wayy better than any previous kernels we discussed ***but***:
+This kernel is way better than any previous kernels we discussed ***but***:
 - This uses global memory (ie. slow DRAM) too much — 14 accesses per iteration.
 
 So we need to reduce the memory traffic.
@@ -114,48 +114,49 @@ So we need to reduce the memory traffic.
 >
 > ```cpp
 >   // Host code using chunking (Example)
->   __constant__ float kx_c[CHUNK SIZE], ky_c[CHUNK SIZE], kz_c[CHUNK SIZE];
+>   __constant__ float kx_c[CHUNK_SIZE], ky_c[CHUNK_SIZE], kz_c[CHUNK_SIZE];
 >
 >   ...
 >   
 >   void main()
 >   {
->       for (int i = 0; 1 < M / CHUNK_SIZE; i++){
->       cudaMemcpyToSymbol(kx_c, &kx[i * CHUNK_SIZE], 4 * CHUNK_SIZE, cudaMemCpyHostToDevice);
->       cudaMemcpyToSymbol(ky_c, &ky[i * CHUNK_SIZE], 4 * CHUNK_SIZE, cudaMemCpyHostToDevice);
->       cudaMemcpyToSymbol(kz_c, &kz[i * CHUNK_SIZE], 4 * CHUNK_SIZE, cudaMemCpyHostToDevice);
+>       for (int i = 0; i < M / CHUNK_SIZE; i++) {
+>           cudaMemcpyToSymbol(kx_c, &kx[i * CHUNK_SIZE], CHUNK_SIZE * sizeof(float), cudaMemcpyHostToDevice);
+>           cudaMemcpyToSymbol(ky_c, &ky[i * CHUNK_SIZE], CHUNK_SIZE * sizeof(float), cudaMemcpyHostToDevice);
+>           cudaMemcpyToSymbol(kz_c, &kz[i * CHUNK_SIZE], CHUNK_SIZE * sizeof(float), cudaMemcpyHostToDevice);
 >   
->       ...
+>           ...
 >   
->           cmpFhD<<<FHD THREADS PER BLOCK, N / FHD THREADS PER BLOCK>>>(rPhi, iPhi, phiMag, x, y, z, rMu, iMu, CHUNK_SIZE);
+>           cmpFhD<<<(N + FHD_THREADS_PER_BLOCK - 1) / FHD_THREADS_PER_BLOCK, FHD_THREADS_PER_BLOCK>>>(rPhi, iPhi, phiMag, x, y, z, rMu, iMu, CHUNK_SIZE);
 >       }
->       /* Need to call kernel one more time if M is not perfect multiple of CHUNK SIZE */
+>       /* Need to call kernel one more time if M is not a perfect multiple of CHUNK_SIZE */
 >   }
 >
 >
-> ``` cpp
-> #define FHD_THREADS_PER_BLOCK 1024
-> __global__ void cmpFhD(float *rPhi, iPhi, phiMag, x, y, z, rMu, iMu, int M)
-> {
->     int n = blockIdx.x * FHD_THREADS_PER_BLOCK + threadIdx.x;
->      /*Note: All the variables with _r are the ones assigned to register 😁*/
->     float xn_r = x[n];
->     float yn_r = y[n];
->     float zn_r = z[n];
->     float rFhDn_r = rFhD[n];
->     float iFhDn_r = iFhD[n];
->     for (int m = 0; m < M; m++)
->     {
->         float expFhD = 2 * PI * (kx_c[m] * xn_r + ky_c[m] * yn_r + kz_c[m] * zn_r);
->         float cArg = cos(expFhD);
->         float sArg = sin(expFhD);
->         rFhDn_r += rMu[m] * cArg - iMu[m] * sArg;
->         iFhDn_r += iMu[m] * cArg + rMu[m] * sArg;
->     }
->     rFhD[n] = rFhD_r;
->     iFhD[n] = iFhD_r;
-> }
->```
+```cpp
+#define FHD_THREADS_PER_BLOCK 1024
+__global__ void cmpFhD(float* rPhi, float* iPhi, float* phiMag, float* x, float* y, float* z, float* rMu, float* iMu, int M)
+{
+    int n = blockIdx.x * blockDim.x + threadIdx.x;
+    /* Note: All variables with _r are assigned to registers 😁 */
+    float xn_r = x[n];
+    float yn_r = y[n];
+    float zn_r = z[n];
+    float rFhDn_r = 0.0f; // Initialize accumulators
+    float iFhDn_r = 0.0f;
+
+    for (int m = 0; m < M; m++)
+    {
+        float expFhD = 2.0f * PI * (kx_c[m] * xn_r + ky_c[m] * yn_r + kz_c[m] * zn_r);
+        float cArg = __cosf(expFhD);
+        float sArg = __sinf(expFhD);
+        rFhDn_r += rMu[m] * cArg - iMu[m] * sArg;
+        iFhDn_r += iMu[m] * cArg + rMu[m] * sArg;
+    }
+    rFhD[n] = rFhDn_r;
+    iFhD[n] = iFhDn_r;
+}
+```
 > 
 >
 > ***Fix 3:*** (Structs ✅; Pointers ❌ )

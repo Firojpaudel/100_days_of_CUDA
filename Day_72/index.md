@@ -6,13 +6,13 @@
 
 1. **Matrix Scalar Multiplication**:
 
-    $$C[i][j] = A[i][j] \cdot s```math
+    $$ C[i][j] = A[i][j] \cdot s $$
 
     Where, $s$ is scalar value. 
 
     > Taking input as a square matrix.
 
-- **Fist Approach:** Normal with Blocksize of 32: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/matrix_scalar_1.cu) to access the code.
+- **First Approach:** Normal with Blocksize of 32: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/matrix_scalar_1.cu) to access the code.
 
 > [!note]
 > - Performance: $2390.3 \text{ GFLOPs}$
@@ -29,7 +29,7 @@
 
 2. **Matrix Vector Multiplication:**
 
-```C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k]$$
+$$ C[i] = \sum_{k= 0}^{K-1} A[i][k] \cdot B[k] $$
 
 - **First Approach:** Simple: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_1.cu) to view the code.
 
@@ -44,7 +44,7 @@
 > - Performance: $254.17 \text{ GFLOPs}$
 > - Runtime: $0.27 \text{ ms}$
 > - Device: **NVIDIA H100**
->   - Wayyy Better
+>   - Way Better
 
 - **Third Approach**: Shared Memory with partial sum: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_3.cu) to view the code.
 
@@ -62,7 +62,7 @@
 > - Device: **NVIDIA H100**
 >   - 💪 Yass!! 
 
-- **Fifth Approach:** With loop unrolling and Warp-=level reduction: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_4.cu) to view the code.
+- **Fifth Approach:** With loop unrolling and Warp-level reduction: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_72/mat_vect_4.cu) to view the code.
 
 > [!note]
 > - Performance: $1.14 \text{ TFLOPs}$

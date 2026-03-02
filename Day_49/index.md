@@ -60,11 +60,11 @@ In the above **Figure 49_01**;
     - COO format requires more storage space than CSR or CSC formats used in vertex-centric parallelization.
     - Storing both row and column indices for each edge increases memory overhead.
 
-> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_49/edge_centric.cu) to view the compete code implementation for edge-centric BFS Kernel.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_49/edge_centric.cu) to view the complete code implementation for edge-centric BFS Kernel.
 
-### Improving Effeciency with Frontiers
+### Improving Efficiency with Frontiers
 
-Okay so, in edge centric parallelization, though it exposed more parallelism, it also introduced ineffeciencies due to redundant checks on irrelevent edges. So, to reduce the redundant work by focusing only on relevant vertices or edges during each BFS level, we have **Frontier-Based Optimizations**.
+Okay so, in edge centric parallelization, though it exposed more parallelism, it also introduced inefficiencies due to redundant checks on irrelevant edges. So, to reduce the redundant work by focusing only on relevant vertices or edges during each BFS level, we have **Frontier-Based Optimizations**.
 
 #### Motivation for Frontier-Based Optimizations
 In the previous vertex- and edge-centric approaches:

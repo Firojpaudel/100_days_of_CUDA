@@ -1,6 +1,6 @@
 ## Summary of Day 24:
 
->**Starting of Chapter 9 — Parallel Histogram*
+> **Starting Chapter 9: Parallel Histogram**
 
 #### **Parallel Histogram** — *What's the difference in Parallel Computation and Parallel Histogram Computation?*
 
@@ -41,7 +41,7 @@ The parallel histogram computation pattern differs from previous parallel comput
 > Histogram saved to 'histogram.csv'.
 > ``` 
 
-I also createad a python file that plots the histogram _(might as well)_.
+I also created a python file that plots the histogram _(might as well)_.
 
 [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_24/parallel_hist_plot.py) to redirect to python file. 
 > ***Output image:***

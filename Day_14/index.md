@@ -42,7 +42,7 @@ _Here,_
 
 > I've implemented a code comparing the Naive way with the Corner Turning and shared memory optimized approach: [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_14/corner_turning.cu) to view the code.
 ---
-#### Memory Coalascing conditions and _a bit of analogy explained in the book_: 
+#### Memory Coalescing conditions and _a bit of analogy explained in the book_: 
 
 > **_Revision from yesterday_**:  Mem Coalescing is a process of combining multiple memory access into single access to reduce global memory traffic.
 >

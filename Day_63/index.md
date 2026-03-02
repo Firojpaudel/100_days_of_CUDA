@@ -8,7 +8,7 @@
 - Requires input/output data to reside in GPU Memory.
 
 > [!important]
-> Convolution paramters in CUDNN:
+> Convolution parameters in CUDNN:
 > | Parameters | Meaning| 
 > |------------|--------|
 > | $N$ | Number of images in minibatch |

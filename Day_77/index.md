@@ -1,6 +1,6 @@
 ## Summary of Day 77: 
 
-1. Fixed yesterday's sliggish code for cumm_Prod.
+1. Fixed yesterday's sluggish code for cumulative product.
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_77/cum_prod_best.cu) to redirect to the code.
 
@@ -19,7 +19,7 @@
 > - Performance: $5.65 \text{ TFLOPs}$ 🔥🔥
 > - Runtime: $32.03 \text{ ms}$
 
-3. $3D$- Tensor Matrix Multiplication
+3. $3D$-Tensor Matrix Multiplication
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_77/3d_tensor_matmul.cu) to redirect to the code
 

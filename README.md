@@ -30,502 +30,502 @@ My learning resources:
     <tr>
       <td>Day 01</td>
       <td>History, applications, setup, and first Hello World CUDA program. Covers initial CUDA installation and running a basic kernel.</td>
-      <td><a href="./Day_01/">README</a></td>
+      <td><a href="./Day_01/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 02</td>
       <td>Parameter passing, device queries, vector addition on kernel, and PMPP Chapter 2 exercises. Explores kernel arguments and device properties.</td>
-      <td><a href="./Day_02/">README</a></td>
+      <td><a href="./Day_02/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 03</td>
       <td>Multidimensional grids, mapping threads to multidimensional data, and image color conversion. Practical thread mapping strategies.</td>
-      <td><a href="./Day_03/">README</a></td>
+      <td><a href="./Day_03/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 04</td>
       <td>Image blurring, matrix multiplication, and solutions to exercises. Focus on convolution and matrix operations in CUDA.</td>
-      <td><a href="./Day_04/">README</a></td>
+      <td><a href="./Day_04/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 05</td>
       <td>Modern GPU architecture, block scheduling, barrier synchronization, and use of __syncthreads().</td>
-      <td><a href="./Day_05/">README</a></td>
+      <td><a href="./Day_05/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 06</td>
       <td>Warps, SIMD hardware, GPU architecture, and introduction to control divergence.</td>
-      <td><a href="./Day_06/">README</a></td>
+      <td><a href="./Day_06/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 07</td>
       <td>Impact of divergence on performance, types of divergence, identification, and performance analysis.</td>
-      <td><a href="./Day_07/">README</a></td>
+      <td><a href="./Day_07/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 08</td>
       <td>Warp scheduling, latency tolerance, resource partitioning, and occupancy.</td>
-      <td><a href="./Day_08/">README</a></td>
+      <td><a href="./Day_08/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 09</td>
       <td>Memory access efficiency, roofline model, and matrix multiplication code optimization.</td>
-      <td><a href="./Day_09/">README</a></td>
+      <td><a href="./Day_09/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 10</td>
       <td>CUDA memory types: global, constant, local, registers, and shared memory.</td>
-      <td><a href="./Day_10/">README</a></td>
+      <td><a href="./Day_10/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 11</td>
       <td>Tiling concept and memory tradeoffs in CUDA matrix multiplication.</td>
-      <td><a href="./Day_11/">README</a></td>
+      <td><a href="./Day_11/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 12</td>
       <td>Explanation for tiled matrix multiplication, impact of memory usage on occupancy, and dynamic tiling.</td>
-      <td><a href="./Day_12/">README</a></td>
+      <td><a href="./Day_12/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 13</td>
       <td>Memory coalescing, row-major vs. column-major storage, and DRAM burst access in CUDA.</td>
-      <td><a href="./Day_13/">README</a></td>
+      <td><a href="./Day_13/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 14</td>
       <td>Corner turning in matrix multiplication, memory coalescing analogies, and latency hiding.</td>
-      <td><a href="./Day_14/">README</a></td>
+      <td><a href="./Day_14/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 15</td>
       <td>Thread coarsening and exercises from PMPP Chapter 6.</td>
-      <td><a href="./Day_15/">README</a></td>
+      <td><a href="./Day_15/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 16</td>
       <td>Start of convolutions: 1D and 2D convolution with boundary conditions.</td>
-      <td><a href="./Day_16/">README</a></td>
+      <td><a href="./Day_16/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 17</td>
       <td>Parallel 2D convolution with edge handling and normalization.</td>
-      <td><a href="./Day_17/">README</a></td>
+      <td><a href="./Day_17/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 18</td>
       <td>Convolution on 2D images: preprocessing, CUDA kernel, and post-processing.</td>
-      <td><a href="./Day_18/">README</a></td>
+      <td><a href="./Day_18/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 19</td>
       <td>Filter array properties, constant memory, caching, tiled convolution with halo cells, and thread strategies.</td>
-      <td><a href="./Day_19/">README</a></td>
+      <td><a href="./Day_19/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 20</td>
       <td>Tiled convolution using caches for halo cells and exercises from Chapter 7.</td>
-      <td><a href="./Day_20/">README</a></td>
+      <td><a href="./Day_20/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 21</td>
       <td>Stencil vs. convolution, parallel stencil algorithms, and code implementations.</td>
-      <td><a href="./Day_21/">README</a></td>
+      <td><a href="./Day_21/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 22</td>
       <td>Thread coarsening and optimization for 3D stencil computations.</td>
-      <td><a href="./Day_22/">README</a></td>
+      <td><a href="./Day_22/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 23</td>
       <td>Exercises from Chapter 8 and chapter completion.</td>
-      <td><a href="./Day_23/">README</a></td>
+      <td><a href="./Day_23/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 24</td>
       <td>Introduction to parallel histogram and code implementation.</td>
-      <td><a href="./Day_24/">README</a></td>
+      <td><a href="./Day_24/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 25</td>
       <td>Atomic operations, privatization, coarsening, and aggregation in CUDA.</td>
-      <td><a href="./Day_25/">README</a></td>
+      <td><a href="./Day_25/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 26</td>
       <td>Reduction: max and sum reduction, and exercises from Chapter 10.</td>
-      <td><a href="./Day_26/">README</a></td>
+      <td><a href="./Day_26/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 27</td>
       <td>Simple sum reduction kernel and convergent sum reduction.</td>
-      <td><a href="./Day_27/">README</a></td>
+      <td><a href="./Day_27/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 28</td>
       <td>Shared memory for reduction, hierarchical reduction, and thread coarsening.</td>
-      <td><a href="./Day_28/">README</a></td>
+      <td><a href="./Day_28/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 29</td>
       <td>Exercises from Chapter 10.</td>
-      <td><a href="./Day_29/">README</a></td>
+      <td><a href="./Day_29/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 30</td>
       <td>Parallel prefix scan and Kogge-Stone algorithm.</td>
-      <td><a href="./Day_30/">README</a></td>
+      <td><a href="./Day_30/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 31</td>
       <td>Kogge-Stone continued, complexity analysis, exclusive and inclusive scans.</td>
-      <td><a href="./Day_31/">README</a></td>
+      <td><a href="./Day_31/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 32</td>
       <td>Brent-Kung parallel inclusive scan algorithm.</td>
-      <td><a href="./Day_32/">README</a></td>
+      <td><a href="./Day_32/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 33</td>
       <td>Thread coarsening in detail and its impact on performance.</td>
-      <td><a href="./Day_33/">README</a></td>
+      <td><a href="./Day_33/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 34</td>
       <td>Coarsening complexity analysis and hierarchical scan.</td>
-      <td><a href="./Day_34/">README</a></td>
+      <td><a href="./Day_34/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 35</td>
       <td>Exercises from Chapter 11.</td>
-      <td><a href="./Day_35/">README</a></td>
+      <td><a href="./Day_35/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 36</td>
       <td>Sequential merge and introduction to parallel merge algorithms.</td>
-      <td><a href="./Day_36/">README</a></td>
+      <td><a href="./Day_36/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 37</td>
       <td>Parallel merge kernels, co-ranks, and divide and conquer strategies.</td>
-      <td><a href="./Day_37/">README</a></td>
+      <td><a href="./Day_37/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 38</td>
       <td>Tiled merge kernels and their performance benefits.</td>
-      <td><a href="./Day_38/">README</a></td>
+      <td><a href="./Day_38/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 39</td>
       <td>Exercises from Chapter 12.</td>
-      <td><a href="./Day_39/">README</a></td>
+      <td><a href="./Day_39/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 40</td>
       <td>Parallel radix sort and its CUDA implementation.</td>
-      <td><a href="./Day_40/">README</a></td>
+      <td><a href="./Day_40/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 41</td>
       <td>Choice of radix, multi-bit radix, memory coalescing, and parallel merge sort.</td>
-      <td><a href="./Day_41/">README</a></td>
+      <td><a href="./Day_41/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 42</td>
       <td>Exercises from Chapter 13.</td>
-      <td><a href="./Day_42/">README</a></td>
+      <td><a href="./Day_42/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 43</td>
       <td>SpMV with COO format and code implementation.</td>
-      <td><a href="./Day_43/">README</a></td>
+      <td><a href="./Day_43/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 44</td>
       <td>CSR and ELL formats for sparse matrices in CUDA.</td>
-      <td><a href="./Day_44/">README</a></td>
+      <td><a href="./Day_44/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 45</td>
       <td>Hybrid ELL-COO format, JDS format, and parallelization strategies.</td>
-      <td><a href="./Day_45/">README</a></td>
+      <td><a href="./Day_45/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 46</td>
       <td>Exercises from Chapter 14.</td>
-      <td><a href="./Day_46/">README</a></td>
+      <td><a href="./Day_46/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 47</td>
       <td>Normal BFS and introduction to graph traversal in CUDA.</td>
-      <td><a href="./Day_47/">README</a></td>
+      <td><a href="./Day_47/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 48</td>
       <td>Vertex-centric parallelization: pull and push methods.</td>
-      <td><a href="./Day_48/">README</a></td>
+      <td><a href="./Day_48/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 49</td>
       <td>Edge-centric parallelization and frontier-based graph processing.</td>
-      <td><a href="./Day_49/">README</a></td>
+      <td><a href="./Day_49/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 50</td>
       <td>Privatization and exercises from Chapter 15.</td>
-      <td><a href="./Day_50/">README</a></td>
+      <td><a href="./Day_50/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 51</td>
       <td>CNNs: basic ML concepts and CNN architecture.</td>
-      <td><a href="./Day_51/">README</a></td>
+      <td><a href="./Day_51/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 52</td>
       <td>Vector addition and matrix multiplication in PyCUDA.</td>
-      <td><a href="./Day_52/">README</a></td>
+      <td><a href="./Day_52/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 53</td>
       <td>CNN forward pass: CUDA implementation and performance.</td>
-      <td><a href="./Day_53/">README</a></td>
+      <td><a href="./Day_53/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 54</td>
       <td>Backpropagation in CUDA: implementation and explanation.</td>
-      <td><a href="./Day_54/">README</a></td>
+      <td><a href="./Day_54/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 55</td>
       <td>Complete backpropagation for CNN in CUDA.</td>
-      <td><a href="./Day_55/">README</a></td>
+      <td><a href="./Day_55/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 56</td>
       <td>ReLU activation function in PyCUDA: implementation and testing.</td>
-      <td><a href="./Day_56/">README</a></td>
+      <td><a href="./Day_56/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 57</td>
       <td>Matrix inversion kernel in PyCUDA and its applications.</td>
-      <td><a href="./Day_57/">README</a></td>
+      <td><a href="./Day_57/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 58</td>
       <td>Batch normalization in PyCUDA: implementation and usage.</td>
-      <td><a href="./Day_58/">README</a></td>
+      <td><a href="./Day_58/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 59</td>
       <td>Layer normalization in PyCUDA: theory and code.</td>
-      <td><a href="./Day_59/">README</a></td>
+      <td><a href="./Day_59/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 60</td>
       <td>Multi-Head Self-Attention in Triton, initial implementation and notes.</td>
-      <td><a href="./Day_60/">README</a></td>
+      <td><a href="./Day_60/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 61</td>
       <td>Fixed and explained MHA Triton implementation, detailed kernel parameter breakdown.</td>
-      <td><a href="./Day_61/">README</a></td>
+      <td><a href="./Day_61/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 62</td>
       <td>CUDA CNN inference kernel design, thread organization, grid mapping.</td>
-      <td><a href="./Day_62/">README</a></td>
+      <td><a href="./Day_62/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 63</td>
       <td>Explored cuDNN for DNN acceleration, convolution parameterization.</td>
-      <td><a href="./Day_63/">README</a></td>
+      <td><a href="./Day_63/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 64</td>
       <td>Implemented Batch Norm with cuDNN, shared initial approach.</td>
-      <td><a href="./Day_64/">README</a></td>
+      <td><a href="./Day_64/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 65</td>
       <td>Pooling forward pass (LeNet-5), memory layout discussion.</td>
-      <td><a href="./Day_65/">README</a></td>
+      <td><a href="./Day_65/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 66</td>
       <td>MRI image reconstruction, k-space, FFT, and scan strategies.</td>
-      <td><a href="./Day_66/">README</a></td>
+      <td><a href="./Day_66/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 67</td>
       <td>Iterative MRI reconstruction, quasi-Bayesian estimation, large matrix challenges.</td>
-      <td><a href="./Day_67/">README</a></td>
+      <td><a href="./Day_67/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 68</td>
       <td>Step-by-step optimization of F^H D kernel for MRI, parallelization, atomic ops.</td>
-      <td><a href="./Day_68/">README</a></td>
+      <td><a href="./Day_68/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 69</td>
       <td>Dynamic Parallelism in CUDA, device kernel launches, recursion.</td>
-      <td><a href="./Day_69/">README</a></td>
+      <td><a href="./Day_69/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 70</td>
       <td>Tensara competition: Leaky ReLU and L1 Norm kernel submissions.</td>
-      <td><a href="./Day_70/">README</a></td>
+      <td><a href="./Day_70/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 71</td>
       <td>Tanh, Softmax, and Vector Addition (loop unrolling, shared memory) kernels.</td>
-      <td><a href="./Day_71/">README</a></td>
+      <td><a href="./Day_71/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 72</td>
       <td>Matrix Scalar Multiplication and Matrix Vector Multiplication, performance notes.</td>
-      <td><a href="./Day_72/">README</a></td>
+      <td><a href="./Day_72/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 73</td>
       <td>GEMM with bias and ReLU activation: C = ReLU(A . W^T + b).</td>
-      <td><a href="./Day_73/">README</a></td>
+      <td><a href="./Day_73/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 74</td>
       <td>Prefix Sum (Inclusive Scan), Diagonal Matrix Multiplication, ELU kernel.</td>
-      <td><a href="./Day_74/">README</a></td>
+      <td><a href="./Day_74/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 75</td>
       <td>Cumulative product kernels: naive, multi-kernel, performance analysis.</td>
-      <td><a href="./Day_75/">README</a></td>
+      <td><a href="./Day_75/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 76</td>
       <td>Fixed cumulative product with thrust, 4D/3D tensor matmul, cosine similarity.</td>
-      <td><a href="./Day_76/">README</a></td>
+      <td><a href="./Day_76/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 77</td>
       <td>Hinge Loss, Hard Sigmoid, Huber Loss, SELU kernels; reached Tensara global rank 1.</td>
-      <td><a href="./Day_77/">README</a></td>
+      <td><a href="./Day_77/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 78</td>
       <td>Swish activation function: multiple kernel approaches, benchmarking.</td>
-      <td><a href="./Day_78/">README</a></td>
+      <td><a href="./Day_78/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 79</td>
       <td>RMS Normalization kernel and performance benchmarking.</td>
-      <td><a href="./Day_79/">README</a></td>
+      <td><a href="./Day_79/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 80</td>
       <td>Optimized Frobenius Norm kernel and Mat-Mul kernel for high GFLOPs.</td>
-      <td><a href="./Day_80/">README</a></td>
+      <td><a href="./Day_80/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 81</td>
       <td>Frobenius Normalization implementation.</td>
-      <td><a href="./Day_81/">README</a></td>
+      <td><a href="./Day_81/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 82</td>
       <td>Softplus kernel and Min Over Dimension kernel, performance notes.</td>
-      <td><a href="./Day_82/">README</a></td>
+      <td><a href="./Day_82/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 83</td>
       <td>1D Convolution kernel for Tensara competition.</td>
-      <td><a href="./Day_83/">README</a></td>
+      <td><a href="./Day_83/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 84</td>
       <td>KL-Divergence kernel and benchmarking on Tensara.</td>
-      <td><a href="./Day_84/">README</a></td>
+      <td><a href="./Day_84/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 85</td>
       <td>Improved vector addition and ReLU kernel for higher GFLOPs.</td>
-      <td><a href="./Day_85/">README</a></td>
+      <td><a href="./Day_85/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 86</td>
       <td>Layer Normalization kernel on 4D Tensor, performance benchmarking.</td>
-      <td><a href="./Day_86/">README</a></td>
+      <td><a href="./Day_86/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 87</td>
       <td>Improved Leaky ReLU and Lower Triangular Matrix Multiplication kernels.</td>
-      <td><a href="./Day_87/">README</a></td>
+      <td><a href="./Day_87/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 88</td>
       <td>Upper Triangular Matrix Multiplication kernel, performance notes.</td>
-      <td><a href="./Day_88/">README</a></td>
+      <td><a href="./Day_88/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 89</td>
       <td>L2 Normalization and optimized KL divergence kernels.</td>
-      <td><a href="./Day_89/">README</a></td>
+      <td><a href="./Day_89/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 90</td>
       <td>Symmetric Matrix Multiplication and GEMM with bias and ReLU kernels.</td>
-      <td><a href="./Day_90/">README</a></td>
+      <td><a href="./Day_90/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 91</td>
       <td>Triplet Margin Loss and optimized Softplus kernel.</td>
-      <td><a href="./Day_91/">README</a></td>
+      <td><a href="./Day_91/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 92</td>
       <td>GELU kernel and performance benchmarking.</td>
-      <td><a href="./Day_92/">README</a></td>
+      <td><a href="./Day_92/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 93</td>
       <td>Product Over a Dimension kernel: two implementations, performance notes.</td>
-      <td><a href="./Day_93/">README</a></td>
+      <td><a href="./Day_93/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 94</td>
       <td>2D Convolution kernel: naive, optimized, performance comparison.</td>
-      <td><a href="./Day_94/">README</a></td>
+      <td><a href="./Day_94/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 95</td>
       <td>MSE Loss kernel and performance on H100 and L40S GPUs.</td>
-      <td><a href="./Day_95/">README</a></td>
+      <td><a href="./Day_95/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 96</td>
       <td>MSE Loss kernel and performance on H100 and L40S GPUs.</td>
-      <td><a href="./Day_96/">README</a></td>
+      <td><a href="./Day_96/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 97</td>
       <td>Sigmoid Activation Function kernel and performance notes.</td>
-      <td><a href="./Day_97/">README</a></td>
+      <td><a href="./Day_97/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 98</td>
       <td>Matrix Multiplication with Swish Activation and optimized L1 Norm kernel.</td>
-      <td><a href="./Day_98/">README</a></td>
+      <td><a href="./Day_98/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 99</td>
       <td>2D Average Pooling and optimized MatMul kernel with half2 and __hfma2.</td>
-      <td><a href="./Day_99/">README</a></td>
+      <td><a href="./Day_99/index.md">index.md</a></td>
     </tr>
     <tr>
       <td>Day 100</td>
       <td>2D Max Pooling kernel and challenge completion reflection.</td>
-      <td><a href="./Day_100/">README</a></td>
+      <td><a href="./Day_100/index.md">index.md</a></td>
     </tr>
   </tbody>
 </table>

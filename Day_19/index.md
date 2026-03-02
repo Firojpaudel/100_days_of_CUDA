@@ -5,7 +5,7 @@
 #### Key Properties of filter array $F$ in Convolution:
 
 1. **Small Size:** The filter radius is typically $\le 7$, meaning $F$ is usually small.
-2. **Costant During Execution:** The filter value _does not change_ throughout kernel execution.
+2. **Constant During Execution:** The filter value _does not change_ throughout kernel execution.
 3. **Uniform Access Pattern:** All threads access $F$ elements in the same order, making it ideal for [constant memory and caching]()
 
 ---
@@ -34,7 +34,7 @@
 <p><b>Fig 19.01: </b><i>Review of CUDA memory model</i></p>
 </div>
 
-#### Comparision with other CUDA Memory Types
+#### Comparison with other CUDA Memory Types
 
 <div align="center">
 

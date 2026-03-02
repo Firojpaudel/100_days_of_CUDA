@@ -12,7 +12,7 @@
 - This chapter focuses on using different memory types to optimize data access and enhance execution speed.
 
 ---
-#### Understanding Memory Access Effeciency in CUDA
+#### Understanding Memory Access Efficiency in CUDA
 
 1. **Memory Bottlenecks in Matrix Multiplication:**
 

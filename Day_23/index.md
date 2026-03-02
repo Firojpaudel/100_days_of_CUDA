@@ -69,7 +69,7 @@ In a 3D Stencil computation, boundary cells are **typically excluded from the ou
 For a grid size of $120 \times 120 \times 120$, the boundaries occupy the outermost layer in each dimension. This leaves an interior region of $(120-2)^3= 118^3$
 
 _Calculating:_
-$$118 \times 118 \times 118 = 1643032```math
+$$118 \times 118 \times 118 = 1,643,032$$
 
 Thus, $1,643,032$ output grid points are computed during each stencil sweep.
     
@@ -77,7 +77,7 @@ Now, coming to ***1.2: Number of Thread Blocks for the Basic Kernel***
 
 The kernel uses a block size of $8\times8\times8$ threads. **Each thread computes one output point in the interior region**. To cover all 118 valid indices along each dimension:
 
-```\text{Blocks per dimension} = \lceil \frac{118}{8} \rceil= 15```math
+$$ \text{Blocks per dimension} = \lceil \frac{118}{8} \rceil= 15 $$
 
 Since the computation is in 3D, the total number of thread blocks is: $15^3 = 3,375$
 
@@ -89,17 +89,17 @@ Let $\text{OUT TILE DIM}$ denote the output tile size per block, and $\text{IN T
 
 Given the block size of $8\times8\times8$, we derive:
 
-```\text{OUT TILE DIM}= 8-2 = 6```math
+$$ \text{OUT TILE DIM}= 8-2 = 6 $$
 
 Each block computes: $6 \times 6 \times 6$ output points. 
 
 To cover $118$ points per dimension:
 
-```\text{Blocks Per Dimension} = \lceil \frac{118}{6} \rceil = 20```math
+$$ \text{Blocks Per Dimension} = \lceil \frac{118}{6} \rceil = 20 $$
 
 Therefore, 
 
-```\text{Total blocks required} = 20^3 = 8,000$$
+$$ \text{Total blocks required} = 20^3 = 8,000 $$
 
 ---
 <div align="center">

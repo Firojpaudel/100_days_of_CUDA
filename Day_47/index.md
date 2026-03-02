@@ -2,7 +2,7 @@
 
 > * Chapter 15- Graph Traversal Starts
 
-> ***Quick Revision*** on Graph and Adcancy matrix through image:
+> ***Quick Revision*** on Graph and Adjacency matrix through image:
 > <div align="center">
 >   <img src="./images/Graph_and_adm.png" width="600px">
 > </div>
@@ -11,14 +11,14 @@
 > - **Arrows**: Edges
 > 
 > The right side table is an ***adjacency matrix***.
-> - $1$ if there exists arrow betweem source vertex and destination vertex.
+> - $1$ if there exists arrow between source vertex and destination vertex.
 > - $0$ otherwise.
 
-So, in the earlier chapter; we studied about sparse matrix and if we look closely in the adjacancy matrix, its looks like one.
+So, in the earlier chapter; we studied about sparse matrix and if we look closely in the adjacency matrix, its looks like one.
 
 Adjacency matrix is mostly zeros, with just a few non-zero spots for actual edges. Storing all these zeros is massive waste of space and slows things down when we're running algos. So sparse matrix representations fix that by only storing the non zero stuffs. 
 
-If we allocated the space for all the ($9\times9 = 81$) boxes in the above adjacency table shown, that would greately slow things down compared to how sparse matrix representations store:
+If we allocated the space for all the ($9\times9 = 81$) boxes in the above adjacency table shown, that would greatly slow things down compared to how sparse matrix representations store:
 
 <div align="center">
     <img src="./images/COO.png" width= "550px">
@@ -86,7 +86,7 @@ Simple as that.
 
 >*[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_47/bfs_simple.cu) to redirect towards a simple BFS kernel implementation*. 
 >
-> It's output looks like this:
+> Its output looks like this:
 >```shell
 > 0 1 2 3 4 5 6 7 8 
 > Distance to 0: 0

@@ -2,7 +2,7 @@
 
 > *Starting new chapter- Chapter 17
 
-Okay so this chapter is all about image reconsturction and authors have taken MRI as the main reference, which is basically how we turn various wave forms into pictures.
+Okay so this chapter is all about image reconstruction and authors have taken MRI as the main reference, which is basically how we turn various waveforms into pictures.
 
 So image reconstruction using MRI takes $2$ big steps:
 1. **Collecting Data** ***(Scanning)*** 
@@ -65,7 +65,7 @@ The book presents $3$ strategies:
     - Data is sampled along non-uniform paths *(spiral trajectory)*
     - **Advantages:**
         - Reduced sensitivity to patients motion
-        - Batter correction
+        - Better correction
         - Lower hardware requirements
     - **Reconstruction:**
         - **Gridding**: The non-uniform k-space data is interpolated onto a Cartesian grid using convolution with a mask. *(It's computationally intensive)*
@@ -79,7 +79,7 @@ The book presents $3$ strategies:
 - **Reconstruction:**
     - Uses **Linear Solver**— an iterative method that directly solves the system of linear equations arising from non-Cartesian k-space data reconstruction without gridding.
     - **Equation:**  $\hat{m(r)} = \sum_j W(k_j)s(k_j) e^{i 2 \pi k_j r}$
-    - Here, $W(k)$ adjusts for non-uniform sampling density and acts as an noise reducing filter.
+    - Here, $W(k)$ adjusts for non-uniform sampling density and acts as a noise reducing filter.
 
 - **Advantages**:
     - **Statistically optimal**, 

@@ -40,7 +40,7 @@ Convolution is an array operation where each output element is a weighted sum of
 - In image processing, convolution is applied to 2D arrays _(matrices)_ where each pixel interacts with its neighbors.
 - A 2D filter of size $(2r_{x} + 1, 2r_{y} + 1)$ determines the weighted sum calculation.
 ```math
-P_{y,x} = \sum_{j= -r_{y}}^{r_y} \sum_{k= -r_x}^{r_x} f_{y+j, x+k} \times N_{y,x}
+P_{y,x} = \sum_{j= -r_{y}}^{r_y} \sum_{k= -r_x}^{r_x} f_{j+r_y, k+r_x} \times N_{y+j, x+k}
 ```
 - ***Example:***
     - A $5×5$ filter is applied to a matrix, and each output element is computed as a sum of element-wise products of the filter and a submatrix from the input.

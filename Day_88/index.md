@@ -1,6 +1,6 @@
 ## Summary of Day 88:
 
-1. Improvised the code for **Leaky RELU**:
+1. Improved the code for **Leaky ReLU**:
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_88/leaky_imp.cu) to redirect to the code.
 
@@ -9,7 +9,7 @@
 > - Runtime: $0.12 \text{ ms}$
 > - GPU: **NVIDIA H100**
 
-2. Lower Traiangular Matrix Multiplication
+2. Lower Triangular Matrix Multiplication
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_88/lower_tri.cu) to redirect to the code.
 

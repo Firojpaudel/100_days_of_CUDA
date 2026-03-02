@@ -1,4 +1,4 @@
-## Day: 100 
+## Summary of Day 100:
 
 > #The End of Challenge !! 🙌
 

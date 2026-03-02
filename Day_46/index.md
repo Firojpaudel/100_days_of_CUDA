@@ -43,7 +43,7 @@ Okay, so let's represent first into **COO** format:
     \end{array}
 ```
 
-> ***Will implemnet kernel in a while***
+> ***Will implement kernel in a while***
 
 Onto **CSR**:
 
@@ -263,7 +263,7 @@ allow an answer, indicate what information is missing.
 > [Click Here](https://nvidia.github.io/cccl/thrust/) to redirect to official documentation of thrust library!
 
 ###
-4. Implement the host code for producing the hybrid **ELL-COO** format and using it to perform **SpMV**.Launch the **ELL** kernel to execute on the device, and compute the contributions of the **COO** elements on the host.
+4. Implement the host code for producing the hybrid **ELL-COO** format and using it to perform **SpMV**. Launch the **ELL** kernel to execute on the device, and compute the contributions of the **COO** elements on the host.
 
 ***Solution***:
 

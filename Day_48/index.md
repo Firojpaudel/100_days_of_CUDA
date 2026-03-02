@@ -11,7 +11,7 @@ In a **vertex-centric** implementation:
 - Operations typically involve iterating over the neighbors of that vertex
 - Depending on the algorithm, the thread may process outgoing edges, incoming edges, or both
 
-This contrasts with *edge-centric* (which we gon'a read next) implementations where threads are assigned to individual edges.
+This contrasts with *edge-centric* (which we going to read next) implementations where threads are assigned to individual edges.
 
 #### **Parallelizing BFS**: The Level-by-Level Approach
 
@@ -78,7 +78,7 @@ In this approach ([**Figure 48_02**](#)):
 
 <div align="center">
 <img src="./images/Pull_example.png" width="500px" >
-<p><b> Fig 48_01: </b><i>Example of a vertex-centric pull (bottom-up) traversal from level 1 to level 2.
+<p><b> Fig 48_02: </b><i>Example of a vertex-centric pull (bottom-up) traversal from level 1 to level 2.
 </i></p>
 </div>
 
@@ -97,4 +97,4 @@ In the provided example traversing from level $1$ to level $2$:
 
 ---
 
-***Edge-Centric Implementation for Tomorrow ***🫡
+***Edge-Centric Implementation for Tomorrow*** 🫡

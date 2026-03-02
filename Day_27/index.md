@@ -25,7 +25,7 @@
 
 <div align="center">
 <img src="./images/SimpleSumreduction.png/" width="500px">
-<p><b>Fig 27_01: </b><i>The assignment of threads (“owners”) to the input array locations and progress of execution over time for the SimpleSumReudctionKernel code above. The time progresses from top to bottom, and each level corresponds to one iteration of the for-loop.</i></p>
+<p><b>Fig 27_01: </b><i>The assignment of threads (“owners”) to the input array locations and progress of execution over time for the SimpleSumReductionKernel code above. The time progresses from top to bottom, and each level corresponds to one iteration of the for-loop.</i></p>
 </div>
 
 > ***Analogy for future me:*** 

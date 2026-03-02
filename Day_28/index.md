@@ -20,7 +20,7 @@
 - Finally, thread $0$ writes the result from shared memory to global memory.
 
 <div align="center">
-    <img src="./images/shared_mem.png", width="500px">
+    <img src="./images/shared_mem.png" width="500px">
     <p><b>Fig 28_01: </b><i>Shared Memory to reduce access to global memory</i></p>
 </div>
 
@@ -99,7 +99,7 @@
 | Total Steps                 | More               | Fewer           |
 
 <div align="center">
-    <img src="./images/Comparison.png", width="500px">
+    <img src="./images/Comparison.png" width="500px">
     <p><b>Fig 28_02: </b><i>Comparing parallel reduction with and without thread coarsening</i></p>
 </div>
 

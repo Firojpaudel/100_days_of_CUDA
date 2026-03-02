@@ -6,11 +6,11 @@ Okay so yesterday, I focused on the $∂E/∂X$ calculation for the backpropagat
 
 Just like yesterday, we’re working with a convolutional layer where the input $X$ has shape $[C, H_\text{in}, W_\text{in}]$, the output $Y$ has shape $[M, H_\text{out}, W_\text{out}]$, and the weights $W$ have shape $[M, C, K, K]$. The output dimensions, assuming stride of 1 and no padding, are still:
 
-$$H_\text{out} = H_\text{in} - K + 1, \quad W_\text{out} = W_\text{in} - K + 1```math
+$$ H_\text{out} = H_\text{in} - K + 1, \quad W_\text{out} = W_\text{in} - K + 1 $$
 
 The forward pass equation remains the same as yesterday:
 
-```Y[m, h_\text{out}, w_\text{out}] = \sum_{c=0}^{C-1} \sum_{p=0}^{K-1} \sum_{q=0}^{K-1} W[m, c, p, q] \cdot X[c, (h_\text{out} + p), (w_\text{out} + q)]```math
+$$ Y[m, h_\text{out}, w_\text{out}] = \sum_{c=0}^{C-1} \sum_{p=0}^{K-1} \sum_{q=0}^{K-1} W[m, c, p, q] \cdot X[c, (h_\text{out} + p), (w_\text{out} + q)] $$
 
 where $m$ is the output channel, $c$ is the input channel, and $(p, q)$ are the kernel offsets, with bound checking to ensure $h_\text{out} + p < H_\text{in}$ and $w_\text{out} + q < W_\text{in}$.
 
@@ -18,13 +18,13 @@ where $m$ is the output channel, $c$ is the input channel, and $(p, q)$ are the 
 
 To compute $∂E/∂W$, we again use the chain rule, but this time we’re differentiating the loss $E$ with respect to the weights $W[m, c, p, q]$:
 
-```\frac{\partial E}{\partial W[m, c, p, q]} = \sum_{h_\text{out}} \sum_{w_\text{out}} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot \frac{\partial Y[m, h_\text{out}, w_\text{out}]}{\partial W[m, c, p, q]}```math
+$$ \frac{\partial E}{\partial W[m, c, p, q]} = \sum_{h_\text{out}} \sum_{w_\text{out}} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot \frac{\partial Y[m, h_\text{out}, w_\text{out}]}{\partial W[m, c, p, q]} $$
 
 #### Step 1: Compute $\frac{\partial Y[m, h_\text{out}, w_\text{out}]}{\partial W[m, c, p, q]}$:
 
 Let’s look at the forward pass equation. The output $Y[m, h_\text{out}, w_\text{out}]$ depends on $W[m, c, p, q]$ directly. Differentiating the forward pass equation with respect to $W[m, c, p, q]$, we get:
 
-```\frac{\partial Y[m, h_\text{out}, w_\text{out}]}{\partial W[m, c, p, q]} = X[c, (h_\text{out} + p), (w_\text{out} + q)]```math
+$$ \frac{\partial Y[m, h_\text{out}, w_\text{out}]}{\partial W[m, c, p, q]} = X[c, (h_\text{out} + p), (w_\text{out} + q)] $$
 
 This makes sense because $W[m, c, p, q]$ is multiplied by $X[c, h_\text{out} + p, w_\text{out} + q]$ in the forward pass, and the derivative of a term like $W \cdot X$ with respect to $W$ is just $X$. Note that this term is non-zero only if the indices $h_\text{out} + p < H_\text{in}$ and $w_\text{out} + q < W_\text{in}$, which is already ensured by the bound checking in the forward pass.
 
@@ -32,7 +32,7 @@ This makes sense because $W[m, c, p, q]$ is multiplied by $X[c, h_\text{out} + p
 
 Now, substitute back into the chain rule expression:
 
-```\frac{\partial E}{\partial W[m, c, p, q]} = \sum_{h_\text{out}=0}^{H_\text{out}-1} \sum_{w_\text{out}=0}^{W_\text{out}-1} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot X[c, (h_\text{out} + p), (w_\text{out} + q)]```math
+$$ \frac{\partial E}{\partial W[m, c, p, q]} = \sum_{h_\text{out}=0}^{H_\text{out}-1} \sum_{w_\text{out}=0}^{W_\text{out}-1} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot X[c, (h_\text{out} + p), (w_\text{out} + q)] $$
 
 Here, $\frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]}$ is the gradient of the loss with respect to the output $Y$, which is the $∂E/∂Y$ (or `dE_dY` in the code) that we already have from the backward pass of the next layer.
 
@@ -54,9 +54,7 @@ This is different from the $∂E/∂X$ code (Figure 16.10), where the loops over
 
 ### Final Expression:
 
-The final expression for $∂E/∂W$ is:
-
-```\frac{\partial E}{\partial W[m, c, p, q]} = \sum_{h_\text{out}=0}^{H_\text{out}-1} \sum_{w_\text{out}=0}^{W_\text{out}-1} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot X[c, h_\text{out} + p, w_\text{out} + q]$$
+$$ \frac{\partial E}{\partial W[m, c, p, q]} = \sum_{h_\text{out}=0}^{H_\text{out}-1} \sum_{w_\text{out}=0}^{W_\text{out}-1} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot X[c, h_\text{out} + p, w_\text{out} + q] $$
 
 This gradient tells us how much each weight $W[m, c, p, q]$ contributes to the loss $E$, and we’ll use it to update the weights during backpropagation.
 

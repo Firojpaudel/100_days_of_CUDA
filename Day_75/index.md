@@ -2,11 +2,11 @@
 
 I tried to rethink on yesterday's Prefix Sum *(Inclusive Scan)* approach and well used Kogge Stone algo. This approach got me $11.24$ GFLOPS plus runtime of $0.07$ ms on H100 GPU.
 
-> **Code:** [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_75/prefix_sum_inlcusive_kogge.cu) to redirect.
+> **Code:** [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_75/prefix_sum_inclusive_kogge.cu) to redirect.
 
 Next tried Diagonal Matrix Multiplication:
 
-$$C[i][j] = A[i] \cdot B[i][j]```math
+$$ C[i][j] = A[i] \cdot B[i][j] $$
 >[!note] 
 >Input: 
 >- Diagonal $A$ of size $N$
@@ -24,11 +24,7 @@ $$C[i][j] = A[i] \cdot B[i][j]```math
 
 Finally, ELU kernel: *(Exponential Linear Unit)*
 
-```C[i][j] = 
-\begin{cases} 
-A[i][j] & \text{if } A[i][j] > 0 \\ 
-\alpha \cdot (e^{A[i][j]} - 1) & \text{if } A[i][j] \leq 0 
-\end{cases}```math
+$$ C[i][j] = \begin{cases} A[i][j] & \text{if } A[i][j] > 0 \\ \alpha \cdot (e^{A[i][j]} - 1) & \text{if } A[i][j] \leq 0 \end{cases} $$
 
 The ELU function is defined as:
 
@@ -40,7 +36,7 @@ x & \text{if } x > 0 \\
 \end{cases}
 ```
 
-Where $\alpha$ is a parameter controlling the values to which an ELU staurates for negative inputs.
+Where $\alpha$ is a parameter controlling the values to which an ELU saturates for negative inputs.
 
 > **Code:** [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_75/elu.cu) to redirect.
 

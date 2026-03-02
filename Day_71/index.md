@@ -1,6 +1,6 @@
 ## Summary of Day 71:
 
-> *Im still competing today as well. 
+> *I'm still competing today as well. 
 
 1. Tanh implementation:
 
@@ -25,13 +25,13 @@
 > Device: **NVIDIA H100**
 
 
-3. Vect Addition:
+3. Vector Addition:
 
 ***Approach 1:*** 
 
 Trying loop unrolling *(4 elements per thread)*
 
-> [Click Here](./) to redirect towards the code.
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_71/vect_add_approach_unroll.cu) to redirect towards the code.
 
 > [!Note]   
 > - Average performance: $202.72 \text{ GFLOPs}$

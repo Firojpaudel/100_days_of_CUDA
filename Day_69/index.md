@@ -4,7 +4,7 @@
 
 #### What is Dynamic Parallelism?
 
-The term **dynamic parallelism** is adctually specific to GPUs and its the property in which device kernels can call other device kernels without communicating with the host *(CPU)*.
+The term **dynamic parallelism** is actually specific to GPUs and it's the property in which device kernels can call other device kernels without communicating with the host *(CPU)*.
 
 #### Why is it required??
 
@@ -26,7 +26,7 @@ The support for dynamic parallelism allows algorithms that dynamically discover 
 
 #### Explaining via Code approach: 
 
-As I mentioned recursion earlier; first I'll write a kernel code for recursion without any dynamic paralleism and measure its runtime.
+As I mentioned recursion earlier; first I'll write a kernel code for recursion without any dynamic parallelism and measure its runtime.
 
 > [Click here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_69/recursion_no_dynamic_parallelism.cu) to redirect towards kernel with no dynamic parallelism
 

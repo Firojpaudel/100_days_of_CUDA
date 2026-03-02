@@ -1,6 +1,6 @@
 ## Summary of Day 98:
 
-Todays' kernel: **Matrix Multiplication with Swish Activation**
+Today's kernel: **Matrix Multiplication with Swish Activation**
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_98/mat_mul_swish.cu) to redirect to the code.
 
@@ -9,7 +9,7 @@ Todays' kernel: **Matrix Multiplication with Swish Activation**
 > - Runtime: $0.60 \text{ ms}$
 > - GPU: **L40S**
 
-Also optimised the kernel for **L1 Norm**:
+Also optimized the kernel for **L1 Norm**:
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_98/l1_norm_optim.cu) to redirect to the code.
 

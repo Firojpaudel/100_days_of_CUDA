@@ -29,7 +29,7 @@ __global__ void kernelFuncn(){
 - **Location**: Off-Chip (cached)
 - **Access**: Read-only by device, host can write
 - **Latency**: Low (short-latency reads when cached).
-- **Bandwidth**: High if accessed effeciently.
+- **Bandwidth**: High if accessed efficiently.
 - **Scope**: Read-only for all threads across all grids.
 - **Lifetime**: Application duration.
 - **Performance**: Fast for read-only, cached.

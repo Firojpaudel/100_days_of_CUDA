@@ -2,7 +2,7 @@
 
 > *Continuation from Hybrid **ELL-COO** format
 
-Yesterday, we studied the ineffeciencies of **ELL** format, *particularly its space ineffeciency and control divergence* when rows have widely varying numbers of nonzeros. To address these issues, today we dive into the **Hybrid ELL-COO** format, which combines the strengths of **ELL** and **COO** formats to improve space effeciency, flexibility and load balance.
+Yesterday, we studied the inefficiencies of **ELL** format, *particularly its space inefficiency and control divergence* when rows have widely varying numbers of nonzeros. To address these issues, today we dive into the **Hybrid ELL-COO** format, which combines the strengths of **ELL** and **COO** formats to improve space efficiency, flexibility and load balance.
 
 ### Hybrid ELL-COO:
 The **hybrid ELL-COO** format mitigates all above mentioned problems about **ELL** by:
@@ -72,7 +72,7 @@ Hybrid **ELL-COO** sacrifices accessibility compared to pure **ELL**:
     - This overhead can be significant if **SpMV** is performed only once on the matrix.
     - However, in iterative solvers where **SpMV** is repeated many times _(e.g., conjugate gradient methods)_, this overhead can be distributed across iterations.
 
-> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_45/ELL_COO.cu)to open the source code implementation. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_45/ELL_COO.cu) to open the source code implementation. 
 
 ### Jagged Diagonal Storage (JDS) Format:
 

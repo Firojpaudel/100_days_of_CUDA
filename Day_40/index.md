@@ -51,6 +51,6 @@ So here are the steps we follow:
 
 6. **Shared to Global Memory**— ***for faster writes***:
     - Writing from shared memory to the final output is now coalesced *(neighboring threads write to neighboring memory)*.
-    - Way more effecient than the original direct writing approach.
+    - Way more efficient than the original direct writing approach.
 
-> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_40/parallel_radix.cu) to redirect towards code implementation for parallel radix sort. 
+> [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_40/parallel_radix.cu) to redirect towards code implementation for parallel radix sort.

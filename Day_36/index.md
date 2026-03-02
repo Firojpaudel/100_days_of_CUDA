@@ -13,7 +13,7 @@
 >
 > Okay, so let's try to explain this using the figure below:
 > <div align = "center">
-> <img src="./images/normal_merge.png", width="500px">
+> <img src="./images/normal_merge.png" width="500px">
 > <p><b>Fig 36_01: </b><i>Example of merge operation.</i></p></div>
 > Well here, we can illustrate 2 different types of stability at once.
 >
@@ -23,7 +23,7 @@
 >       - The two elements `10` from array $B$ maintain their relative order in the output array $C$. This shows stability within a single input list.
 > 
 >
-> ##### **Why is matters??**
+> ##### **Why it matters?**
 > Stability is essential for scenarios where input arrays have been previously sorted based on other keys. *For example*:
 > - Array $A$ might have been sorted by name, and then by age.
 > - Array $B$ might have been sorted similarly.
@@ -52,13 +52,13 @@ The sequential merge algorithm merges two sorted arrays, $A$ and $B$, into a sin
 
 > ***Complexity Analysis:***
 >
-> **Time Complexity:** $O(m+n) \sim O(i+j)$\
+> **Time Complexity:** $O(m+n) \sim O(i+j)$
 > **Space Complexity:** $O(m+n)$
 
 > [Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_36/seq_merge.cu) to redirect towards sequential merge implementation comparing with parallel approach ***(GPU based)***.
 
 <blockquote style="border-left: 6px solid #2196F3; padding: 10px;">
-  ⓘ <strong>Note:</strong> While running the above code, the CPU execution time is way quicker than GPU for smaller arrays (Even till 10,000 elements), however when we put the input array sizes like in range of 10000000's parallesim starts kicking in.
+  ⓘ <strong>Note:</strong> Since there are three phases, it's also called as <strong>Three Phase Scan Algo</strong>. While running the above code, the CPU execution time is way quicker than GPU for smaller arrays (Even till 10,000 elements), however when we put the input array sizes like in range of 10000000's parallesim starts kicking in.
 </blockquote>
 
 > ***Sample Output for various array sizes:*** *(Array output part is excluded in larger ones to reduce too much output)*

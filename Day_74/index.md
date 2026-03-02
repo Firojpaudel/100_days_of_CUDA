@@ -1,8 +1,8 @@
 ## Summary of Day 74:
 
-> Back to Tensara Grind!
+> Back to Tensor Grind!
 
-So, today I'll try to code the kernel for cumulative sum (aka. prefix sum or scan) if a input array:
+So, today I'll try to code the kernel for cumulative sum (aka. prefix sum or scan) of an input array:
 
 $$\text{output}[i] = \sum_{j=0}^{i} \text{input}[j]$$
 

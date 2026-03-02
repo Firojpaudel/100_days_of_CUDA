@@ -57,7 +57,7 @@ In traditional tiled convolution, each block loads an input tile into shared mem
 
     _Solution:_ 
 
-    For calulating the value of y[0], `x` should be designed as folowing:
+    For calculating the value of y[0], `x` should be designed as following:
 
     <div align="center">
 

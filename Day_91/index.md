@@ -1,6 +1,6 @@
 ## Summary of Day 91:
 
-Kernel's of the day:
+Kernels of the day:
 1. Symmetric Matrix Multiplication:
 
 ***Kernel: 1***

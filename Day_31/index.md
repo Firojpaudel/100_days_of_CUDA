@@ -1,6 +1,6 @@
 ## Summary of Day 31:
 
-> **Detailed Explanation of Kogge Stone Algo Continued*
+> **Detailed Explanation of Kogge Stone Algo Continued**
 
 Okay, So today let's dive deeper into this Algo and try to understand its mechanism, why we are using this and code implementation in more detailed way.
 
@@ -120,7 +120,7 @@ Output: [0, 1, 3, 6, 10]
 
 The exclusive scan can be implemented by performing an inclusive scan and then shifting the array to the right by one position and setting the first element to zero.
 <div align="center">
-  <img src="./images/koggle_exclusive.png", width="500px">
+  <img src="./images/kogge_exclusive.png" width="500px">
   <p><b>Fig 31_02: </b><i>A parallel exclusive scan algorithm based on Kogge-Stone adder design.</i></p>
 </div>
 

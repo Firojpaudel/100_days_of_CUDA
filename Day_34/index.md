@@ -29,7 +29,7 @@ We use this approach because:
 
 > _The *'d part in point number 3 is the explanation for Hierarchial Scan which we going to read about next._ 
 
-### Hierarchial Scan:
+### Hierarchical Scan:
 Alright, let’s dive into the hierarchical scan, which is an **extension of the three-phase scan algorithm**. It’s designed to handle arbitrarily large datasets by *dividing the input into manageable sections and processing them hierarchically*. This method ensures scalability while maintaining efficiency.
 
 #### What is it 🤔??
@@ -48,7 +48,7 @@ The hierarchical scan solves these issues by:
 - Processing sections independently in parallel.
 - Using a second-level scan to combine results across sections.
 
-#### Key Steps in Hierarchial Scan:
+#### Key Steps in Hierarchical Scan:
 **Step 1: Divide Input into Sections**
 - The input array is divided into multiple sections _(scan blocks)_, each of which can fit into shared memory.
 - Each section is processed independently by a thread block.
@@ -66,8 +66,7 @@ The hierarchical scan solves these issues by:
 
 ***Example Case:***
 <div align="center">
-<img src="./images/Example of Hirerarchial.png", width="500px">
-<p><b>Fig 34_01: </b><i>Example of Hirerarchial Scan.</i></p>
+<p><b>Fig 34_01: </b><i>Example of Hierarchical Scan.</i></p>
 </div>
 
 Here, 
@@ -103,7 +102,7 @@ Leading  to the answer in Figure above.
 ---
 > **Summary diagram that explains this in nutshell**
 > <div align="center">
->   <img src="./images/hierarchial.png", width="500px">
+>   <img src="./images/hierarchial.png" width="500px">
 > <p><b>Fig 34_02: </b><i>Summary diagram </i></p>
 > </div>
 
@@ -117,4 +116,4 @@ Leading  to the answer in Figure above.
     - Local scans and second-level scans are highly parallelizable.
 
 ***Code Example:***
-> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_34/hierarchial.cu) to redirect towards the code implementation for Hierarchial Scan.*
+> *[Click Here](https://github.com/Firojpaudel/100_days_of_CUDA/blob/main/Day_34/hierarchial.cu) to redirect towards the code implementation for Hierarchical Scan.*

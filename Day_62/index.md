@@ -43,7 +43,7 @@ Well, we explored the basics of CNNs earlier. Now, let’s dive into how convolu
  
 In **Fig 62_01**:
 - Each sample has $M= 4$ output feature maps.
-- Each output fature map consists of $H_\text{grid} \times W_\text{grid} = 2 \times 2 = 4$ tiles.
+- Each output feature map consists of $H_\text{grid} \times W_\text{grid} = 2 \times 2 = 4$ tiles.
 - *Grid Dimensions:*
     - X-dim : $M= 4$
     - Y-dim : $T= H_\text{grid} \times W_\text{grid} = 4$
@@ -77,7 +77,7 @@ __global__ void ConvLayerForwardKernel(int C, int W_grid, int K,float* X, float*
 > [!Note]
 > The formulas were just derived before. In code implementation, we simply substituted the values. 
 
-Also in the loop we are calulatingthe summation value:
+Also in the loop we are calculating the summation value:
 
 $$ Y[n,h,m,w] = \sum_{c=0}^{C-1} \sum_{p=0}^{K-1} \sum_{q=0}^{K-1} X[n,c,h+p,w+q] \cdot W[m,c,p,q] $$
 
@@ -102,7 +102,7 @@ The convolutional layer in CNNs can be reformulated as a GEMM operation to lever
 > The key idea is to rearrange input feature map pixels such that all elements required to compute one output pixel are stored as a sequential column in a new matrix (`X_unrolled`). The convolution filters are represented as rows in another matrix (`W`). The convolution operation then becomes: $Y = W \cdot X_\text{unrolled}$.
 > Where:
 > - $W$: Filter Matrix *(rows represent individual filters)*
-> - $X_\text{unrolled}$: Expanded input feature matrix *(columns represent individual pathes needed for output pixels)*
+> - $X_\text{unrolled}$: Expanded input feature matrix *(columns represent individual patches needed for output pixels)*
 > - $Y$: Output feature map matrix.
 
 **Example:**

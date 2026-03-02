@@ -1,6 +1,6 @@
 ## Summary of Day 86:
 
-Improved my prev vector addition kernel and made it working with more GFLOPs
+Improved my previous vector addition kernel and made it work with more GFLOPs.
 
 > [Click Here](vect_add_improved.cu) to redirect to the code.
 

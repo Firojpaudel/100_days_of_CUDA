@@ -1,6 +1,6 @@
 ## Summary of Day 61:
 
-> _So, today I fixed my yesterday's [MHA triton implementation](../Day_60/MHA.py). Took a lot of time so not going into CUDA today. However, will explain the code mechanism in very minute detail. So that well, evry one could understand. Also, this would be a revision for me._
+> _So, today I fixed yesterday's [MHA triton implementation](../Day_60/MHA.py). Took a lot of time so not going into CUDA today. However, will explain the code mechanism in very minute detail so that everyone could understand. Also, this would be a revision for me._
 
 ### Understanding the $Q, K, V$ kernel:
 
@@ -37,7 +37,7 @@ Now explaining the inner mechanism:
 
 - Next, **memory offset calculation**: 
     - The `input_offset` is quite simple. It points to the start of the input vector for the current batch and sequence position.
-    - In `qkv_offset`, we even account the heads, hence adding the heads offeset. (as $Q, K, V$ are split accross heads)
+    - In `qkv_offset`, we even account for the heads, hence adding the heads offset. (as $Q, K, V$ are split across heads)
 
 - Now comes **projection loop**:
     - **The outer loop:** ***(d loop)***
@@ -130,7 +130,7 @@ Now explaining the inner mechanism:
 
 ***Computing Attention Scores:***
 
-$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V```math
+$$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V $$
 
 - So, next we calulate the `Q * K^T`:
     - Here we have not explicitly used any transpose operation. Instead, we are defining the offset values of $Q$ and $K$ such that there is no need to physically transpose $K$.
@@ -144,7 +144,7 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V`
 > 
 > The `k_offset` changes slightly:
 > 
-> `k_offset = atch_idx * stride_batch + k_seq * stride_seq + head_idx * stride_head`
+> `k_offset = batch_idx * stride_batch + k_seq * stride_seq + head_idx * stride_head`
 >
 > The crucial change here is that instead of using `seq_idx` *(the query sequence index)* as in `q_offset`, we're  using `k_seq` *(the loop variable)* to access the key vector at each position in the sequence. This allows us to access all of the keys for a given query sequence position.
 >
@@ -156,11 +156,11 @@ $$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d}}\right)V`
 
 Next, we have softmax calculation:
 
-```\text{Softmax}(X_i) = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}}$$
+$$ \text{Softmax}(X_i) = \frac{e^{x_i}}{\sum_{j=1}^{n} e^{x_j}} $$
 
 - First we **find the max score** for numerical stability.
     - We initialize the `max_score` to negative infinity.
-    - Then we iterate oer all sequence positions (`k_seq`),loading the score values.
+    - Then we iterate over all sequence positions (`k_seq`), loading the score values.
 - Numerical instability could be caused by large exponentiated values.
 
 - Then, the sum calculation part: 

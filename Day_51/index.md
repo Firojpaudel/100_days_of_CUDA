@@ -6,7 +6,7 @@
 >
 > **Core Equation**:  
 > Most machine learning tasks use:  
-> $$y = Wx + b```math
+> $$y = Wx + b$$
 > - $W$: Weight matrix  
 > - $x$: Input  
 > - $b$: Bias  
@@ -28,13 +28,13 @@
 > Compute class labels by evaluating $\text{sign}(Wx + b)$.  
 > 
 
-> **ⓘ Note**: This is just revision note. **Assuming readers have prior knowledge in all these topics*
+> **ⓘ Note**: This is just a revision note. **Assuming readers have prior knowledge of these topics.**
 
 ### Multilayer Classifiers:
 
 Okay, so Linear Classifiers use hyperplanes *(lines in 2D, planes in 3D)* to partition the input space into regions, each representing a class. 
 
-However, the major limitation of this is that no all datasets can be separated by a single hyperplane. For example:
+However, the major limitation is that not all datasets can be separated by a single hyperplane. For example:
 
 Let's take this image graph:
 
@@ -101,7 +101,7 @@ Now let's dive towards the real deep learning stuffs...
 
 ### CNNs (Convolutional Neural Networks):
 
-Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convolution-what-is-it) earlier. Now let's let’s bridge this to deep learning. 
+Well, we did study about convolutions in [Chapter 7](../Day_16/index.md#convolution-what-is-it) earlier. Now let's bridge this to deep learning. 
 
 ---
 #### **Core Components of CNNs**  
@@ -122,7 +122,7 @@ Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convol
 3. **Fully Connected Layers**:  
    - **Role**: Combine high-level features for classification.  
    - **Math**:  
-```Y = W \cdot X + b```math
+$$ Y = W \cdot X + b $$
      - $W$: Weight matrix, $X$: Input, $b$: Bias.  
 
 ---
@@ -143,17 +143,17 @@ Well, we did study about convolutiuons in [Chapter 7](../Day_16/README.md#convol
 1. **Supervised Learning**:  
    - **Input**: Labeled data (e.g., images tagged with digits).  
    - **Error Function**:  
-```E = \frac{(y - t)^2}{2}```math
+$$ E = \frac{(y - t)^2}{2} $$
      - $y$: Predicted output, $t$: True label.  
 
 2. **Stochastic Gradient Descent (SGD)**:  
    - **Update Rule**:  
-```w_i = w_i - \epsilon \frac{\partial E}{\partial w_i}```math
+$$ w_i = w_i - \epsilon \frac{\partial E}{\partial w_i} $$
      - $\epsilon$: Learning rate.  
 
 3. **Backpropagation**:  
    - Computes gradients via chain rule:  
-```\frac{\partial E}{\partial w_i} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial w_i}$$  
+$$ \frac{\partial E}{\partial w_i} = \frac{\partial E}{\partial y} \cdot \frac{\partial y}{\partial w_i} $$
    - Propagates errors backward to adjust weights.  
 
 ___

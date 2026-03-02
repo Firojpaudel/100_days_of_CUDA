@@ -54,7 +54,7 @@ Thread coarsening is a technique where each thread is assigned a larger chunk of
 
 ***Example Walkthrough:***
 <div align="center">
-<img src="./images/threephase.png", width="500px">
+<img src="./images/threephase.png" width="500px">
 <p><b>Fig 33_01: </b><i>Three-Phase parallel Scan</i></p>
 </div>
 
@@ -79,7 +79,7 @@ That would make the array be like:
 
 **Phase 2: Block-Wide Scan**
 In Phase 2:
-- A parallel scan is performed on the last elements of each subsection `([7 (T0), 7 (T1), 6 (T2), and 33 (T3)])`.
+- A parallel scan is performed on the last elements of each subsection `([7 (T0), 7 (T1), 6 (T2), and 11 (T3)])`.
 - This step computes cumulative sums across all subsections.
 
 Hence, the last elements of threads would be like:

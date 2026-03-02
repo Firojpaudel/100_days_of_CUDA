@@ -74,9 +74,9 @@
 2.  For tiled matrix multiplication, of the possible range of values for `BLOCK_SIZE`, for what values of `BLOCK_SIZE` will the kernel completely avoid uncoalesced accesses to global memory? _(You need to consider only square blocks.)_
 
     ***Solution:*** \
-    For ***"tiled matrix multiplication"***, global memory accesses are considered coalsced when all the threads in a warp _(typically 32 threads in modern GPUs)_ access contiguous memory locations in a single transaction.
+    For ***"tiled matrix multiplication"***, global memory accesses are considered coalesced when all the threads in a warp _(typically 32 threads in modern GPUs)_ access contiguous memory locations in a single transaction.
 
-    In CUDA gobal memory, memory is arranges in row-major order. Each warp should read/write memory in aligned, contiguous segments to avoid uncoalesced memory accesses.
+    In CUDA gobal memory, memory is arranged in row-major order. Each warp should read/write memory in aligned, contiguous segments to avoid uncoalesced memory accesses.
 
     If the `BLOCK_SIZE` (aka. `TILE_WIDTH`) is a multiple of the warp size (32), then:
     - Each thread in a warp accesses consecutive addresses when reading from global memory.

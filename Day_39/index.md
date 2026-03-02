@@ -9,7 +9,7 @@
 ***Solution:***
 
 First, let's merge the the lists $A$ and $B$:
-$$C= (1,7,7,8,9,10,10,10,12)```math
+$$ C = (1, 7, 7, 8, 9, 10, 10, 10, 12) $$
 
 Here, the $8^\text{th}$ element of $C$ is :
 
@@ -25,7 +25,7 @@ ie., the $9^\text{th}$ element. Which is $12$. While reaching that index we go t
 
 2. **Complete the calculation of co-rank functions for thread $2$ in figure below:**
 <div align="center">
-    <img src="./images/Qn_2.png", width="400px">
+    <img src="./images/Qn_2.png" width="400px">
     <p><b>Fig 39_01: </b><i>Iteration 0 of the co-rank function</i></p>
 </div>
 
@@ -36,7 +36,7 @@ At position $3$ in list $C$, we have $C[3] =8$.
 
 So same as in qn 1, A= (1, 7, 8) and from B= (7). 
 
-```\therefore \space\text{co-rank would be}\space (3,1) $$
+$$ \therefore \text{co-rank would be } (3,1) $$
 
 3. For the for-loops that load A and B tiles in code below, add a call to the co-rank function so that we can load only the $A$ and $B$ elements that will be consumed in the current generation of the while-loop.
 ```cpp
@@ -58,7 +58,7 @@ while (counter < total_iteration)
             A_S[i + threadIdx.x] = A[A curr + A_consumed + i + threadIdx.x];
         }
     }
-    for (int i = 0; i < tile size; it += blockDim.x)
+    for (int i = 0; i < tile_size; i += blockDim.x)
     {
         if (i + threadIdx.x < B_length - B_consumed)
         {
@@ -221,7 +221,7 @@ while (counter < total_iteration) {
 
     //------Part:3-----------//
             int c_curr = threadIdx.x * (tile_size / blockDim.x);
-            int c_next = (threadIdx.x + l) * (tile_size / blockDim.x);
+            int c_next = (threadIdx.x + 1) * (tile_size / blockDim.x);
             int c_curr_val = (c_curr <= C_length - C_completed) ? c_curr : C_length - C_completed;
             int c_next_val = (c_next <= C_length - C_completed) ? c_next : C_length - C_completed;
             /* find co-rank for c curr and c next */
@@ -386,7 +386,7 @@ Also, they can be classified into *comparison-based and non_comparision-based* a
 
 #### How does it work?
 <div align="center">
-    <img src="./images/Radix_Sort.png", width="500px">
+    <img src="./images/Radix_Sort.png" width="500px">
     <p><b>Fig 39_02: </b><i>Radix Sort Example</i></p>
 </div>
 

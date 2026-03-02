@@ -13,11 +13,11 @@ In a CNN, The forward pass involves convolving the input $(X)$ of shape $[C, H_\
 
 Now assuming the stride of $1$ and no padding, out output dimensions are: 
 ##### 
-$$H_\text{out} = H_\text{in}−K+1,W_\text{out}=W_\text{in}−K+1```math
+$$ H_\text{out} = H_\text{in} - K + 1, \quad W_\text{out} = W_\text{in} - K + 1 $$
 ### A bit of Mathematical derivation: 
 
 In forward pass, an output element $Y[m,h_\text{out},w_\text{out}]$ is computed as:
-```Y[m,h_\text{out},w_\text{out}] = \sum_{c=0}^{C-1}\sum_{p=0}^{K-1}\sum_{q=0}^{K-1}W[m,c,p,q] \cdot X[c, (h_\text{out}+ p), (w_\text{out} + q)]```math
+$$ Y[m, h_\text{out}, w_\text{out}] = \sum_{c=0}^{C-1} \sum_{p=0}^{K-1} \sum_{q=0}^{K-1} W[m, c, p, q] \cdot X[c, (h_\text{out} + p), (w_\text{out} + q)] $$
 
 **Where**:
 - $m$ is the output channel;
@@ -28,7 +28,7 @@ and in $X$ there's boundchecking just to ensure $h_\text{out}+ p < H_\text{in}$ 
 
 Now, to calculate the value of $∂E/∂X$, we could simply use chain rule as:
 
-```\frac{\partial E}{\partial X[c,h, w]} = \sum_m \sum_{h_\text{out}} \sum_{w_\text{out}} \frac{\partial E}{\partial Y[m,h_\text{out},w_\text{out}]} \cdot \frac{\partial Y[m,h_\text{out},w_\text{out}]}{\partial X[c,h, w]}$$ 
+$$ \frac{\partial E}{\partial X[c, h, w]} = \sum_m \sum_{h_\text{out}} \sum_{w_\text{out}} \frac{\partial E}{\partial Y[m, h_\text{out}, w_\text{out}]} \cdot \frac{\partial Y[m, h_\text{out}, w_\text{out}]}{\partial X[c, h, w]} $$
 
 So, now we need to compute the value of $\frac{\partial Y[m,h_\text{out},w_\text{out}]}{\partial X[c,h, w]}$
 
@@ -47,18 +47,14 @@ So, now we need to compute the value of $\frac{\partial Y[m,h_\text{out},w_\text
     - $h^\prime \geq 0, w^\prime \geq 0$ i.e., $h^\prime < H_\text{out}$ and $w^\prime < W_\text{out}$.
 
     - When these conditions hold; 
-```\frac{\partial Y[m, h', w']}{\partial X[c, h, w]} = W[m,c,p,q]
-=W[m, c, h - h', w - w']```math
+$$ \frac{\partial Y[m, h', w']}{\partial X[c, h, w]} = W[m, c, p, q] = W[m, c, h - h', w - w'] $$
 
 So **substituting and simplifying**:
-```\frac{\partial E}{\partial X[c, h, w]} = \sum_{m=0}^{M-1} \sum_{h' = h - K + 1}^{h} \sum_{w' = w - K + 1}^{w} \frac{\partial E}{\partial X[m, h^\prime, w^\prime]}\cdot W[m, c, h - h', w - w']```math
+$$ \frac{\partial E}{\partial X[c, h, w]} = \sum_{m=0}^{M-1} \sum_{h' = h - K + 1}^{h} \sum_{w' = w - K + 1}^{w} \frac{\partial E}{\partial Y[m, h', w']} \cdot W[m, c, h - h', w - w'] $$
 
 and $h^\prime$ ranges from $\text{max}(0, h-K+1)$ to $\text{min}(h, H_\text{out} -1)$ and $w^\prime$ ranges from $\text{max}(0, w-K+1)$ to $\text{min}(w, W_\text{out} -1)$.
 
 Hence, leading to equation:
-```\frac{\partial E}{\partial X[c, h, w]} =
-\sum_{m=0}^{M-1} \sum_{p=0}^{K-1} \sum_{q=0}^{K-1}
-\frac{\partial E}{\partial Y[m, h-p, w-q]} \cdot W[m, c, K-1-p, K-1-q].$$
+$$ \frac{\partial E}{\partial X[c, h, w]} = \sum_{m=0}^{M-1} \sum_{p=0}^{K-1} \sum_{q=0}^{K-1} \frac{\partial E}{\partial Y[m, h-p, w-q]} \cdot W[m, c, K-1-p, K-1-q] $$
 
-where $W[m, c, K-1-p, K-1-q]$ reflects the flipped kernel and we only include terms if $h-p$ and $w-q$ are within the bounds. 
-
+where $W[m, c, K-1-p, K-1-q]$ reflects the flipped kernel and we only include terms if $h-p$ and $w-q$ are within the bounds.
